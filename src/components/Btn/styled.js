@@ -8,7 +8,6 @@ export const ButtonComp = styled.div`
   align-items: center;
   gap: 10.4px;
   border-radius: 52px;
-  border: 1.04px solid #92a56e;
   border: 1.04px solid
     ${({ isClick, theme }) =>
       isClick ? theme.colors.green400 : "rgba(87, 100, 58, 0.5)"};

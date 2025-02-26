@@ -29,6 +29,8 @@ export const theme = {
   },
 
   fonts: {
+    SUITEB0: fontGenerator("1.125rem", "800", "150%"),
+
     SUITEM1: fontGenerator("1.125rem", "500", "150%"),
     SUITES1: fontGenerator("1.125rem", "600", "150%"),
     SUITEB1: fontGenerator("1.125rem", "700", "150%"),

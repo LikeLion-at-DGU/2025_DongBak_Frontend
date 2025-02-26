@@ -1,10 +1,9 @@
 import styled from "styled-components";
 export const BoothDContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
-  width: 80%;
+  width: 100%;
   min-height: 120px;
   padding: 9px 14px;
   flex-direction: row;
