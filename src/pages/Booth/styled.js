@@ -11,6 +11,7 @@ export const BoothContainer = styled.div`
   min-width: 375px;
   max-width: 100%;
   width: 100%;
+  padding-bottom: 25px;
 `;
 export const HeaderBox = styled.div`
   display: flex;
@@ -123,4 +124,75 @@ export const BoothDWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+`;
+
+//detail
+
+export const BoothDHeader = styled.div`
+  display: flex;
+  width: 341px;
+  justify-content: space-between;
+  align-items: center;
+  ${({ theme }) => theme.fonts.SUITEB0};
+  color: ${({ theme }) => theme.colors.green400};
+`;
+
+export const Indicators = styled.div`
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 17px;
+`;
+export const Dot = styled.div`
+  width: ${({ $active }) => ($active ? "25px" : "6px")};
+  height: 6px;
+  border-radius: 8px;
+  background-color: ${({ theme, $active }) =>
+    $active ? theme.colors.green300 : " rgba(182, 201, 155, 0.5)"};
+  transition: all 0.3s ease;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 27px;
+  gap: 25px;
+`;
+///
+
+export const SliderContainer = styled.div`
+  margin-top: 21px;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Slide = styled.div`
+  display: flex;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+`;
+
+export const SlideContent = styled.div`
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SlideImage = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
 `;
