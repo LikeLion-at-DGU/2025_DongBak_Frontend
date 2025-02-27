@@ -61,13 +61,13 @@ export const MAP = styled.div`
   min-width: 375px;
   width: 100%;
   max-width: 100%;
-  height: ${({ bgImage }) => (bgImage.includes("MAP1") ? "242px" : "309px")};
+  height: ${({ $bgImage }) => ($bgImage.includes("MAP1") ? "242px" : "309px")};
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: ${({ bgImage }) => `url(${bgImage})`};
-  background-size: ${({ bgImage }) =>
-    bgImage.includes("map1") ? "cover" : "contain"};
+  background-image: ${({ $bgImage }) => `url(${$bgImage})`};
+  background-size: ${({ $bgImage }) =>
+    $bgImage.includes("map1") ? "cover" : "contain"};
   background-repeat: no-repeat;
   background-position: center;
   position: relative;

@@ -6,44 +6,20 @@ import { BoothInfo } from "../../components/BoothDetailBox/BoothInfo";
 import { LikeLionInfo } from "../../components/LikeLionInfo/LikeLionInfo";
 import { RecruitInfo } from "../../components/LikeLionInfo/RecruitInfo";
 import { images } from "../../constants/BoothDetail/data";
+import { useSlider } from "../../hooks/useSlider";
 import shareIcon from "../../../public/images/shareIcon.svg";
 import backIcon from "../../../public/images/backIcon.svg";
 
 export const BoothDetailPage = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
-  const [translateX, setTranslateX] = useState(0);
-  const sliderContainerRef = useRef(null);
-  // const slideWidth = 375; // 각 슬라이드 아이템 크기(px)
-  //  const touchStartX = useRef(0);
-  //  const touchEndX = useRef(0);
+  const {
+    currentIndex,
+    translateX,
+    sliderContainerRef,
+    handleTouchStart,
+    handleTouchEnd,
+  } = useSlider(images);
 
-  useEffect(() => {
-    updateTranslateX(); // 초기 마운트 시 중앙 배치
-    window.addEventListener("resize", updateTranslateX);
-    return () => window.removeEventListener("resize", updateTranslateX);
-  }, [currentIndex]);
-
-  const updateTranslateX = () => {
-    if (sliderContainerRef.current) {
-      const containerWidth = sliderContainerRef.current.offsetWidth;
-      setTranslateX(-currentIndex * containerWidth);
-    }
-  };
-
-  const handleTouchStart = (e) => {
-    sliderContainerRef.current.startX = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    const deltaX =
-      e.changedTouches[0].clientX - sliderContainerRef.current.startX;
-    if (deltaX < -50) {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    } else if (deltaX > 50) {
-      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
-  };
   const handleBackPage = () => {
     navigate(-1);
   };
