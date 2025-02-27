@@ -47,13 +47,20 @@ export const BoothDetailPage = () => {
   const handleBackPage = () => {
     navigate(-1);
   };
+  const handleCopyLink = () => {
+    const pageUrl = window.location.href;
+    navigator.clipboard
+      .writeText(pageUrl)
+      .then(() => alert("링크가 복사되었습니다!"))
+      .catch((err) => console.error("링크 복사 실패:", err));
+  };
 
   return (
     <S.BoothContainer>
       <S.BoothDHeader>
         <img src={backIcon} onClick={handleBackPage} />
         <div>부스안내</div>
-        <img src={shareIcon} />
+        <img src={shareIcon} onClick={handleCopyLink} />
       </S.BoothDHeader>
 
       <S.SliderContainer
