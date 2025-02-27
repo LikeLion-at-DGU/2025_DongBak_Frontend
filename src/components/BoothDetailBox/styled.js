@@ -4,7 +4,7 @@ export const BoothDContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  min-height: 120px;
+  min-height: 80px;
   padding: 9px 14px;
   flex-direction: row;
   gap: 10px;
@@ -21,7 +21,7 @@ export const BoothDImg = styled.img`
 
 export const TextBox = styled.div`
   display: flex;
-  padding: 0px 87px 3px 0px;
+  width: 100%;
   align-items: flex-start;
   flex-direction: column;
 `;
@@ -29,15 +29,17 @@ export const TextBox = styled.div`
 export const MainText = styled.div`
   ${({ theme }) => theme.fonts.SUITEB1};
   color: ${({ theme }) => theme.colors.black};
+  width: 100%;
 `;
 
 export const SubText = styled.div`
   ${({ theme }) => theme.fonts.SUITEM3};
   color: ${({ theme }) => theme.colors.gray};
+  width: 100%;
 `;
 export const TextContainer = styled.div`
   display: flex;
-  padding: 0px 87px 3px 0px;
+  width: 100%;
   align-items: flex-start;
   flex-direction: column;
   gap: 10px;

@@ -1,10 +1,10 @@
 import * as S from "./styled";
 
-export const Date = ({ DateNum, Date, isclick }) => {
+export const Date = ({ DateNum, Date, isClick, onClick }) => {
   return (
-    <S.DateContainer isClick={isclick}>
-      <S.DateNum isClick={isclick}>{DateNum}</S.DateNum>
-      <S.Date isClick={isclick}>{Date}</S.Date>
+    <S.DateContainer $isClick={isClick} onClick={onClick}>
+      <S.DateNum $isClick={isClick}>{DateNum}</S.DateNum>
+      <S.Date $isClick={isClick}>{Date}</S.Date>
     </S.DateContainer>
   );
 };
