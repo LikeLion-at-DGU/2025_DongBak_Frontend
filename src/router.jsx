@@ -4,8 +4,8 @@ import App from "./App";
 import { ROUTE_PATHS } from "./constants/routeConstants";
 
 import { MainPage } from "./pages/mainpage/MainPage";
+import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { BoothPage } from "./pages/Booth/BoothPage";
-import { DeveloperPage } from "./pages/DeveloperPage/DeveloperPage";
 import { NotFound } from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <BoothPage />,
       },
       {
-        path: ROUTE_PATHS.DEVELOPER,
+        path: ROUTE_PATHS.DEVELOPERS,
         element: <DeveloperPage />,
       }, 
     ],
