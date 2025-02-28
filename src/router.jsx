@@ -23,13 +23,13 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTE_PATHS.DEVELOPERS,
-        element: <DeveloperPage />,
+        element: <DevelopersPage />,
       }, 
+      {
+        path: ROUTE_PATHS.NOT_FOUND,
+        element: <NotFound />
+      },
     ],
-  },
-  {
-    path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />
   },
 ]);
 

@@ -2,6 +2,6 @@ export const ROUTE_PATHS = {
   MAIN: "/",
   BOOTH: "/booth",
   PERFORMANCE: "/performance",
-  DEVELOPTERS: "/developers",
+  DEVELOPERS: "/developers",
   NOT_FOUND: "*", 
 };
