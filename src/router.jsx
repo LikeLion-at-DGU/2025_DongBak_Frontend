@@ -5,11 +5,13 @@ import { ROUTE_PATHS } from "./constants/routeConstants";
 
 import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
-import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
+import { SearchPage } from "./pages/SearchPage/SearchPage";
+import { NotFound } from "./pages/NotFound/NotFound";
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTE_PATHS.MAIN,
     element: <App />,
     children: [
       {
@@ -17,18 +19,22 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: ROUTE_PATHS.DEVELOPTERS,
-        element: <DevelopersPage />,
-      },
-      {
-        path: "/booth",
+        path: ROUTE_PATHS.BOOTH,
         element: <BoothPage />,
       },
+      {
+        path: ROUTE_PATHS.DEVELOPERS,
+        element: <DevelopersPage />,
+      }, 
+      {
+        path: ROUTE_PATHS.SEARCH,
+        element: <SearchPage />,
+      }, 
+      {
+        path: ROUTE_PATHS.NOT_FOUND,
+        element: <NotFound />
+      },
     ],
-  },
-  {
-    path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />
   },
 ]);
 
