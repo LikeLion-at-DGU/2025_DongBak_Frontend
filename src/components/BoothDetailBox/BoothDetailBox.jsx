@@ -1,7 +1,7 @@
 import * as S from "./styled";
-import ExBoothD from "../../../public/images/ExBoothD.svg";
-import pin from "../../../public/images/pin.svg";
-import clock from "../../../public/images/clock.svg";
+import ExBoothD from "/images/ExBoothD.svg";
+import pin from "/images/pin.svg";
+import clock from "/images/clock.svg";
 export const BoothDetailBox = () => {
   return (
     <S.BoothDContainer>

@@ -7,6 +7,7 @@ import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
+import { Performance } from "./pages/performance/Performance";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,11 +25,15 @@ const router = createBrowserRouter([
         path: "/booth",
         element: <BoothPage />,
       },
+      {
+        path: ROUTE_PATHS.PERFORMANCE,
+        element: <Performance />,
+      },
     ],
   },
   {
     path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />
+    element: <NotFound />,
   },
 ]);
 

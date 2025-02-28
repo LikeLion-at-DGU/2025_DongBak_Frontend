@@ -1,6 +1,6 @@
 import * as S from "./styled";
-import search from "../../../public/images/search-normal.svg";
-import Menubar from "../../../public/images/Menubars.svg";
+import search from "/images/search-normal.svg";
+import Menubar from "/images/Menubars.svg";
 export const Header = ({ Title, isTrue }) => {
   return (
     <S.TitleContainer>

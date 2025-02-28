@@ -90,10 +90,9 @@ body {
 	width: 100%;
 	max-width: 540px;
 	overflow-x: hidden;
-	background-color: #E4EBD8;
+	/* background-color: #E4EBD8; */
 	font-family: "SUITE", sans-serif;
 }
-
 `;
 
 export default GlobalStyle;

@@ -6,11 +6,11 @@ import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { boothPositions, manhaePositions } from "../../constants/Booth/data";
 
-import MAP1 from "../../../public/images/map1.svg";
-import MAP2 from "../../../public/images/map2.svg";
-import mappin from "../../../public/images/mappin.svg";
-import SlideBar from "../../../public/images/SlideBar.svg";
-import SlideBar2 from "../../../public/images/SlideBar2.svg";
+import MAP1 from "/images/map1.svg";
+import MAP2 from "/images/map2.svg";
+import mappin from "/images/mappin.svg";
+import SlideBar from "/images/SlideBar.svg";
+import SlideBar2 from "/images/SlideBar2.svg";
 
 export const BoothPage = () => {
   const [selectedPin, setSelectedPin] = useState(null);
