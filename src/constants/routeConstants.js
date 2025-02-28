@@ -3,5 +3,5 @@ export const ROUTE_PATHS = {
   BOOTH: "/booth",
   PERFORMANCE: "/performance",
   DEVELOPTERS: "/developers",
-  NOT_FOUND: "*",
+  NOT_FOUND: "*", 
 };
