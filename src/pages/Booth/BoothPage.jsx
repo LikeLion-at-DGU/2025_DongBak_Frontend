@@ -11,20 +11,17 @@ import MAP2 from "/images/map2.svg";
 import mappin from "/images/mappin.svg";
 import SlideBar from "/images/SlideBar.svg";
 import SlideBar2 from "/images/SlideBar2.svg";
+import {
+  FIRST_DATE,
+  FIRST_DAY,
+  SECOND_DATE,
+  SECOND_DAY,
+} from "@constants/common";
 
 export const BoothPage = () => {
   const [selectedPin, setSelectedPin] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState("팔정도");
-  const [selectedDate, setSelectedDate] = useState({
-    5: true,
-    6: false,
-  });
-  const handleDateClick = (dateNum) => {
-    setSelectedDate((prev) => ({
-      5: dateNum === "5",
-      6: dateNum === "6",
-    }));
-  };
+  const [isFirstDate, setIsFirstDate] = useState(true);
 
   useEffect(() => {
     setSelectedPin(null);
@@ -40,20 +37,20 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <Header Title={"부스안내"} isTrue={true} />
+        <Header title={"부스안내"} isTrue={true} />
         <S.HeaderWrapper>
           <S.DateWrapper>
             <Date
-              DateNum={"5"}
-              Date={"WED"}
-              isClick={selectedDate["5"]}
-              onClick={() => handleDateClick("5")}
+              date={FIRST_DATE}
+              day={FIRST_DAY}
+              isClick={isFirstDate}
+              onClick={() => !isFirstDate && setIsFirstDate(true)}
             />
             <Date
-              DateNum={"6"}
-              Date={"THR"}
-              isClick={selectedDate["6"]}
-              onClick={() => handleDateClick("6")}
+              date={SECOND_DATE}
+              day={SECOND_DAY}
+              isClick={!isFirstDate}
+              onClick={() => isFirstDate && setIsFirstDate(false)}
             />
           </S.DateWrapper>
 
