@@ -5,10 +5,15 @@ export const Wrapper = styled.div`
   max-width: 540px;
   height: 100vh; /* 화면 높이에 맞춰 변경 */
   position: relative;
+  background-color: ${({ theme }) => theme.colors.bg200};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.bg200};
-  gap: 1.375rem;
+`;
+
+export const BoothContainer = styled.div`
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

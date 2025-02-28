@@ -3,5 +3,6 @@ export const ROUTE_PATHS = {
   BOOTH: "/booth",
   PERFORMANCE: "/performance",
   DEVELOPERS: "/developers",
+  SEARCH: "/search",
   NOT_FOUND: "*", 
 };

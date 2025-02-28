@@ -6,6 +6,7 @@ import { ROUTE_PATHS } from "./constants/routeConstants";
 import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { BoothPage } from "./pages/Booth/BoothPage";
+import { SearchPage } from "./pages/SearchPage/SearchPage";
 import { NotFound } from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.DEVELOPERS,
         element: <DevelopersPage />,
+      }, 
+      {
+        path: ROUTE_PATHS.SEARCH,
+        element: <SearchPage />,
       }, 
       {
         path: ROUTE_PATHS.NOT_FOUND,

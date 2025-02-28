@@ -12,3 +12,16 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.bg200};
   gap: 1.375rem;
 `;
+
+export const Emoji = styled.img`
+  margin-bottom: 1rem;
+`;
+
+export const WarningText = styled.div`
+  ${({ theme }) => theme.fonts.SUITEB2};
+`;
+
+export const SubWarningText = styled.div`
+  ${({ theme }) => theme.fonts.SUITEM3};
+  text-align: center;
+`;

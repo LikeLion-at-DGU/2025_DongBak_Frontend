@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => theme.fonts.SUITEB2};
-  width: 90%;
+  width: calc(100% - 40px);
   border-radius: 1550px;
   background-color: ${({ theme }) => theme.colors.green200};
   position: absolute;
