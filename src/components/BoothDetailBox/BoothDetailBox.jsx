@@ -31,14 +31,13 @@ export const BoothDetailBox = ({ booth, onClick }) => {
             <S.TextInfo>
               {booth?.day?.map((d) => `(${d.name})`).join(", ") ||
                 "(요일 정보 없음)"}
-              {""}
               {booth.start_time}~{booth.end_time}
             </S.TextInfo>
           </S.TextDetail>
           <S.TextDetail>
             <img src={clock} />
             <S.TextInfo>
-              {booth.location} {""}
+              {booth.location}
               {isFood ? booth.food_truck_num : booth.booth_num}번 부스
             </S.TextInfo>
           </S.TextDetail>
