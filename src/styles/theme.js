@@ -21,10 +21,17 @@ export const theme = {
     bg200: "#F5F5ED",
 
     pink: "#FEC8C1",
+    pink200: "#F29E9E",
 
     yellow: "#F5F0D0",
     black: "#474747",
     gray: "#47474799",
+    gray200: "#929292",
+
+    blue: "#87B6D8",
+
+    orange: "#F1AE7E",
+
     white: "#FFFFFF",
   },
 
@@ -47,5 +54,8 @@ export const theme = {
     SUITEM4: fontGenerator("0.75rem", "500", "150%"),
     SUITES4: fontGenerator("0.75rem", "600", "150%"),
     SUITEB4: fontGenerator("0.75rem", "700", "150%"),
+    SUITEO4: fontGenerator("0.75rem", "800", "150%"),
+
+    SUITES5: fontGenerator("0.5rem", "600", "150%"),
   },
 };
