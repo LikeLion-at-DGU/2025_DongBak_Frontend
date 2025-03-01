@@ -5,6 +5,7 @@ import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { useBoothSelection } from "../../hooks/useBoothSelect";
 import { useBoothInfo } from "../../hooks/useBoothInfo";
+import { useFoodTruckInfo } from "../../hooks/useFoodTruckInfo";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 import MAP1 from "../../../public/images/map1.svg";
 import MAP2 from "../../../public/images/map2.svg";
@@ -12,6 +13,7 @@ import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
 import { BoothDetailInfo } from "../../constants/Booth/data";
+import { FOODDATA } from "../../constants/Booth/data";
 import { useEffect } from "react";
 
 export const BoothPage = () => {
@@ -28,13 +30,21 @@ export const BoothPage = () => {
     boothPosition,
   } = useBoothSelection();
   console.log(selectedPin);
-  // const { boothList } = useBoothInfo(selectedDate);
-  // useEffect(() => {
-  //  console.log(boothList);
+  const day = selectedDate[5] ? "wednesday" : "thursday";
+  console.log(day);
+  // const { boothList } = useBoothInfo(day);
+  // const { foodData } = useFoodTruckInfo(day);
+  //useEffect(() => {
+  //  console.log("boothList", boothList);
+  //   console.log("foodData", foodData);
   // }, [selectedDate]);
+  console.log("FOODDATA", FOODDATA[0]?.["만해광장"]);
+  const foodList = FOODDATA?.[0]?.[selectedPlace] || [];
 
   const filteredBoothList = BoothDetailInfo[0]?.[selectedPlace];
-  //  boothList && boothList[selectedPlace] ? boothList[selectedPlace] : [];
+  //   boothList && boothList[0]?.[selectedPlace]
+  //   ? boothList[0]?.[selectedPlace]
+  // : [];
 
   useEffect(() => {
     console.log("filteredBoothList", filteredBoothList);
@@ -116,13 +126,21 @@ export const BoothPage = () => {
           ))}
         </S.BtnWrapper>
         <S.BoothDWrapper>
-          {displayedBoothList?.map((booth) => (
-            <BoothDetailBox
-              key={booth.id}
-              booth={booth}
-              onClick={() => goToPage(`/booth/${booth.id}`)}
-            />
-          ))}
+          {selectedCategory === "푸드트럭"
+            ? foodList.map((food) => (
+                <BoothDetailBox
+                  key={food.id}
+                  booth={food}
+                  onClick={() => goToPage(`/food/${food.id}`)}
+                />
+              ))
+            : displayedBoothList?.map((booth) => (
+                <BoothDetailBox
+                  key={booth.id}
+                  booth={booth}
+                  onClick={() => goToPage(`/booth/${booth.id}`)}
+                />
+              ))}
         </S.BoothDWrapper>
       </S.BoothDBox>
     </S.BoothContainer>

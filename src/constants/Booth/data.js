@@ -136,6 +136,60 @@ export const BoothDetailInfo = [
         location: "만해광장",
         booth_num: 2,
       },
+      {
+        id: 3,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
+      {
+        id: 4,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
+      {
+        id: 5,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
     ],
     팔정도: [
       {
@@ -170,6 +224,51 @@ export const BoothDetailInfo = [
         end_time: "18:00",
         location: "팔정도",
         booth_num: 2,
+      },
+      {
+        id: 3,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+      {
+        id: 4,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+      {
+        id: 5,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
       },
     ],
   },
@@ -250,5 +349,72 @@ export const BoothData = [
     booth_description: "부스 소개",
     apply_method: "지원방법",
     insta_url: "인스타 url",
+  },
+];
+export const FOODDATA = [
+  {
+    만해광장: [
+      {
+        id: 1,
+        food_truck_image: [
+          {
+            id: 1,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+          {
+            id: 2,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+          {
+            id: 3,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+        ],
+        start_time: "09:26",
+        end_time: "17:26",
+        day_display: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        food_truck_name: "푸드트럭",
+        location: "만해광장",
+        food_truck_num: 51,
+        food_truck_description: "푸드트럭 소개입니다.",
+        insta_url: null,
+      },
+      {
+        id: 2,
+        food_truck_image: [
+          {
+            id: 4,
+            food_truck: 2,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+        ],
+        start_time: "09:00",
+        end_time: "18:00",
+        day_display: [
+          {
+            name: "수",
+          },
+        ],
+        food_truck_name: "푸드트럭2",
+        location: "만해광장",
+        food_truck_num: 56,
+        food_truck_description: "푸드드럭2 설명입니다.",
+        insta_url: null,
+      },
+    ],
   },
 ];

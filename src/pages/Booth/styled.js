@@ -112,19 +112,20 @@ export const BoothLine = styled.div`
 export const BoothDBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 90%;
   margin-top: 25px;
   gap: 20px;
 `;
 export const BoothDWrapper = styled.div`
   display: flex;
+  max-height: 300px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   gap: 20px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
 `;
 
 //detail

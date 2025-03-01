@@ -25,7 +25,7 @@ export const RecruitInfo = ({ booth }) => {
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
-          <a href={booth.insta_url} target="_blank" rel="noopener noreferrer">
+          <a href={booth.insta_url} target="_blank">
             <img src={instaIcon} alt="Instagram" />
           </a>
           <S.TextInfo>{booth.insta_url}</S.TextInfo>

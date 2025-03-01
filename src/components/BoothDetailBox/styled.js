@@ -4,8 +4,8 @@ export const BoothDContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  min-height: 80px;
-  padding: 9px 14px;
+  min-height: 103px;
+  padding: 10px 14px;
   flex-direction: row;
   gap: 10px;
   border-radius: 10px;
