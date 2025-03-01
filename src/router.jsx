@@ -13,7 +13,7 @@ const router = createBrowserRouter([
         element: <BoothPage />,
       },
       {
-        path: "/boothD",
+        path: "/booth/:id",
         element: <BoothDetailPage />,
       },
     ],

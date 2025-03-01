@@ -1,5 +1,5 @@
 import * as S from "./styled";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
 import { Btn } from "../../components/Btn/Btn";
@@ -21,7 +21,8 @@ export const BoothPage = () => {
     setSelectedPlace,
     boothData,
   } = useBoothSelection();
-
+  const navigate = useNavigate();
+  const selectedBooth = boothData.find((booth) => booth.id === selectedPin);
   return (
     <S.BoothContainer>
       <S.HeaderBox>
@@ -88,7 +89,10 @@ export const BoothPage = () => {
           <Btn place={"푸드트럭"} isClick={false} />
         </S.BtnWrapper>
         <S.BoothDWrapper>
-          <BoothDetailBox />
+          <BoothDetailBox
+            booth={selectedBooth}
+            onClick={() => navigate(`/booth/${selectedBooth.id}`)}
+          />
         </S.BoothDWrapper>
       </S.BoothDBox>
     </S.BoothContainer>

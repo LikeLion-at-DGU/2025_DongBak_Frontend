@@ -1,15 +1,16 @@
 import * as S from "./styled";
 import { LikeLionIntro } from "../../constants/BoothDetail/data";
+import { LionInfoText } from "../../constants/BoothDetail/data";
 import likelionLogo from "../../../public/images/likelion.svg";
 export const LikeLionInfo = () => {
   return (
     <S.InfoContainer>
-      <S.Title>멋쟁이사자처럼을 소개해요!</S.Title>
+      <S.Title>{LionInfoText[0].IntroTitle}</S.Title>
       <S.LionContainer>
         <img src={likelionLogo} />
         <S.LionInfoWrapper>
-          <S.SubInfo>학술분과</S.SubInfo>
-          <S.MainInfo>멋쟁이사자처럼</S.MainInfo>
+          <S.SubInfo>{LionInfoText[0].category}</S.SubInfo>
+          <S.MainInfo>{LionInfoText[0].club}</S.MainInfo>
         </S.LionInfoWrapper>
       </S.LionContainer>
       <S.LionInfoBox>{LikeLionIntro}</S.LionInfoBox>
