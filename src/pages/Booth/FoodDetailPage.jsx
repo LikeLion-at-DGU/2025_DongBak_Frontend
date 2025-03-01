@@ -2,9 +2,9 @@ import * as S from "./styled";
 import { useEffect } from "react";
 import { BoothInfo } from "../../components/BoothDetailBox/BoothInfo";
 import { useSlider } from "../../hooks/useSlider";
-import { FOODDATA } from "../../constants/Booth/data";
 import { COPY_SUCCESS_MESSAGE } from "../../constants/BoothDetail/data";
-import { useFoodTruckInfo } from "../../hooks/useFoodTruckInfo";
+import { useFoodDetail } from "../../hooks/Booth/useFoodDetail";
+
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 
 import shareIcon from "../../../public/images/shareIcon.svg";
@@ -19,9 +19,9 @@ export const FoodDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  //const { foodData } = useFoodTruckInfo();
-  const foodList = FOODDATA[0]?.["만해광장"];
-  const food = foodList?.find((b) => b.id === Number(id));
+  const { foodDetail } = useFoodDetail(id);
+  const foodInfo = foodDetail[0]?.["만해광장"];
+  const food = foodInfo?.find((b) => b.id === Number(id));
   console.log("food", food);
 
   const images = food?.food_truck_image?.length

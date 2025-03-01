@@ -1,7 +1,7 @@
-import { getFoodTruck } from "../apis/foodTruck";
+import { getFoodTruck } from "../../apis/foodTruck";
 import { useState, useEffect } from "react";
-
-export const useFoodTruckInfo = () => {
+//푸드트럭 List가져오기
+export const useFoodTruckInfo = (day) => {
   const [foodData, setFoodData] = useState(null);
 
   const fetchFoodInfo = async () => {

@@ -3,7 +3,6 @@ import * as S from "./styled";
 import calendar from "../../../public/images/calendar.svg";
 import instaIcon from "../../../public/images/instaIcon.svg";
 import pencil from "../../../public/images/pencil.svg";
-import { LionInfoText } from "../../constants/BoothDetail/data";
 export const RecruitInfo = ({ booth }) => {
   return (
     <S.InfoContainer>

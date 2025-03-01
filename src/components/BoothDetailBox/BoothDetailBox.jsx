@@ -2,8 +2,9 @@ import * as S from "./styled";
 import pin from "../../../public/images/pin.svg";
 import clock from "../../../public/images/clock.svg";
 import defaultImg from "../../../public/images/defaultImg.svg";
-export const BoothDetailBox = ({ booth, onClick }) => {
+export const BoothDetailBox = ({ booth, selectedDate, onClick }) => {
   const isFood = !booth.booth_name && booth.food_truck_num;
+  const selectedDay = selectedDate ? "수" : "목";
   return (
     <S.BoothDContainer onClick={onClick}>
       <S.BoothDImg
@@ -30,9 +31,12 @@ export const BoothDetailBox = ({ booth, onClick }) => {
             <img src={pin} />
             <S.TextInfo>
               {(isFood
-                ? booth?.day_display?.map((d) => `(${d.name})`)
+                ? booth?.day_display
+                    ?.filter((d) => d.name === selectedDay)
+                    .map((d) => `(${d.name})`)
                 : booth?.day?.map((d) => `(${d.name})`)
               )?.join(", ") || "(요일 정보 없음)"}
+              {""}
               {booth.start_time}~{booth.end_time}
             </S.TextInfo>
           </S.TextDetail>

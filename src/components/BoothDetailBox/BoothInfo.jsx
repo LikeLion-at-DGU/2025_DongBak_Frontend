@@ -31,6 +31,7 @@ export const BoothInfo = ({ booth }) => {
               ? booth?.day_display?.map((d) => `(${d.name})`)
               : booth?.day?.map((d) => `(${d.name})`)
             )?.join(", ") || "(요일 정보 없음)"}
+            {""}
             {booth.start_time}~{booth.end_time}
           </S.TextInfo>
         </S.TextDetail>

@@ -4,9 +4,8 @@ import { BoothInfo } from "../../components/BoothDetailBox/BoothInfo";
 import { ClubInfo } from "../../components/ClubInfo/ClubInfo";
 import { RecruitInfo } from "../../components/ClubInfo/RecruitInfo";
 import { useSlider } from "../../hooks/useSlider";
-import { BoothData } from "../../constants/Booth/data";
 import { COPY_SUCCESS_MESSAGE } from "../../constants/BoothDetail/data";
-import { useBoothDetail } from "../../hooks/useBoothDetail";
+import { useBoothDetail } from "../../hooks/Booth/useBoothDetail";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 
 import shareIcon from "../../../public/images/shareIcon.svg";
@@ -21,8 +20,9 @@ export const BoothDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  //const { boothData } = useBoothDetail();
-  const booth = BoothData?.find((b) => b.id === Number(id));
+
+  const { boothData } = useBoothDetail(id);
+  const booth = boothData?.find((b) => b.id === Number(id));
   console.log("booth", booth);
 
   const images = booth?.booth_image?.length

@@ -4,16 +4,14 @@ import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
 import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { useBoothSelection } from "../../hooks/useBoothSelect";
-import { useBoothInfo } from "../../hooks/useBoothInfo";
-import { useFoodTruckInfo } from "../../hooks/useFoodTruckInfo";
+import { useBoothInfo } from "../../hooks/Booth/useBoothInfo";
+import { useFoodTruckInfo } from "../../hooks/Booth/useFoodTruckInfo";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 import MAP1 from "../../../public/images/map1.svg";
 import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
-import { BoothDetailInfo } from "../../constants/Booth/data";
-import { FOODDATA } from "../../constants/Booth/data";
 import { useEffect } from "react";
 
 export const BoothPage = () => {
@@ -29,30 +27,37 @@ export const BoothPage = () => {
     setSelectedCategory,
     boothPosition,
   } = useBoothSelection();
-  console.log(selectedPin);
+  console.log("selectedPin", selectedPin);
   const day = selectedDate[5] ? "wednesday" : "thursday";
-  console.log(day);
-  // const { boothList } = useBoothInfo(day);
-  // const { foodData } = useFoodTruckInfo(day);
-  //useEffect(() => {
-  //  console.log("boothList", boothList);
-  //   console.log("foodData", foodData);
-  // }, [selectedDate]);
-  console.log("FOODDATA", FOODDATA[0]?.["만해광장"]);
-  const foodList = FOODDATA?.[0]?.[selectedPlace] || [];
+  console.log("day", day);
+  const { boothList } = useBoothInfo(day);
+  const { foodData } = useFoodTruckInfo(day);
+  useEffect(() => {
+    console.log("boothList", boothList);
+    console.log("foodData", foodData);
+  }, [selectedDate]);
 
-  const filteredBoothList = BoothDetailInfo[0]?.[selectedPlace];
-  //   boothList && boothList[0]?.[selectedPlace]
-  //   ? boothList[0]?.[selectedPlace]
-  // : [];
+  const foodList =
+    foodData && foodData?.[0]?.[selectedPlace]
+      ? foodData[0]?.[selectedPlace]
+      : [];
+
+  const filteredBoothList =
+    boothList && boothList[0]?.[selectedPlace]
+      ? boothList[0]?.[selectedPlace]
+      : [];
 
   useEffect(() => {
     console.log("filteredBoothList", filteredBoothList);
-  }, [filteredBoothList, selectedPlace]);
+    console.log("foodList", foodList);
+  }, [filteredBoothList, foodList, selectedPlace]);
 
   const displayedBoothList = selectedPin
     ? filteredBoothList?.filter((booth) => booth.id === selectedPin)
     : filteredBoothList;
+  const displayedFoodList = selectedPin
+    ? foodList?.filter((booth) => booth.id === selectedPin)
+    : foodList;
 
   return (
     <S.BoothContainer>
@@ -127,10 +132,11 @@ export const BoothPage = () => {
         </S.BtnWrapper>
         <S.BoothDWrapper>
           {selectedCategory === "푸드트럭"
-            ? foodList.map((food) => (
+            ? displayedFoodList.map((food) => (
                 <BoothDetailBox
                   key={food.id}
                   booth={food}
+                  selectedDate={selectedDate[5]}
                   onClick={() => goToPage(`/food/${food.id}`)}
                 />
               ))
