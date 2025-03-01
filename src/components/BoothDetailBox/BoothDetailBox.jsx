@@ -2,23 +2,25 @@ import * as S from "./styled";
 import ExBoothD from "../../../public/images/ExBoothD.svg";
 import pin from "../../../public/images/pin.svg";
 import clock from "../../../public/images/clock.svg";
-export const BoothDetailBox = () => {
+import { BoothDetailInfo } from "../../constants/Booth/data";
+export const BoothDetailBox = ({ booth, onClick }) => {
+  const boothDetail = BoothDetailInfo.find((b) => b.id === booth?.id);
   return (
-    <S.BoothDContainer>
-      <S.BoothDImg src={ExBoothD} />
+    <S.BoothDContainer onClick={onClick}>
+      <S.BoothDImg src={boothDetail?.images?.[0] || ExBoothD} />
       <S.TextContainer>
         <S.TextBox>
-          <S.MainText>멋-사 문방구</S.MainText>
-          <S.SubText>멋쟁이사자처럼</S.SubText>
+          <S.MainText>{boothDetail?.club || "정보 없음"}</S.MainText>
+          <S.SubText>{boothDetail?.BoothTitle || "부스 정보 없음"}</S.SubText>
         </S.TextBox>
         <S.TextDetailBox>
           <S.TextDetail>
             <img src={pin} />
-            <S.TextInfo>(수) 17:00 ~ 22:00</S.TextInfo>
+            <S.TextInfo>{boothDetail?.date || "날짜 정보 없음"}</S.TextInfo>
           </S.TextDetail>
           <S.TextDetail>
             <img src={clock} />
-            <S.TextInfo>팔정도 1번 부스</S.TextInfo>
+            <S.TextInfo>{boothDetail?.location || "위치 정보 없음"}</S.TextInfo>
           </S.TextDetail>
         </S.TextDetailBox>
       </S.TextContainer>

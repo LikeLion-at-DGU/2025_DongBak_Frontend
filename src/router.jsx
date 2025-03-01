@@ -7,6 +7,7 @@ import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
+import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/booth",
         element: <BoothPage />,
+      },
+      {
+        path: "/booth/:id",
+        element: <BoothDetailPage />,
       },
     ],
   },
