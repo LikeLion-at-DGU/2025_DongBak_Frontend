@@ -12,30 +12,37 @@ import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import {
+  FIRST_DATE,
+  FIRST_DAY,
+  SECOND_DATE,
+  SECOND_DAY,
+} from "@constants/common";
 
 export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
+  const [isFirstDate, setIsFirstDate] = useState(true);
+
   const {
     selectedPin,
     selectedPlace,
-    selectedDate,
     selectedCategory,
-    handleDateClick,
     handlePinClick,
     setSelectedPlace,
     setSelectedCategory,
     boothPosition,
   } = useBoothSelection();
   console.log("selectedPin", selectedPin);
-  const day = selectedDate[5] ? "wednesday" : "thursday";
+  const day = isFirstDate ? FIRST_DAY : SECOND_DAY;
+
   console.log("day", day);
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
   useEffect(() => {
     console.log("boothList", boothList);
     console.log("foodData", foodData);
-  }, [selectedDate]);
+  }, [isFirstDate]);
 
   const foodList =
     foodData && foodData?.[0]?.[selectedPlace]
@@ -62,16 +69,16 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <Header Title={"부스안내"} isTrue={true} />
+        <Header title={"부스안내"} isTrue={true} />
         <S.HeaderWrapper>
           <S.DateWrapper>
-            {["5", "6"].map((num) => (
+            {[FIRST_DATE, SECOND_DATE].map((num, index) => (
               <Date
                 key={num}
-                DateNum={num}
-                Date={num === "5" ? "WED" : "THR"}
-                isClick={selectedDate[num]}
-                onClick={() => handleDateClick(num)}
+                date={num}
+                day={index === 0 ? FIRST_DAY : SECOND_DAY}
+                isClick={index === 0 ? isFirstDate : !isFirstDate}
+                onClick={() => setIsFirstDate(index === 0)}
               />
             ))}
           </S.DateWrapper>
@@ -136,7 +143,7 @@ export const BoothPage = () => {
                 <BoothDetailBox
                   key={food.id}
                   booth={food}
-                  selectedDate={selectedDate[5]}
+                  selectedDate={isFirstDate}
                   onClick={() => goToPage(`/food/${food.id}`)}
                 />
               ))
