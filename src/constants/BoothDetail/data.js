@@ -5,11 +5,7 @@ export const images = [
 ];
 export const LikeLionIntro =
   "동국대학교 멋쟁이사자처럼은 2015년부터 시작하여, 웹 개발 교육과 협업을 중심으로 학생들이 함께 성장할 수 있 는 환경을 만들어온 중앙 동아리입니다. 또한 교내 동아리 활동 뿐만 아니라 매 년 중앙 연합 해커톤과 아이디어톤에 참여하며 전국 규모의 프로젝트를 경험할 수 있으며, 교내 축제 사이트 제작, 동아리 박람회 사이트 제작 등 다양한 행사에도 참여하며 실질적인 프로젝트 참여의 기회를 제공하고 있습니다.";
-export const COPY = [
-  {
-    COPY_SUCCESS_MESSAGE: "링크가 복사되었습니다!",
-  },
-];
+export const COPY_SUCCESS_MESSAGE = ["링크가 복사되었습니다!"];
 export const LionInfoText = [
   {
     IntroTitle: "멋쟁이사자처럼을 소개해요!",

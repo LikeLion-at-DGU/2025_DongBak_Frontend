@@ -1,10 +1,10 @@
 import * as S from "./styled";
-import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
 import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { useBoothSelection } from "../../hooks/useBoothSelect";
+import useCustomNavigate from "../../hooks/useCustomNavigate";
 import MAP1 from "../../../public/images/map1.svg";
 import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
@@ -12,16 +12,18 @@ import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
 
 export const BoothPage = () => {
+  const { goToPage } = useCustomNavigate();
   const {
     selectedPin,
     selectedPlace,
     selectedDate,
+    selectedCategory,
     handleDateClick,
     handlePinClick,
     setSelectedPlace,
+    setSelectedCategory,
     boothData,
   } = useBoothSelection();
-  const navigate = useNavigate();
   const selectedBooth = boothData.find((booth) => booth.id === selectedPin);
   return (
     <S.BoothContainer>
@@ -85,13 +87,19 @@ export const BoothPage = () => {
       {/* 부스 상세 */}
       <S.BoothDBox>
         <S.BtnWrapper style={{ justifyContent: "flex-start" }}>
-          <Btn place={"부스"} isClick={true} />
-          <Btn place={"푸드트럭"} isClick={false} />
+          {["부스", "푸드트럭"].map((category) => (
+            <Btn
+              key={category}
+              place={category}
+              isClick={selectedCategory === category}
+              onClick={() => setSelectedCategory(category)}
+            />
+          ))}
         </S.BtnWrapper>
         <S.BoothDWrapper>
           <BoothDetailBox
             booth={selectedBooth}
-            onClick={() => navigate(`/booth/${selectedBooth.id}`)}
+            onClick={() => goToPage(`/booth/${selectedBooth.id}`)}
           />
         </S.BoothDWrapper>
       </S.BoothDBox>

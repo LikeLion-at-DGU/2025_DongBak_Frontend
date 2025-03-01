@@ -5,7 +5,7 @@ export const useBoothSelection = () => {
   const [selectedPin, setSelectedPin] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState("팔정도");
   const [selectedDate, setSelectedDate] = useState({ 5: true, 6: false });
-
+  const [selectedCategory, setSelectedCategory] = useState("부스");
   useEffect(() => {
     setSelectedPin(null);
   }, [selectedPlace]);
@@ -25,9 +25,11 @@ export const useBoothSelection = () => {
     selectedPin,
     selectedPlace,
     selectedDate,
+    selectedCategory,
     handleDateClick,
     handlePinClick,
     setSelectedPlace,
+    setSelectedCategory,
     boothData,
   };
 };
