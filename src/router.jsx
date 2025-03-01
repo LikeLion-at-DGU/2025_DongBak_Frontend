@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <DevelopersPage />,
       },
       {
-        path: "/booth",
+        path: ROUTE_PATHS.BOOTH,
         element: <BoothPage />,
       },
       {
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />
+    element: <NotFound />,
   },
 ]);
 

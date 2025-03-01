@@ -1,32 +1,32 @@
 import * as S from "./styled";
-
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { BoothInfo } from "../../components/BoothDetailBox/BoothInfo";
-import { LikeLionInfo } from "../../components/LikeLionInfo/LikeLionInfo";
-import { RecruitInfo } from "../../components/LikeLionInfo/RecruitInfo";
+import { ClubInfo } from "../../components/ClubInfo/ClubInfo";
+import { RecruitInfo } from "../../components/ClubInfo/RecruitInfo";
 import { useSlider } from "../../hooks/useSlider";
-import { BoothDetailInfo } from "../../constants/Booth/data";
+import { BoothData } from "../../constants/Booth/data";
 import { COPY_SUCCESS_MESSAGE } from "../../constants/BoothDetail/data";
-import { useBoothSelection } from "../../hooks/useBoothSelect";
+import { useBoothDetail } from "../../hooks/useBoothDetail";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 
-import ExBoothD from "../../../public/images/ExBoothD.svg";
 import shareIcon from "../../../public/images/shareIcon.svg";
 import backIcon from "../../../public/images/backIcon.svg";
-
-const defaultImages = [ExBoothD];
+import defaultImg from "../../../public/images/defaultImg.svg";
+import { useParams } from "react-router-dom";
+const defaultImages = [defaultImg];
 
 export const BoothDetailPage = () => {
   const { goBack } = useCustomNavigate();
   const { id } = useParams();
-  const { boothData } = useBoothSelection();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  //const { boothData } = useBoothDetail();
+  const booth = BoothData?.find((b) => b.id === Number(id));
+  console.log("booth", booth);
 
-  const booth = boothData.find((b) => b.id === Number(id));
-  console.log(booth);
-  const boothDetail = BoothDetailInfo.find((b) => b.id === Number(id));
-  console.log("boothDetail", boothDetail);
-  const images = boothDetail?.images?.length
-    ? boothDetail.images
+  const images = booth?.booth_image?.length
+    ? booth.booth_image.map((img) => img.image)
     : defaultImages;
   const {
     currentIndex,
@@ -77,17 +77,13 @@ export const BoothDetailPage = () => {
       </S.Indicators>
 
       <S.InfoContainer>
-        {booth && boothDetail ? (
+        {booth ? (
           <>
-            <BoothInfo
-              Club={boothDetail.club}
-              BoothTitle={boothDetail.BoothTitle}
-              Description={boothDetail.description}
-            />
+            <BoothInfo booth={booth} />
             <S.BoothLine />
-            <LikeLionInfo />
+            <ClubInfo booth={booth} />
             <S.BoothLine />
-            <RecruitInfo />
+            <RecruitInfo booth={booth} />
           </>
         ) : (
           <div>해당 부스를 찾을 수 없습니다.</div>

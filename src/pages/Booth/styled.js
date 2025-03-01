@@ -124,6 +124,7 @@ export const BoothDWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 20px;
 `;
 
 //detail

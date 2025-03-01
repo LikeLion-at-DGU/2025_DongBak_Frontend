@@ -4,12 +4,15 @@ import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
 import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { useBoothSelection } from "../../hooks/useBoothSelect";
+import { useBoothInfo } from "../../hooks/useBoothInfo";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 import MAP1 from "../../../public/images/map1.svg";
 import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
+import { BoothDetailInfo } from "../../constants/Booth/data";
+import { useEffect } from "react";
 
 export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
@@ -22,9 +25,25 @@ export const BoothPage = () => {
     handlePinClick,
     setSelectedPlace,
     setSelectedCategory,
-    boothData,
+    boothPosition,
   } = useBoothSelection();
-  const selectedBooth = boothData.find((booth) => booth.id === selectedPin);
+  console.log(selectedPin);
+  // const { boothList } = useBoothInfo(selectedDate);
+  // useEffect(() => {
+  //  console.log(boothList);
+  // }, [selectedDate]);
+
+  const filteredBoothList = BoothDetailInfo[0]?.[selectedPlace];
+  //  boothList && boothList[selectedPlace] ? boothList[selectedPlace] : [];
+
+  useEffect(() => {
+    console.log("filteredBoothList", filteredBoothList);
+  }, [filteredBoothList, selectedPlace]);
+
+  const displayedBoothList = selectedPin
+    ? filteredBoothList?.filter((booth) => booth.id === selectedPin)
+    : filteredBoothList;
+
   return (
     <S.BoothContainer>
       <S.HeaderBox>
@@ -59,7 +78,7 @@ export const BoothPage = () => {
       <S.MapBox>
         <S.MAP $bgImage={selectedPlace === "팔정도" ? MAP1 : MAP2}>
           <S.GridContainer $bgImage={selectedPlace === "팔정도" ? MAP1 : MAP2}>
-            {boothData.map(
+            {boothPosition.map(
               ({ id, columnStart, columnEnd, rowStart, rowEnd }) => (
                 <S.GridArea
                   key={id}
@@ -97,10 +116,13 @@ export const BoothPage = () => {
           ))}
         </S.BtnWrapper>
         <S.BoothDWrapper>
-          <BoothDetailBox
-            booth={selectedBooth}
-            onClick={() => goToPage(`/booth/${selectedBooth.id}`)}
-          />
+          {displayedBoothList?.map((booth) => (
+            <BoothDetailBox
+              key={booth.id}
+              booth={booth}
+              onClick={() => goToPage(`/booth/${booth.id}`)}
+            />
+          ))}
         </S.BoothDWrapper>
       </S.BoothDBox>
     </S.BoothContainer>

@@ -1,27 +1,35 @@
 import * as S from "./styled";
 import pin from "../../../public/images/pin.svg";
 import clock from "../../../public/images/clock.svg";
-import { BoothDetailInfo } from "../../constants/Booth/data";
-
-export const BoothInfo = ({ Club, BoothTitle, Description }) => {
+import { ExpandableText } from "../ExpandableText/ExpandableText";
+export const BoothInfo = ({ booth }) => {
   return (
     <S.BoothDInfoContainer>
       <S.ClubInfoWrapper>
         <S.ClubInfoBox>
-          <S.ClubTitle>{Club}</S.ClubTitle>
-          <S.BoothTitle>{BoothTitle}</S.BoothTitle>
+          <S.ClubTitle>{booth.club_name}</S.ClubTitle>
+          <S.BoothTitle>{booth.booth_name}</S.BoothTitle>
         </S.ClubInfoBox>
 
-        <S.BoothInfoBox>{Description}</S.BoothInfoBox>
+        <S.BoothInfoBox>
+          <ExpandableText text={booth.booth_description} />
+        </S.BoothInfoBox>
       </S.ClubInfoWrapper>
       <S.BoothDInfoBox>
         <S.TextDetail>
           <img src={pin} />
-          <S.TextInfo>{BoothDetailInfo[0].date}</S.TextInfo>
+          <S.TextInfo>
+            {booth.day_display.map((d) => `(${d.name})`).join(", ")}
+            {""}
+            {booth.start_time}~{booth.end_time}
+          </S.TextInfo>
         </S.TextDetail>
         <S.TextDetail>
           <img src={clock} />
-          <S.TextInfo>{BoothDetailInfo[0].location}</S.TextInfo>
+          <S.TextInfo>
+            {booth.location} {""}
+            {booth.booth_num}번 부스
+          </S.TextInfo>
         </S.TextDetail>
       </S.BoothDInfoBox>
     </S.BoothDInfoContainer>

@@ -18,7 +18,7 @@ export const useBoothSelection = () => {
     setSelectedPin((prev) => (prev === id ? null : id));
   };
 
-  const boothData =
+  const boothPosition =
     selectedPlace === "팔정도" ? boothPositions : manhaePositions;
 
   return {
@@ -30,6 +30,6 @@ export const useBoothSelection = () => {
     handlePinClick,
     setSelectedPlace,
     setSelectedCategory,
-    boothData,
+    boothPosition,
   };
 };
