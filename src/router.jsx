@@ -8,6 +8,7 @@ import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
 import { Performance } from "./pages/performance/Performance";
+import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.PERFORMANCE,
         element: <Performance />,
+      },
+      {
+        path: "/booth/:id",
+        element: <BoothDetailPage />,
       },
     ],
   },

@@ -94,3 +94,30 @@ export const manhaePositions = [
   { id: 58, columnStart: 12, columnEnd: 13, rowStart: 6, rowEnd: 7 },
   { id: 59, columnStart: 12, columnEnd: 13, rowStart: 5, rowEnd: 6 },
 ];
+
+export const BoothDetailInfo = [
+  {
+    id: 1,
+    images: [
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
+    ],
+
+    club: "멋쟁이사자처럼",
+    BoothTitle: "멋-사 문방구",
+    description: "어쩌구저쩌구구",
+    date: "(수) 17:00 ~ 22:00",
+    location: "팔정도 1번 부스",
+  },
+  {
+    id: 2,
+    images: [],
+
+    club: "멋쟁이토끼처럼",
+    BoothTitle: "멋-사 문방구",
+    description: "어쩌구저쩌구구",
+    date: "(수) 17:00 ~ 22:00",
+    location: "팔정도 1번 부스",
+  },
+];
