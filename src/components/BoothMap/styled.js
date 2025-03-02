@@ -9,7 +9,7 @@ export const MapBox = styled.div`
 `;
 export const MAP = styled.div`
   width: 100vw;
-  max-width: 100%;
+  max-width: 500px;
   height: auto;
   display: flex;
   justify-content: center;
@@ -21,6 +21,11 @@ export const MAP = styled.div`
   position: relative;
   aspect-ratio: ${({ $bgImage }) =>
     $bgImage.includes("MAP1") ? "375 / 242" : "375 / 309"}; //원본비율 유지 !
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    max-width: 100%;
+  }
 `;
 
 export const GridContainer = styled.div`
