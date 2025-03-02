@@ -42,7 +42,14 @@ export const LionInfoBox = styled.div`
   border-radius: 5px;
   background-color: rgba(200, 214, 176, 0.3);
 `;
-
+export const ClubImg = styled.img`
+  display: flex;
+  width: 75px;
+  height: 75px;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+`;
 //recruit
 export const TextBox = styled.div`
   display: flex;

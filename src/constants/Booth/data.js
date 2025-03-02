@@ -1,12 +1,12 @@
 export const boothPositions = [
-  { id: 1, columnStart: 2, columnEnd: 4, rowStart: 1, rowEnd: 2 },
+  { id: 1, columnStart: 3, columnEnd: 4, rowStart: 1, rowEnd: 2 },
   { id: 2, columnStart: 16, columnEnd: 17, rowStart: 1, rowEnd: 2 },
-  { id: 3, columnStart: 3, columnEnd: 5, rowStart: 1, rowEnd: 3 },
+  { id: 3, columnStart: 3, columnEnd: 5, rowStart: 2, rowEnd: 3 },
   { id: 4, columnStart: 15, columnEnd: 16, rowStart: 1, rowEnd: 3 },
   { id: 5, columnStart: 1, columnEnd: 2, rowStart: 2, rowEnd: 3 },
   { id: 6, columnStart: 2, columnEnd: 3, rowStart: 3, rowEnd: 4 },
-  { id: 7, columnStart: 4, columnEnd: 6, rowStart: 2, rowEnd: 4 },
-  { id: 8, columnStart: 5, columnEnd: 7, rowStart: 3, rowEnd: 4 },
+  { id: 7, columnStart: 5, columnEnd: 6, rowStart: 3, rowEnd: 4 },
+  { id: 8, columnStart: 6, columnEnd: 7, rowStart: 3, rowEnd: 4 },
   { id: 9, columnStart: 14, columnEnd: 15, rowStart: 2, rowEnd: 4 },
   { id: 10, columnStart: 13, columnEnd: 14, rowStart: 3, rowEnd: 4 },
   { id: 11, columnStart: 16, columnEnd: 18, rowStart: 3, rowEnd: 4 },
@@ -97,27 +97,324 @@ export const manhaePositions = [
 
 export const BoothDetailInfo = [
   {
-    id: 1,
-    images: [
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAk1BMVEX///8dHBv5+fkwLy7/dxDm5uZYV1Y2NTSpqaklJCOgoKBramodHRt3dnba2dnx8fErKin/exCSkpFNTEv/9e3/hSixsbH/+/hmZWTPz86amZn/oFj/izRCQUBTUlFJSEe/v77/pWKCgYA6OTj/487/2bz/lEH/iCb/rG99fHyNjIv/6dn/gRHW1db/snW7urr/m1AGmn+aAAADCUlEQVR4nO3Wa1eiQByA8RlGUBRBy1QsxXRvtZb7/T/d/meGW5adtjjHF/v8XnEb4gEaUQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAP5jNFpVmY+BlWbPaHuNXm6320GZUENT7TwbV60Ga5+HJ6U4XP+X7j+mN8/NXszEyVrwf+nMvjRm3hgyMWcu1jI0ZufWhMZNxoOamITuywphVa9TOmMgvpQ/9WOu4WPmble6NeVTVmcyXatTv++lhKg63zba1tjZ5ubrRetkaMdR6IjVLrd3lDeTQSC5skOia7MiM1o+tUWOti/KSq6MK9wdSu7h1u1ay9LUaeTx3h16vN71vthRyVjOsVyOtRy9rjNSMfM1W7nNh7/JpTV/rq5c119UV62TvksyTrZET6H7YVY2aPfemJzVJlDar79Xkcllrd6zUTI5PuZOercntte/SLDxutL8NrsY//E5q3H9Pu2ZvBu2979SkfbnPPlxq+llz1Ns1gZxL+6ceLP2ir3HHdlSjFs+Hpia4Sl/sPFuzzIrydflojb306lyhPNaN3yQvaZx3V6MWN7dn952tKeRtibeqrpk8rq6s49kamTKSbWuTnEhqkpEUrbPuamafqbHaNaUkOltz5efD+kTyROyz2cp2+RvDi9eU01FZkzgfrBnUNUe1kdHzwWVr4rGuf4ukJo6Wzupsjb371c+Y2iU2zdbMVSr/RP3RRWvilb3Ico760CyQ2/m53BKs64lhrtS8fNQd1fyZ1RYv952tkRkpW/vp6M2a9pdNOUNfN/9pj9odUda4+9JZzV35vWZ9e1WzDEvBm98Cga8xaeaEma/ZtUaVv55H95kh+8MHWdqHTU1WJF3WNF7XxJPS/LRG7cqXR2qS/r7vjH1NNcpOFNWXjXsE+yiaVPNhVaPySZc1vdrrmtrgVU1gP1GOb36n1VN22tQE/o2yBxsXUdeoYXL5Gj8dhe/VxK1nI+/mxvc8+Km6qXHPrZMaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/xFwA/L3CyaHSxAAAAAElFTkSuQmCC",
+    만해광장: [
+      {
+        id: 1,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
+      {
+        id: 2,
+        booth_image: {
+          id: 1,
+          booth: 2,
+          image:
+            "http://127.0.0.1:8000/media/None/%EB%82%98%EB%88%A0%EC%A3%BC%EA%B0%9Clogo_TdBkpEX.png",
+        },
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 2,
+      },
+      {
+        id: 3,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
+      {
+        id: 4,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
+      {
+        id: 5,
+        booth_image: null,
+        booth_name: "부스명",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "만해광장",
+        booth_num: 1,
+      },
     ],
+    팔정도: [
+      {
+        id: 1,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+      {
+        id: 2,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 2,
+      },
+      {
+        id: 3,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+      {
+        id: 4,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+      {
+        id: 5,
+        booth_image: null,
+        booth_name: "부스 이름",
+        club_name: "동아리명",
+        day: [
+          {
+            name: "수",
+          },
+        ],
+        start_time: "11:00",
+        end_time: "18:00",
+        location: "팔정도",
+        booth_num: 1,
+      },
+    ],
+  },
+];
+export const BoothData = [
+  {
+    id: 1,
+    club_logo:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
 
-    club: "멋쟁이사자처럼",
-    BoothTitle: "멋-사 문방구",
-    description: "어쩌구저쩌구구",
-    date: "(수) 17:00 ~ 22:00",
-    location: "팔정도 1번 부스",
+    booth_image: [
+      {
+        id: 1,
+        booth: 2,
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+      },
+      {
+        id: 2,
+        booth: 2,
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+      },
+    ],
+    start_time: "11:00",
+    end_time: "18:00",
+    start_recruitment: "02월 17일 (월)",
+    end_recruitment: "03월 09일 (일)",
+    day_display: [
+      {
+        name: "수",
+      },
+    ],
+    club_name: "동아리명",
+    booth_name: "부스명",
+    location: "만해광장",
+    booth_num: 2,
+    club_category: "분과명",
+    club_description: "동아리 소개",
+    booth_description: "부스 소개",
+    apply_method: "지원방법",
+    insta_url: "https://www.instagram.com/likelion_dongguk",
   },
   {
     id: 2,
-    images: [],
+    club_logo:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
 
-    club: "멋쟁이토끼처럼",
-    BoothTitle: "멋-사 문방구",
-    description: "어쩌구저쩌구구",
-    date: "(수) 17:00 ~ 22:00",
-    location: "팔정도 1번 부스",
+    booth_image: [
+      {
+        id: 1,
+        booth: 2,
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+      },
+      {
+        id: 2,
+        booth: 2,
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+      },
+    ],
+    start_time: "11:00",
+    end_time: "18:00",
+    start_recruitment: "02월 17일 (월)",
+    end_recruitment: "03월 09일 (일)",
+    day_display: [
+      {
+        name: "수",
+      },
+    ],
+    club_name: "동아리명",
+    booth_name: "부스명",
+    location: "만해광장",
+    booth_num: 2,
+    club_category: "분과명",
+    club_description: "동아리 소개",
+    booth_description: "부스 소개",
+    apply_method: "지원방법",
+    insta_url: "인스타 url",
+  },
+];
+export const FOODDATA = [
+  {
+    만해광장: [
+      {
+        id: 1,
+        food_truck_image: [
+          {
+            id: 1,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+          {
+            id: 2,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+          {
+            id: 3,
+            food_truck: 1,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+        ],
+        start_time: "09:26",
+        end_time: "17:26",
+        day_display: [
+          {
+            name: "수",
+          },
+          {
+            name: "목",
+          },
+        ],
+        food_truck_name: "푸드트럭",
+        location: "만해광장",
+        food_truck_num: 51,
+        food_truck_description: "푸드트럭 소개입니다.",
+        insta_url: null,
+      },
+      {
+        id: 2,
+        food_truck_image: [
+          {
+            id: 4,
+            food_truck: 2,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png/800px-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC_%EB%A1%9C%EA%B3%A0.png",
+          },
+        ],
+        start_time: "09:00",
+        end_time: "18:00",
+        day_display: [
+          {
+            name: "수",
+          },
+        ],
+        food_truck_name: "푸드트럭2",
+        location: "만해광장",
+        food_truck_num: 56,
+        food_truck_description: "푸드드럭2 설명입니다.",
+        insta_url: null,
+      },
+    ],
   },
 ];

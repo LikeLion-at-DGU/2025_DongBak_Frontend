@@ -9,6 +9,7 @@ import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
 import { Performance } from "./pages/performance/Performance";
 import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
+import { FoodDetailPage } from "./pages/Booth/FoodDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         element: <DevelopersPage />,
       },
       {
-        path: "/booth",
+        path: ROUTE_PATHS.BOOTH,
         element: <BoothPage />,
       },
       {
@@ -31,8 +32,12 @@ const router = createBrowserRouter([
         element: <Performance />,
       },
       {
-        path: "/booth/:id",
+        path: ROUTE_PATHS.BOOTH_DETAIL,
         element: <BoothDetailPage />,
+      },
+      {
+        path: ROUTE_PATHS.FOOD_DETAIL,
+        element: <FoodDetailPage />,
       },
     ],
   },
