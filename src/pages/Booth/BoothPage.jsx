@@ -4,40 +4,81 @@ import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
 import { Btn } from "../../components/Btn/Btn";
 import { Date } from "../../components/Date/Date";
 import { useBoothSelection } from "../../hooks/useBoothSelect";
+import { useBoothInfo } from "../../hooks/Booth/useBoothInfo";
+import { useFoodTruckInfo } from "../../hooks/Booth/useFoodTruckInfo";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 import MAP1 from "../../../public/images/map1.svg";
 import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
+import { useEffect, useState } from "react";
+import {
+  FIRST_DATE,
+  FIRST_DAY,
+  SECOND_DATE,
+  SECOND_DAY,
+} from "@constants/common";
 
 export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
+  const [isFirstDate, setIsFirstDate] = useState(true);
+
   const {
     selectedPin,
     selectedPlace,
-    selectedDate,
     selectedCategory,
-    handleDateClick,
     handlePinClick,
     setSelectedPlace,
     setSelectedCategory,
-    boothData,
+    boothPosition,
   } = useBoothSelection();
-  const selectedBooth = boothData.find((booth) => booth.id === selectedPin);
+  console.log("selectedPin", selectedPin);
+  const day = isFirstDate ? FIRST_DAY : SECOND_DAY;
+
+  console.log("day", day);
+  const { boothList } = useBoothInfo(day);
+  const { foodData } = useFoodTruckInfo(day);
+  useEffect(() => {
+    console.log("boothList", boothList);
+    console.log("foodData", foodData);
+  }, [isFirstDate]);
+
+  const foodList =
+    foodData && foodData?.[0]?.[selectedPlace]
+      ? foodData[0]?.[selectedPlace]
+      : [];
+
+  const filteredBoothList =
+    boothList && boothList[0]?.[selectedPlace]
+      ? boothList[0]?.[selectedPlace]
+      : [];
+
+  useEffect(() => {
+    console.log("filteredBoothList", filteredBoothList);
+    console.log("foodList", foodList);
+  }, [filteredBoothList, foodList, selectedPlace]);
+
+  const displayedBoothList = selectedPin
+    ? filteredBoothList?.filter((booth) => booth.id === selectedPin)
+    : filteredBoothList;
+  const displayedFoodList = selectedPin
+    ? foodList?.filter((booth) => booth.id === selectedPin)
+    : foodList;
+
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <Header Title={"부스안내"} isTrue={true} />
+        <Header title={"부스안내"} isTrue={true} />
         <S.HeaderWrapper>
           <S.DateWrapper>
-            {["5", "6"].map((num) => (
+            {[FIRST_DATE, SECOND_DATE].map((num, index) => (
               <Date
                 key={num}
-                DateNum={num}
-                Date={num === "5" ? "WED" : "THR"}
-                isClick={selectedDate[num]}
-                onClick={() => handleDateClick(num)}
+                date={num}
+                day={index === 0 ? FIRST_DAY : SECOND_DAY}
+                isClick={index === 0 ? isFirstDate : !isFirstDate}
+                onClick={() => setIsFirstDate(index === 0)}
               />
             ))}
           </S.DateWrapper>
@@ -59,7 +100,7 @@ export const BoothPage = () => {
       <S.MapBox>
         <S.MAP $bgImage={selectedPlace === "팔정도" ? MAP1 : MAP2}>
           <S.GridContainer $bgImage={selectedPlace === "팔정도" ? MAP1 : MAP2}>
-            {boothData.map(
+            {boothPosition.map(
               ({ id, columnStart, columnEnd, rowStart, rowEnd }) => (
                 <S.GridArea
                   key={id}
@@ -97,10 +138,22 @@ export const BoothPage = () => {
           ))}
         </S.BtnWrapper>
         <S.BoothDWrapper>
-          <BoothDetailBox
-            booth={selectedBooth}
-            onClick={() => goToPage(`/booth/${selectedBooth.id}`)}
-          />
+          {selectedCategory === "푸드트럭"
+            ? displayedFoodList.map((food) => (
+                <BoothDetailBox
+                  key={food.id}
+                  booth={food}
+                  selectedDate={isFirstDate}
+                  onClick={() => goToPage(`/food/${food.id}`)}
+                />
+              ))
+            : displayedBoothList?.map((booth) => (
+                <BoothDetailBox
+                  key={booth.id}
+                  booth={booth}
+                  onClick={() => goToPage(`/booth/${booth.id}`)}
+                />
+              ))}
         </S.BoothDWrapper>
       </S.BoothDBox>
     </S.BoothContainer>
