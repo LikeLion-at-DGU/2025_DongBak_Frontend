@@ -1,4 +1,4 @@
-import { getFoodDetail } from "../../apis/foodTruck";
+import { getFoodDetail } from "@apis/foodTruck";
 import { useState, useEffect } from "react";
 //푸드트럭 상세페이지
 export const useFoodDetail = (id) => {

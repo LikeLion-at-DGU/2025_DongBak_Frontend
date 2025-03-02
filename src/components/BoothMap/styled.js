@@ -20,7 +20,7 @@ export const MAP = styled.div`
   background-position: center;
   position: relative;
   aspect-ratio: ${({ $bgImage }) =>
-    $bgImage.includes("MAP1") ? "375 / 242" : "375 / 309"}; //원본비율 유지 !
+    $bgImage.includes("MAP1") ? "375 / 242" : "375 / 309"};
 
   @media (max-width: 768px) {
     width: 100vw;

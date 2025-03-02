@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { boothPositions, manhaePositions } from "../constants/Booth/data";
+import { boothPositions, manhaePositions } from "@constants/Booth/data";
+import { PLACENAME, CATEGORYNAME } from "@constants/Booth/data";
 
 export const useBoothSelection = () => {
   const [selectedPin, setSelectedPin] = useState(null);
-  const [selectedPlace, setSelectedPlace] = useState("팔정도");
-  const [selectedCategory, setSelectedCategory] = useState("부스");
+  const [selectedPlace, setSelectedPlace] = useState(PLACENAME.PALJEONGDO);
+  const [selectedCategory, setSelectedCategory] = useState(CATEGORYNAME.BOOTH);
   useEffect(() => {
     setSelectedPin(null);
   }, [selectedPlace]);
@@ -14,7 +15,7 @@ export const useBoothSelection = () => {
   };
 
   const boothPosition =
-    selectedPlace === "팔정도" ? boothPositions : manhaePositions;
+    selectedPlace === PLACENAME.PALJEONGDO ? boothPositions : manhaePositions;
 
   return {
     selectedPin,

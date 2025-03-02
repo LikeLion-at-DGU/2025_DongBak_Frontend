@@ -1,7 +1,7 @@
 import * as S from "./styled";
-import pin from "../../../public/images/pin.svg";
-import clock from "../../../public/images/clock.svg";
-import defaultImg from "../../../public/images/defaultImg.svg";
+import pin from "/images/pin.svg";
+import clock from "/images/clock.svg";
+import defaultImg from "/images/defaultImg.svg";
 export const BoothDetailBox = ({ booth, onClick }) => {
   const isFood = !booth.booth_name && booth.food_truck_num;
   return (
