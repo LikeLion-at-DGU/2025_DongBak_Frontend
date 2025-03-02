@@ -1,3 +1,5 @@
+import * as S from "./styled";
+
 import { Btn } from "@components/Btn/Btn";
 import { PLACENAME } from "@constants/Booth/data";
 export const PlaceSelector = ({ selectedPlace, setSelectedPlace }) => {

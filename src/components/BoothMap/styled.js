@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const MapBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,35 +8,31 @@ export const MapBox = styled.div`
   gap: 25px;
 `;
 export const MAP = styled.div`
-  min-width: 375px;
-  width: 100%;
+  width: 100vw;
   max-width: 100%;
-  height: ${({ $bgImage }) => ($bgImage.includes("MAP1") ? "242px" : "309px")};
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: ${({ $bgImage }) => `url(${$bgImage})`};
-  background-size: ${({ $bgImage }) =>
-    $bgImage.includes("map1") ? "cover" : "contain"};
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  aspect-ratio: ${({ $bgImage }) =>
+    $bgImage.includes("MAP1") ? "375 / 242" : "375 / 309"}; //원본비율 유지 !
 `;
+
 export const GridContainer = styled.div`
-  min-width: 375px;
   width: 100%;
   height: 100%;
-  justify-self: center;
-  align-self: center;
-  display: grid;
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
+  display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(12, 1fr);
+  z-index: 10;
 `;
 
 export const GridArea = styled.div`
@@ -48,10 +43,13 @@ export const GridArea = styled.div`
   height: 100%;
   cursor: pointer;
 `;
+
 export const GridItem = styled.img`
   cursor: pointer;
   justify-self: center;
   align-self: center;
+  max-width: 25px;
+  max-height: 25px;
 `;
 
 export const BoothLine = styled.div`

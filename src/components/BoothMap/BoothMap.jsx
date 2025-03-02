@@ -16,9 +16,7 @@ export const BoothMap = ({
   return (
     <S.MapBox>
       <S.MAP $bgImage={selectedPlace === PLACENAME.PALJEONGDO ? MAP1 : MAP2}>
-        <S.GridContainer
-          $bgImage={selectedPlace === PLACENAME.PALJEONGDO ? MAP1 : MAP2}
-        >
+        <S.GridContainer>
           {boothPosition.map(
             ({ id, columnStart, columnEnd, rowStart, rowEnd }) => (
               <S.GridArea

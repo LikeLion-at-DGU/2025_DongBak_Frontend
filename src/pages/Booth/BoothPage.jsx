@@ -1,4 +1,6 @@
 import * as S from "./styled";
+import { useEffect, useState, useMemo } from "react";
+
 import { Header } from "@components/Header/Header";
 import { useBoothSelection } from "@hooks/useBoothSelect";
 import { useBoothInfo } from "@hooks/Booth/useBoothInfo";
@@ -10,9 +12,9 @@ import { PlaceSelector } from "@components/Selector/PlaceSelector";
 import { CategorySelector } from "@components/Selector/CategorySelector";
 import { BoothList } from "@components/BoothList/BoothList";
 import { BoothMap } from "@components/BoothMap/BoothMap";
-import { useEffect, useState } from "react";
 
 import { CATEGORYNAME } from "@constants/Booth/data";
+import { PLACENAME } from "@constants/Booth/data";
 export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
   const [isFirstDate, setIsFirstDate] = useState(true);
@@ -38,26 +40,30 @@ export const BoothPage = () => {
     console.log("foodData", foodData);
   }, [isFirstDate]);
 
-  const foodList = foodData?.[0]?.[selectedPlace]
-    ? foodData[0]?.[selectedPlace]
-    : [];
+  const foodList = foodData?.[selectedPlace] ?? [];
 
-  const filteredBoothList =
-    boothList && boothList[0]?.[selectedPlace]
-      ? boothList[0]?.[selectedPlace]
-      : [];
+  const filteredBoothList = boothList?.[selectedPlace] ?? [];
 
   useEffect(() => {
     console.log("filteredBoothList", filteredBoothList);
     console.log("foodList", foodList);
   }, [filteredBoothList, foodList, selectedPlace]);
 
-  const displayedBoothList = selectedPin
-    ? filteredBoothList?.filter((booth) => booth.id === selectedPin)
-    : filteredBoothList;
-  const displayedFoodList = selectedPin
-    ? foodList?.filter((booth) => booth.id === selectedPin)
-    : foodList;
+  const displayedBoothList = useMemo(
+    () =>
+      selectedPin
+        ? filteredBoothList.filter((booth) => booth.id === selectedPin)
+        : filteredBoothList,
+    [selectedPin, filteredBoothList]
+  );
+
+  const displayedFoodList = useMemo(
+    () =>
+      selectedPin
+        ? foodList.filter((booth) => booth.id === selectedPin)
+        : foodList,
+    [selectedPin, foodList]
+  );
 
   return (
     <S.BoothContainer>
@@ -89,15 +95,23 @@ export const BoothPage = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
-        <BoothList
-          list={
-            selectedCategory === CATEGORYNAME.FOODTRUCK
-              ? displayedFoodList
-              : displayedBoothList
-          }
-          goToPage={goToPage}
-          type={selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"}
-        />
+
+        {selectedCategory === CATEGORYNAME.FOODTRUCK &&
+        selectedPlace === PLACENAME.PALJEONGDO ? (
+          <div>팔정도에용</div>
+        ) : (
+          <BoothList
+            list={
+              selectedCategory === CATEGORYNAME.FOODTRUCK
+                ? displayedFoodList
+                : displayedBoothList
+            }
+            goToPage={goToPage}
+            type={
+              selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"
+            }
+          />
+        )}
       </S.BoothDBox>
     </S.BoothContainer>
   );

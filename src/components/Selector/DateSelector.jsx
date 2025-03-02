@@ -1,3 +1,5 @@
+import * as S from "./styled";
+
 import { Date } from "@components/Date/Date";
 import {
   FIRST_DATE,
