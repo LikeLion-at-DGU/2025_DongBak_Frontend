@@ -12,7 +12,7 @@ import { NotFound } from "./pages/NotFound/NotFound";
 
 
 import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
-
+import { FoodDetailPage } from "./pages/Booth/FoodDetailPage";
 const router = createBrowserRouter([
   {
     path: ROUTE_PATHS.MAIN,
@@ -34,15 +34,18 @@ const router = createBrowserRouter([
         path: ROUTE_PATHS.SEARCH,
         element: <SearchPage />,
       }, 
-      {
-        path: "/booth/:id",
+        path: ROUTE_PATHS.BOOTH_DETAIL,
         element: <BoothDetailPage />,
       },
       {
-        path: ROUTE_PATHS.NOT_FOUND,
-        element: <NotFound />
+        path: ROUTE_PATHS.FOOD_DETAIL,
+        element: <FoodDetailPage />,
       },
     ],
+  },
+  {
+    path: ROUTE_PATHS.NOT_FOUND,
+    element: <NotFound />,
   },
 ]);
 
