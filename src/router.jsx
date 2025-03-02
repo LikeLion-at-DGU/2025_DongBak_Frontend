@@ -7,6 +7,7 @@ import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { NotFound } from "./pages/notfound/NotFound";
 import { BoothPage } from "./pages/Booth/BoothPage";
+import { Performance } from "./pages/performance/Performance";
 import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
 import { FoodDetailPage } from "./pages/Booth/FoodDetailPage";
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.BOOTH,
         element: <BoothPage />,
+      },
+      {
+        path: ROUTE_PATHS.PERFORMANCE,
+        element: <Performance />,
       },
       {
         path: ROUTE_PATHS.BOOTH_DETAIL,

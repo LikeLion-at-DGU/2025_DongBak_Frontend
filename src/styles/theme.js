@@ -50,6 +50,7 @@ export const theme = {
     SUITEM3: fontGenerator("0.875rem", "500", "150%"),
     SUITES3: fontGenerator("0.875rem", "600", "150%"),
     SUITEB3: fontGenerator("0.875rem", "700", "150%"),
+    SUITE03: fontGenerator("0.875rem", "800", "150%"),
 
     SUITEM4: fontGenerator("0.75rem", "500", "150%"),
     SUITES4: fontGenerator("0.75rem", "600", "150%"),

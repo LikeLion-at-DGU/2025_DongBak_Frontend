@@ -12,6 +12,7 @@ import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
+
 import { useEffect, useState } from "react";
 import {
   FIRST_DATE,
@@ -34,6 +35,7 @@ export const BoothPage = () => {
     boothPosition,
   } = useBoothSelection();
   console.log("selectedPin", selectedPin);
+
   const day = isFirstDate ? FIRST_DAY : SECOND_DAY;
 
   console.log("day", day);
