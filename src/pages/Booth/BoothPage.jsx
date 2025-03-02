@@ -36,7 +36,7 @@ export const BoothPage = () => {
   } = useBoothSelection();
   console.log("selectedPin", selectedPin);
 
-  const day = isFirstDate ? FIRST_DAY : SECOND_DAY;
+  const day = isFirstDate ? "wedesday" : "thursday";
 
   console.log("day", day);
   const { boothList } = useBoothInfo(day);
