@@ -1,4 +1,5 @@
 import * as S from "./styled";
+import { ExpandableText } from "@components/ExpandableText/ExpandableText";
 export const ClubInfo = ({ booth }) => {
   return (
     <S.InfoContainer>
@@ -10,7 +11,9 @@ export const ClubInfo = ({ booth }) => {
           <S.MainInfo>{booth.club_name}</S.MainInfo>
         </S.LionInfoWrapper>
       </S.LionContainer>
-      <S.LionInfoBox>{booth.club_description}</S.LionInfoBox>
+      <S.LionInfoBox>
+        <ExpandableText text={booth.club_description} />
+      </S.LionInfoBox>
     </S.InfoContainer>
   );
 };

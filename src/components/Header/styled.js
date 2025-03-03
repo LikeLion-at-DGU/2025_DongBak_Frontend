@@ -3,11 +3,11 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  position: relative;
+
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
+  background-color: ${({ theme }) => theme.colors.bg300};
 `;
 
 export const Title = styled.div`

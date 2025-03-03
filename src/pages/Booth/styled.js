@@ -6,7 +6,7 @@ export const BoothContainer = styled.div`
   padding-top: 2rem;
   justify-content: flex-start;
   align-items: center;
-  background-color: #fbfbee;
+  background-color: ${({ theme }) => theme.colors.bg300};
   min-height: 100vh;
   min-width: 375px;
   max-width: 100%;
@@ -18,11 +18,24 @@ export const HeaderBox = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  position: relative;
   gap: 28px;
+`;
+export const FixedHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: ${({ theme }) => theme.colors.bg300};
+  top: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 20;
 `;
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  margin-top: 45px;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -112,7 +125,6 @@ export const BoothLine = styled.div`
 export const BoothDBox = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 90%;
   margin-top: 25px;
   gap: 20px;
@@ -172,6 +184,7 @@ export const SliderContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 500px;
+  min-height: 300px;
   height: auto;
   overflow: hidden;
   display: flex;
@@ -197,4 +210,9 @@ export const SlideImage = styled.img`
   height: auto;
   max-height: 500px;
   object-fit: contain;
+`;
+export const ErrorBoxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

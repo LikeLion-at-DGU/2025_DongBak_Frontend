@@ -24,11 +24,10 @@ export const BoothDetailPage = () => {
   }, []);
 
   const { boothData } = useBoothDetail(id);
-  const booth = boothData?.find((b) => b.id === Number(id));
-  console.log("booth", booth);
+  console.log("boothData", boothData);
 
-  const images = booth?.booth_image?.length
-    ? booth.booth_image.map((img) => img.image)
+  const images = boothData?.booth_image?.length
+    ? boothData.booth_image.map((img) => img.image)
     : defaultImages;
   const {
     currentIndex,
@@ -79,13 +78,13 @@ export const BoothDetailPage = () => {
       </S.Indicators>
 
       <S.InfoContainer>
-        {booth ? (
+        {boothData ? (
           <>
-            <BoothInfo booth={booth} />
+            <BoothInfo booths={boothData} />
             <S.BoothLine />
-            <ClubInfo booth={booth} />
+            <ClubInfo booth={boothData} />
             <S.BoothLine />
-            <RecruitInfo booth={booth} />
+            <RecruitInfo booth={boothData} />
           </>
         ) : (
           <div>해당 부스를 찾을 수 없습니다.</div>

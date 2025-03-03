@@ -5,27 +5,23 @@ import { BoothSearchService } from "../apis/SearchService";
 
 export const useBoothSearch = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState({ booths: [], food_trucks: [] });
+  const [results, setResults] = useState([]);
   
   // 디바운스 적용 (300ms 후 API 호출)
   const debouncedQuery = useDebounce(query, 300);
 
   useEffect(() => {
     if (!debouncedQuery) {
-      setResults({ booths: [], food_trucks: [] });
+      setResults([]);
       return;
     }
 
     const fetchResults = async () => {
       try {
         const data = await BoothSearchService.searchBooth(debouncedQuery);
-        setResults(() => ({
-          booths: data.booths || [],
-          food_trucks: data.food_trucks || [],
-        }));
+        setResults(data);
       } catch (error) {
         console.error("검색 실패", error);
-        setResults({ booths: [], food_trucks: [] });
       }
     };
 
@@ -34,7 +30,7 @@ export const useBoothSearch = () => {
 
   const clearSearch = () => {
     setQuery("");
-    setResults({ booths: [], food_trucks: [] });
+    setResults([]);
   };
 
   return { query, setQuery, results, clearSearch };
