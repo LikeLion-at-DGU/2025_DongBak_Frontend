@@ -1,4 +1,6 @@
 import * as S from "./styled";
+
+import { useLocation } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
 
 import { Header } from "@components/Header/Header";
@@ -16,8 +18,11 @@ import { CATEGORYNAME } from "@constants/Booth/data";
 import { PLACENAME } from "@constants/Booth/data";
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
-  const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
-  const [selectedBoothNum, setSelectedBoothNum] = useState(null);
+
+  const location = useLocation();
+  const result = location.state;
+  console.log("테스틍틍", result);
+  
   const {
     selectedPin,
     selectedPlace,

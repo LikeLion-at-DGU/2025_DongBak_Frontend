@@ -32,6 +32,7 @@ export const DividerCircle = styled.img`
 `;
 
 export const TimeLine = styled.div`
+  position: relative;
   width: 1.5px;
   background-color: ${({ theme }) =>
     transparentize(0.5, theme.colors.green200)};
@@ -60,4 +61,13 @@ export const CardWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+`;
+
+export const ProgressDot = styled.img`
+  position: absolute;
+  transform: translateX(-45%);
+  width: 1.5rem;
+  height: 1.5rem;
+  top: ${({ $progress }) => $progress};
+  transition: top 0.5s ease-in-out;
 `;
