@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dayjs from "dayjs";
 import * as S from "./styled";
 
 import {
@@ -15,7 +16,14 @@ export const PerformanceTimeTableItem = ({ time, isNow }) => {
       <PerformanceNowTime time={time} />
       <PerformanceTimeType />
       <S.DividerCircle src="/images/divider-circle.svg" />
-      <S.TimeLine />
+      <S.TimeLine>
+        {isNow && (
+          <S.ProgressDot
+            src="/images/now.svg"
+            $progress={`${(dayjs().minute() / 60) * 100}%`}
+          />
+        )}
+      </S.TimeLine>
       <S.DividerLine />
       <S.CardWrapper>
         <PerformanceCard
