@@ -15,18 +15,7 @@ export default defineConfig({
         }
       : {},
   plugins: [react()],
-<<<<<<< HEAD
-=======
-  server:
-    process.env.NODE_ENV === "development"
-      ? {
-          https: {
-            key: fs.readFileSync(path.resolve(__dirname, "localhost-key.pem")),
-            cert: fs.readFileSync(path.resolve(__dirname, "localhost.pem")),
-          },
-        }
-      : {},
->>>>>>> 1b1e76d51c2f0e3f0d5b30cd26b6ed481b23afb3
+
   resolve: {
     alias: {
       "@apis": path.resolve(__dirname, "src/apis"),
