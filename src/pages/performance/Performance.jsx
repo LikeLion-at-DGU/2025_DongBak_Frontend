@@ -26,7 +26,6 @@ export const Performance = () => {
           const start = dayjs(time, "HH:mm");
           const end = start.add(1, "hour");
           const isNow = now.isSameOrAfter(start) && now.isBefore(end);
-          console.log(isNow);
           return (
             <PerformanceTimeTableItem key={index} time={time} isNow={isNow} />
           );
