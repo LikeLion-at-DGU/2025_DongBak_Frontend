@@ -3,7 +3,8 @@ import { transparentize } from "polished";
 
 const Wrapper = styled.article`
   width: 100%;
-  background-color: white;
+  background-color: ${({ $isNow, theme }) =>
+    $isNow ? transparentize(0.5, theme.colors.green200) : theme.colors.white};
   border-radius: 1.5rem;
   padding: 0.5rem 0;
 `;
@@ -55,6 +56,7 @@ const DetailDescriptionWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Icon = styled.img`
@@ -66,7 +68,9 @@ const Icon = styled.img`
 const Separator = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #efefea;
+  background-color: ${({ theme }) =>
+    transparentize(0.7, theme.colors.green200)};
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 `;
 
@@ -75,17 +79,18 @@ const DetailCardSection = styled.section`
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
-  gap: 0.75rem;
+  gap: 0.25rem;
 `;
 
 export const PerformanceCard = ({
   title,
   time = "12:00 ~ 12:30",
   isOpen = false,
+  isNow = false,
   setStatus,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper $isNow={isNow}>
       <PreviewCardSection>
         <CardImage src="/images/makers-slogan.svg" />
         <div>

@@ -14,6 +14,7 @@ export const Performance = () => {
         {TIME_SET.map((time, index) => (
           <PerformanceTimeTableItem time={time} key={index} />
         ))}
+        <PerformanceTimeTableItem time={"19:00"} isNow={true} />
       </PerformanceContainer>
     </S.Container>
   );
