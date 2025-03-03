@@ -33,14 +33,15 @@ export const ArrowImage = styled.img`
   margin-left: auto;
 `;
 
-export const PerformanceCard = ({ title, time }) => {
+export const PerformanceCard = ({ title, time, isOpen = false, setStatus }) => {
   return (
     <Wrapper>
       <PreviewCardSection>
         <CardImage src="/images/makers-slogan.svg" />
         <CardTitle>{title}</CardTitle>
-        <ArrowImage src="/images/arrow-down.svg" />
+        <ArrowImage src="/images/arrow-down.svg" onClick={setStatus} />
       </PreviewCardSection>
+      {isOpen && <div>test</div>}
     </Wrapper>
   );
 };

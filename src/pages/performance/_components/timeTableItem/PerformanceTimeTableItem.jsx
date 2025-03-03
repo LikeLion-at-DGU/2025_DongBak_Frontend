@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as S from "./styled";
 
 import {
@@ -6,17 +7,27 @@ import {
 } from "../base/PerformancTime";
 import { PerformanceCard } from "../base/PerformanceCard";
 
-export const PerformanceTimeTableItem = () => {
+export const PerformanceTimeTableItem = ({ time }) => {
+  const [isFirstCardOpen, setIsFirstCardOpen] = useState(false);
+  const [isSecondCardOpen, setIsSecondCardOpen] = useState(false);
   return (
     <S.Wrapper>
-      <PerformanceNowTime time={"12:00"} />
+      <PerformanceNowTime time={time} />
       <PerformanceTimeType />
       <S.DividerCircle src="/images/divider-circle.svg" />
       <S.TimeLine />
       <S.DividerLine />
       <S.CardWrapper>
-        <PerformanceCard title={"test1"} />
-        <PerformanceCard title={"test2"} />
+        <PerformanceCard
+          title={"test1"}
+          isOpen={isFirstCardOpen}
+          setStatus={() => setIsFirstCardOpen(!isFirstCardOpen)}
+        />
+        <PerformanceCard
+          title={"test2"}
+          isOpen={isSecondCardOpen}
+          setStatus={() => setIsSecondCardOpen(!isSecondCardOpen)}
+        />
       </S.CardWrapper>
     </S.Wrapper>
   );
