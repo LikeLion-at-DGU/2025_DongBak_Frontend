@@ -4,6 +4,7 @@ export const ROUTE_PATHS = {
   BOOTH_DETAIL: "/booth/:id",
   FOOD_DETAIL: "/food/:id",
   PERFORMANCE: "/performance",
-  DEVELOPTERS: "/developers",
-  NOT_FOUND: "*",
+  DEVELOPERS: "/developers",
+  SEARCH: "/search",
+  NOT_FOUND: "*", 
 };

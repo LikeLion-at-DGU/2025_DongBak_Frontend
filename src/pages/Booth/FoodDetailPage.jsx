@@ -1,16 +1,17 @@
 import * as S from "./styled";
 import { useEffect } from "react";
-import { BoothInfo } from "../../components/BoothDetailBox/BoothInfo";
-import { useSlider } from "../../hooks/useSlider";
-import { COPY_SUCCESS_MESSAGE } from "../../constants/BoothDetail/data";
-import { useFoodDetail } from "../../hooks/Booth/useFoodDetail";
-
-import useCustomNavigate from "../../hooks/useCustomNavigate";
-
-import shareIcon from "../../../public/images/shareIcon.svg";
-import backIcon from "../../../public/images/backIcon.svg";
-import defaultImg from "../../../public/images/defaultImg.svg";
 import { useParams } from "react-router-dom";
+
+import { BoothInfo } from "@components/BoothDetailBox/BoothInfo";
+import { COPY_SUCCESS_MESSAGE } from "@constants/BoothDetail/data";
+
+import { useFoodDetail } from "@hooks/Booth/useFoodDetail";
+import { useSlider } from "@hooks/useSlider";
+import useCustomNavigate from "@hooks/useCustomNavigate";
+
+import shareIcon from "/images/shareIcon.svg";
+import backIcon from "/images/backIcon.svg";
+import defaultImg from "/images/defaultImg.svg";
 const defaultImages = [defaultImg];
 
 export const FoodDetailPage = () => {

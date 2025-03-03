@@ -5,6 +5,7 @@ export const OuterWrapper = styled.div`
   padding-top: 1rem;
   border-radius: 30px 30px 0 0;
   background-color: ${({ theme }) => transparentize(0.4, theme.colors.bg100)};
+  margin-bottom: 4rem;
 `;
 
 export const InnerWrapper = styled.div`
