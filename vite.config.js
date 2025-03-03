@@ -1,10 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from 'fs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: process.env.NODE_ENV === 'development' ? {
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem')),
+    },
+  } : {},
   resolve: {
     alias: {
       "@atoms": path.resolve(__dirname, "src/atoms"),

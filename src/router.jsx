@@ -35,6 +35,7 @@ const router = createBrowserRouter([
         path: ROUTE_PATHS.SEARCH,
         element: <SearchPage />,
       }, 
+      {
         path: ROUTE_PATHS.PERFORMANCE,
         element: <Performance />,
       },
@@ -46,11 +47,11 @@ const router = createBrowserRouter([
         path: ROUTE_PATHS.FOOD_DETAIL,
         element: <FoodDetailPage />,
       },
+      {
+        path: ROUTE_PATHS.NOT_FOUND,
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />,
   },
 ]);
 

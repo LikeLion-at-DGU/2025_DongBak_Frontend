@@ -19,6 +19,9 @@ export const Emoji = styled.img`
 
 export const WarningText = styled.div`
   ${({ theme }) => theme.fonts.SUITEB2};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const SubWarningText = styled.div`
