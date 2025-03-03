@@ -1,6 +1,6 @@
 import * as S from "./styled";
-import pin from "../../../public/images/pin.svg";
-import clock from "../../../public/images/clock.svg";
+import pin from "/images/pin.svg";
+import clock from "/images/clock.svg";
 import { ExpandableText } from "../ExpandableText/ExpandableText";
 export const BoothInfo = ({ booth }) => {
   const isFood = !booth.booth_name && booth.food_truck_num;

@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@atoms": path.resolve(__dirname, "src/atoms"),
+      "@apis": path.resolve(__dirname, "src/apis"),
       "@components": path.resolve(__dirname, "src/components"),
       "@constants": path.resolve(__dirname, "src/constants"),
       "@hooks": path.resolve(__dirname, "src/hooks"),

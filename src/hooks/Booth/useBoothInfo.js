@@ -1,4 +1,4 @@
-import { getBoothInfo } from "../../apis/booth";
+import { getBoothInfo } from "@apis/booth";
 import { useState, useEffect } from "react";
 //부스페이지에서 list가져오기
 export const useBoothInfo = (day) => {
