@@ -9,7 +9,6 @@ import { BoothPage } from "./pages/Booth/BoothPage";
 import { SearchPage } from "./pages/SearchPage/SearchPage";
 import { NotFound } from "./pages/NotFound/NotFound";
 
-
 import { Performance } from "./pages/performance/Performance";
 
 import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
@@ -30,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.DEVELOPERS,
         element: <DevelopersPage />,
-      }, 
+      },
       {
         path: ROUTE_PATHS.SEARCH,
         element: <SearchPage />,
