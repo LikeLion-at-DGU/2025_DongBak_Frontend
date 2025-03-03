@@ -4,7 +4,12 @@ import pin from "/images/pin.svg";
 import clock from "/images/clock.svg";
 import defaultImg from "/images/defaultImg.svg";
 import useCustomNavigate from "@hooks/useCustomNavigate";
-export const BoothDetailBox = ({ booth, type, isSelected, onSelect }) => {
+export const BoothDetailBox = ({
+  booth = {},
+  type,
+  isSelected = false,
+  onSelect,
+}) => {
   const { goToPage } = useCustomNavigate();
 
   const onSelectBoothDetail = () => {
