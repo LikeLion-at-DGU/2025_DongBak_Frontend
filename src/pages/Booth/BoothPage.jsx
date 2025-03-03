@@ -12,6 +12,7 @@ import MAP2 from "../../../public/images/map2.svg";
 import mappin from "../../../public/images/mappin.svg";
 import SlideBar from "../../../public/images/SlideBar.svg";
 import SlideBar2 from "../../../public/images/SlideBar2.svg";
+import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import {
@@ -25,6 +26,10 @@ export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
   const [isFirstDate, setIsFirstDate] = useState(true);
 
+  const location = useLocation();
+  const result = location.state;
+  console.log("테스틍틍", result);
+  
   const {
     selectedPin,
     selectedPlace,
