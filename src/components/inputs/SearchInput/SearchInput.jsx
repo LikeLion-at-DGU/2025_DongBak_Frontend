@@ -1,8 +1,6 @@
 import * as S from "./styled";
-import { useBoothSearch } from "../../../hooks/useSearch";
 
-export const SearchInput = ({ placehoder, searchIconRoute, vectorIconRoute }) => {
-  const { query, setQuery, results, clearSearch } = useBoothSearch();
+export const SearchInput = ({ placehoder, searchIconRoute, vectorIconRoute, query, setQuery, clearSearch, onEnter }) => {
   return (
     <S.Wrapper>
       <S.Icon src={searchIconRoute}/>
@@ -10,7 +8,9 @@ export const SearchInput = ({ placehoder, searchIconRoute, vectorIconRoute }) =>
         placeholder={placehoder}
         maxLength={25}
         value={query}
+        enterKeyHint="search"
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && onEnter()}
       />
       {query && <S.IconRight src={vectorIconRoute} onClick={clearSearch} />}
     </S.Wrapper>
