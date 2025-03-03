@@ -1,9 +1,11 @@
+import * as S from "./styled";
 
+import { ErrorBox } from "../../components/errorBox/ErrorBox";
 
 export const NotFound = () => {
   return (
-    <>
-      못찾겠다 꾀꼬리
-    </>
+    <S.Wrapper>
+      <ErrorBox />
+    </S.Wrapper>
   )
 }
