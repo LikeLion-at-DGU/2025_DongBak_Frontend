@@ -58,5 +58,6 @@ export const theme = {
     SUITEO4: fontGenerator("0.75rem", "800", "150%"),
 
     SUITES5: fontGenerator("0.5rem", "600", "150%"),
+    SUITE10: fontGenerator("0.625rem", "500", "150%"),
   },
 };
