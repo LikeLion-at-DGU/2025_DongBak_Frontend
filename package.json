@@ -12,10 +12,8 @@
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.8.1",
-<<<<<<< HEAD
-=======
+
     "dayjs": "^1.11.13",
->>>>>>> 1b1e76d51c2f0e3f0d5b30cd26b6ed481b23afb3
     "fs": "^0.0.1-security",
     "polished": "^4.3.1",
     "react": "^19.0.0",
