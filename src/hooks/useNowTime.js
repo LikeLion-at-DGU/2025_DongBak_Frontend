@@ -7,7 +7,7 @@ export const useNowTime = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setNowTime(() => dayjs());
-    }, 10000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);

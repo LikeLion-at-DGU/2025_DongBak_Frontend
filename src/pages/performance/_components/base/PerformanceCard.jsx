@@ -84,10 +84,13 @@ const DetailCardSection = styled.section`
 
 export const PerformanceCard = ({
   title,
-  time = "12:00 ~ 12:30",
+  time,
   isOpen = false,
   isNow = false,
   setStatus,
+  songs,
+  members,
+  instagramId,
 }) => {
   return (
     <Wrapper $isNow={isNow}>
@@ -111,17 +114,15 @@ export const PerformanceCard = ({
           <DetailCardSection>
             <DetailDescriptionWrapper>
               <Icon src="/images/record.svg" />
-              <DescriptionText $isBlack={true}>
-                testsdfsdfdsfdsfdsfdsfdsfdsfsdfdsfdsfdsfdsfs
-              </DescriptionText>
+              <DescriptionText $isBlack={true}>{songs}</DescriptionText>
             </DetailDescriptionWrapper>
             <DetailDescriptionWrapper>
               <Icon src="/images/user.svg" />
-              <DescriptionText $isBlack={true}>test</DescriptionText>
+              <DescriptionText $isBlack={true}>{members}</DescriptionText>
             </DetailDescriptionWrapper>
             <DetailDescriptionWrapper>
               <Icon src="/images/instaIcon.svg" />
-              <DescriptionText $isBlack={true}>test</DescriptionText>
+              <DescriptionText $isBlack={true}>{instagramId}</DescriptionText>
             </DetailDescriptionWrapper>
           </DetailCardSection>
         </>

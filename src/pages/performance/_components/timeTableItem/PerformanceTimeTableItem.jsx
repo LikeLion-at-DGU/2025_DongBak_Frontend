@@ -8,7 +8,15 @@ import {
 } from "../base/PerformancTime";
 import { PerformanceCard } from "../base/PerformanceCard";
 
-export const PerformanceTimeTableItem = ({ time, isNow }) => {
+export const PerformanceTimeTableItem = ({
+  time,
+  isNow,
+  title,
+  timeSchedule,
+  songs,
+  members,
+  instagramId,
+}) => {
   const [isFirstCardOpen, setIsFirstCardOpen] = useState(false);
   const [isSecondCardOpen, setIsSecondCardOpen] = useState(false);
   return (
@@ -27,17 +35,21 @@ export const PerformanceTimeTableItem = ({ time, isNow }) => {
       <S.DividerLine />
       <S.CardWrapper>
         <PerformanceCard
-          title={"test1"}
+          title={title}
           isOpen={isFirstCardOpen}
           setStatus={() => setIsFirstCardOpen(!isFirstCardOpen)}
           isNow={isNow}
+          time={timeSchedule}
+          songs={songs}
+          members={members}
+          instagramId={instagramId}
         />
-        <PerformanceCard
+        {/* <PerformanceCard
           title={"test2"}
           isOpen={isSecondCardOpen}
           setStatus={() => setIsSecondCardOpen(!isSecondCardOpen)}
           isNow={isNow}
-        />
+        /> */}
       </S.CardWrapper>
     </S.Wrapper>
   );
