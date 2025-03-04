@@ -1,19 +1,29 @@
-import * as S from "./styled";
-import search from "/images/search-normal.svg";
-import Menubar from "/images/Menubars.svg";
-import useCustomNavigate from "@hooks/useCustomNavigate";
-import { ROUTE_PATHS } from "@constants/routeConstants";
-export const Header = ({ title, isTrue = false }) => {
+import * as S from './styled';
+import { useState } from 'react';
+import search from '/images/search-normal.svg';
+import Menubar from '/images/Menubars.svg';
+import { ROUTE_PATHS } from '@constants/routeConstants';
+import useCustomNavigate from '@hooks/useCustomNavigate';
+import { Fade as Hamburger } from 'hamburger-react';
+import { Sidebar } from '@components/Sidebar/Sidebar';
+
+export const Header = ({ title, isTrue = false, isDev = false }) => {
   const { goToPage } = useCustomNavigate();
+  const [isOpen, setOpen] = useState(false);
+
   return (
-    <S.TitleContainer>
+    <S.TitleContainer $isDev={isDev}>
       <S.Title>{title}</S.Title>
       <S.ImgBox>
         {isTrue && (
-          <img src={search} onClick={() => goToPage(ROUTE_PATHS.SEARCH)} />
+          <S.Image src={search} onClick={() => goToPage(ROUTE_PATHS.SEARCH)} />
         )}
-        <img src={Menubar} />
+        <S.HamburgerBox>
+          <Hamburger size={20} toggled={isOpen} toggle={setOpen} />
+        </S.HamburgerBox>
       </S.ImgBox>
+
+      {isOpen && <Sidebar setOpen={setOpen} />}
     </S.TitleContainer>
   );
 };

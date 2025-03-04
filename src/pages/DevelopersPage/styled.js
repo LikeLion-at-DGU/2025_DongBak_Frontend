@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -7,7 +7,13 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 540px;
   gap: 100px;
-  background: linear-gradient(180deg, #FFFFF9 11.97%, rgba(232, 237, 221, 0.40) 46.45%, rgba(238, 241, 229, 0.40) 62.41%, #FFFFF9 87.77%);
+  background: linear-gradient(
+    180deg,
+    #fffff9 11.97%,
+    rgba(232, 237, 221, 0.4) 46.45%,
+    rgba(238, 241, 229, 0.4) 62.41%,
+    #fffff9 87.77%
+  );
 `;
 
 export const Container = styled.div`
@@ -20,7 +26,7 @@ export const Container = styled.div`
 export const SloganImage = styled.div`
   width: 80%;
   max-width: 540px;
-  background: url("/images/makers-slogan.svg") no-repeat center;
+  background: url('/images/makers-slogan.svg') no-repeat center;
   background-size: cover;
   padding-top: 70%;
 `;
@@ -34,6 +40,8 @@ export const LinktoMSITE = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 5px;
+
+  cursor: pointer;
 `;
 
 export const Icon13 = styled.img`

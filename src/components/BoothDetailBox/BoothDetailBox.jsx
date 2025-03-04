@@ -1,9 +1,9 @@
-import * as S from "./styled";
-import { useState } from "react";
-import pin from "/images/pin.svg";
-import clock from "/images/clock.svg";
-import defaultImg from "/images/defaultImg.svg";
-import useCustomNavigate from "@hooks/useCustomNavigate";
+import * as S from './styled';
+import { useState } from 'react';
+import pin from '/images/pin.svg';
+import clock from '/images/clock.svg';
+import defaultImg from '/images/defaultImg.svg';
+import useCustomNavigate from '@hooks/useCustomNavigate';
 export const BoothDetailBox = ({
   booth = {},
   type,
@@ -41,20 +41,20 @@ export const BoothDetailBox = ({
       <S.TextContainer>
         <S.TextBox>
           <S.MainText>
-            {isFood ? "푸드트럭" : booth.club_name || "정보 없음"}
+            {isFood ? '푸드트럭' : booth.club_name || '정보 없음'}
           </S.MainText>
           <S.SubText>
             {isFood
               ? booth.food_truck_name
-              : booth.booth_name || "부스 정보 없음"}
+              : booth.booth_name || '부스 정보 없음'}
           </S.SubText>
         </S.TextBox>
         <S.TextDetailBox>
           <S.TextDetail>
             <img src={pin} />
             <S.TextInfo>
-              {booth?.day?.map((d) => `(${d.name})`).join(", ") ||
-                "(요일 정보 없음)"}
+              {booth?.day?.map((d) => `(${d.name})`).join(', ') ||
+                '(요일 정보 없음)'}
               {booth.start_time}~{booth.end_time}
             </S.TextInfo>
           </S.TextDetail>
