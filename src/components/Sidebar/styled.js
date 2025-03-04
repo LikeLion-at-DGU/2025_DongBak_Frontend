@@ -2,26 +2,25 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 
-export const Wrapper = styled.div`
-  top: 0;
-  left: 0;
+export const Wrapper = styled(motion.div)`
+  position: absolute;
   width: 100%;
   max-width: 540px;
   min-height: 100vh;
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 11;
+  top: ${({ $top }) => $top}px; /* ✅ 스크롤 위치 반영 */
 `;
 
 export const Background = styled.div`
   width: 100%;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -10vh;
   max-width: 540px;
-  height: 100vh;
+  height: 120vh;
   background-color: ${({ theme }) => transparentize(0.6, theme.colors.gray200)};
 `;
 
@@ -30,14 +29,15 @@ export const Sidebar = styled(motion.div)`
   position: absolute;
   right: 0;
   max-width: 270px;
-  height: 100vh;
+  height: 120vh;
+  top: -10vh;
   z-index: 12;
   background-color: ${({ theme }) => theme.colors.bg200};
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 7.5rem;
   gap: 40px;
+  padding-top: calc(8rem + 10vh);
 `;
 
 export const Image = styled.img`
@@ -64,6 +64,6 @@ export const AboutUs = styled.div`
   background: rgba(200, 214, 176, 0.5);
 
   padding: 9px 30px;
-  bottom: 30px;
+  bottom: calc(10vh + 150px);
   cursor: pointer;
 `;
