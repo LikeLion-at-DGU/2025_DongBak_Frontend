@@ -2,17 +2,24 @@ import * as S from "./styled";
 import { useState } from "react";
 import pin from "/images/pin.svg";
 import clock from "/images/clock.svg";
-import defaultImg from "/images/defaultImg.svg";
+// import defaultImg from "/images/defaultImg.svg";
+import defaultImg from "/images/defaultImage.png";
+
 import useCustomNavigate from "@hooks/useCustomNavigate";
+import { NO_DATA_MSG } from "@constants/common";
+import { CATEGORYNAME } from "@constants/Booth/data";
+
 export const BoothDetailBox = ({
   booth = {},
   type,
   isSelected = false,
   onSelect,
+  goWithBooths,
 }) => {
   const { goToPage } = useCustomNavigate();
 
   const onSelectBoothDetail = () => {
+    console.log("부스디테일박스booth", booth);
     if (onSelect) {
       onSelect(booth.booth_num);
     }
@@ -20,11 +27,18 @@ export const BoothDetailBox = ({
   const isFood = !booth.booth_name && booth.food_truck_num;
 
   return (
-    <S.BoothDContainer $isVisible={isSelected} onClick={onSelectBoothDetail}>
+    <S.BoothDContainer
+      $isVisible={isSelected}
+      onClick={() => {
+        onSelectBoothDetail();
+        console.log("BoothDetailBox 클릭됨, 부스 정보:", booth);
+        goWithBooths(booth); // ✅ 부스 페이지로 이동 추가
+      }}
+    >
       <S.DetailBtn
         $isVisible={isSelected}
         onClick={(e) => {
-          e.stopPropagation(); //  부모의 onClick이 실행되지 않도록 이벤트 버블링 방지
+          e.stopPropagation();
           goToPage(`/${type}/${booth.id}`);
         }}
       >
@@ -33,28 +47,25 @@ export const BoothDetailBox = ({
       <S.BoothDImg
         src={
           isFood
-            ? booth.food_truck_image?.[0]?.image
-            : booth.booth_image?.[0]?.image || defaultImg
+            ? booth?.food_truck_image?.image
+            : booth?.booth_image?.image || defaultImg
         }
       />
 
       <S.TextContainer>
         <S.TextBox>
           <S.MainText>
-            {isFood ? "푸드트럭" : booth.club_name || "정보 없음"}
+            {isFood ? CATEGORYNAME.FOODTRUCK : booth.club_name || NO_DATA_MSG}
           </S.MainText>
           <S.SubText>
-            {isFood
-              ? booth.food_truck_name
-              : booth.booth_name || "부스 정보 없음"}
+            {isFood ? booth.food_truck_name : booth.booth_name || NO_DATA_MSG}
           </S.SubText>
         </S.TextBox>
         <S.TextDetailBox>
           <S.TextDetail>
             <img src={pin} />
             <S.TextInfo>
-              {booth?.day?.map((d) => `(${d.name})`).join(", ") ||
-                "(요일 정보 없음)"}
+              {booth?.day?.map((d) => `(${d.name})`).join(", ") || NO_DATA_MSG}
               {booth.start_time}~{booth.end_time}
             </S.TextInfo>
           </S.TextDetail>

@@ -2,10 +2,10 @@ import * as S from "./styled";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { SEARCHPAGE_CONSTANT } from "../../constants/searchPageConstant";
-import { SearchBox } from "../../components/SearchBox/SearchBox";
-import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
-import { useBoothSearch } from "../../hooks/useSearch";
+import { SEARCHPAGE_CONSTANT } from "@constants/searchPageConstant";
+import { SearchBox } from "@components/SearchBox/SearchBox";
+import { BoothDetailBox } from "@components/BoothDetailBox/BoothDetailBox";
+import { useBoothSearch } from "@hooks/useSearch";
 import { ErrorBox } from "@components/errorBox/ErrorBox";
 
 export const SearchPage = () => {
@@ -21,7 +21,8 @@ export const SearchPage = () => {
 
   // 부스 클릭 시 해당 부스 데이터만 전달
   const goWithBooths = (booth) => {
-    navigate("/booth/", { state: { booth } });
+    console.log("booth보내지나?", booth);
+    navigate("/booth", { state: { booth } });
   };
 
   return (
@@ -42,11 +43,7 @@ export const SearchPage = () => {
 
         {/* 부스 검색 결과 */}
         {results?.booths?.map((booth) => (
-          <BoothDetailBox
-            key={booth.id}
-            booth={booth}
-            onClick={() => goWithBooths(booth)}
-          />
+          <BoothDetailBox key={booth.id} booth={booth} onClick={goWithBooths} />
         ))}
 
         {/* 푸드트럭 검색 결과 */}
@@ -54,7 +51,7 @@ export const SearchPage = () => {
           <BoothDetailBox
             key={foodTruck.id}
             booth={foodTruck}
-            onClick={() => goWithBooths(foodTruck)}
+            goWithBooths={goWithBooths}
           />
         ))}
       </S.BoothContainer>

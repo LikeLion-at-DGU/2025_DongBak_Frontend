@@ -8,5 +8,5 @@ export const BoothDWrapper = styled.div`
   width: 100%;
   gap: 20px;
   overflow-y: auto;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 `;

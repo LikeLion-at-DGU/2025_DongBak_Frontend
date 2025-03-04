@@ -1,7 +1,11 @@
 import * as S from "./styled";
-import MAP1 from "/images/map1.svg";
-import MAP2 from "/images/map2.svg";
-import mappin from "/images/mappin.svg";
+// import MAP1 from "/images/map1.svg";
+// import MAP2 from "/images/map2.svg";
+import MAP1 from "/images/map1.png";
+import MAP2 from "/images/map2.png";
+// import mappin from "/images/mappin.svg";
+import mappin from "/images/pinkPin.png";
+
 import SlideBar2 from "/images/SlideBar2.svg";
 import SlideBar from "/images/SlideBar.svg";
 
@@ -10,7 +14,7 @@ import { PLACENAME } from "@constants/Booth/data";
 export const BoothMap = ({
   selectedPlace,
   boothPosition,
-  selectedPin,
+  selectedPins,
   onClearSelection,
   onSelectBoothFromMap,
 }) => {
@@ -27,14 +31,14 @@ export const BoothMap = ({
                   gridRow: `${rowStart} / ${rowEnd}`,
                 }}
                 onClick={(e) => {
-                  e.stopPropagation(); // ✅ 빈 공간 클릭 이벤트와 겹치지 않도록 방지
+                  e.stopPropagation();
                   onSelectBoothFromMap(id);
                 }}
               >
                 <S.GridItem
                   src={mappin}
                   style={{
-                    display: selectedPin === id ? "block" : "none",
+                    display: selectedPins.includes(id) ? "block" : "none",
                   }}
                 />
               </S.GridArea>

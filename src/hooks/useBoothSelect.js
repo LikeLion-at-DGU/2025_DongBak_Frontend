@@ -11,8 +11,8 @@ export const useBoothSelection = () => {
   }, [selectedPlace]);
 
   const handlePinClick = (boothNum) => {
-    if (!boothNum) return; // ✅ boothNum이 없으면 실행하지 않음
-    setSelectedPin(boothNum); // ✅ 선택된 핀 유지
+    if (!boothNum) return;
+    setSelectedPin(boothNum);
   };
 
   const boothPosition =
