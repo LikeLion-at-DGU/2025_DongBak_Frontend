@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  width: 100%;
+  width: 50%;
   max-width: 270px;
   height: 100vh;
   background-color: ${({ theme }) => transparentize(0.6, theme.colors.gray200)};
@@ -31,9 +31,8 @@ export const Sidebar = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 7.5rem;
   gap: 40px;
-  padding-bottom: 200px;
 `;
 
 export const Image = styled.img`
