@@ -43,7 +43,7 @@ export const FoodDetailPage = () => {
   };
 
   return (
-    <S.BoothContainer>
+    <S.DetailBoothContainer>
       <S.BoothDHeader>
         <img src={backIcon} onClick={goBack} />
         <div>푸드트럭 안내</div>
@@ -83,6 +83,6 @@ export const FoodDetailPage = () => {
           <div>해당 부스를 찾을 수 없습니다.</div>
         )}
       </S.InfoContainer>
-    </S.BoothContainer>
+    </S.DetailBoothContainer>
   );
 };
