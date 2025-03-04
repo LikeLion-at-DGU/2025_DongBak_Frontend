@@ -1,11 +1,11 @@
-import * as S from "./styled";
-import { useState, useEffect } from "react";
-import search from "/images/search-normal.svg";
-import Back from "/images/SearchBack.svg";
-import { ROUTE_PATHS } from "@constants/routeConstants";
-import useCustomNavigate from "@hooks/useCustomNavigate";
-import { Fade as Hamburger } from "hamburger-react";
-import { Sidebar } from "@components/Sidebar/Sidebar";
+import * as S from './styled';
+import { useState, useEffect } from 'react';
+import search from '/images/search-normal.svg';
+import Back from '/images/SearchBack.svg';
+import { ROUTE_PATHS } from '@constants/routeConstants';
+import useCustomNavigate from '@hooks/useCustomNavigate';
+import { Fade as Hamburger } from 'hamburger-react';
+import { Sidebar } from '@components/Sidebar/Sidebar';
 
 export const Header = ({
   title,
@@ -16,25 +16,22 @@ export const Header = ({
   const { goToPage } = useCustomNavigate();
   const [isOpen, setOpen] = useState(false);
 
-  const preventScroll = (e) => {
-    e.preventDefault();
-  };
+  const [scrollY, setScrollY] = useState(0); // ✅ 스크롤 값 상태 추가
 
+  // ✅ 스크롤 이벤트 핸들러
   useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-      document.addEventListener("touchmove", preventScroll, { passive: false });
-      document.addEventListener("wheel", preventScroll, { passive: false });
+      window.addEventListener('scroll', handleScroll);
     } else {
-      document.body.style.overflow = "auto";
-      document.removeEventListener("touchmove", preventScroll);
-      document.removeEventListener("wheel", preventScroll);
+      setScrollY(0); // ✅ sidebar가 닫히면 초기값으로 리셋
     }
 
     return () => {
-      document.body.style.overflow = "auto";
-      document.removeEventListener("touchmove", preventScroll);
-      document.removeEventListener("wheel", preventScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isOpen]);
 
@@ -50,9 +47,9 @@ export const Header = ({
   return (
     <div
       style={{
-        position: "relative",
-        width: "100%",
-        paddingTop: "2rem",
+        position: 'relative',
+        width: '100%',
+        paddingTop: '2rem',
       }}
     >
       {isOpen && <Sidebar setOpen={setOpen} />}
@@ -70,7 +67,11 @@ export const Header = ({
               onClick={() => goToPage(ROUTE_PATHS.SEARCH)}
             />
           )}
-          <S.HamburgerBox>
+          <S.HamburgerBox
+            initial={{ y: 0 }}
+            animate={{ y: scrollY }}
+            transition={{ type: 'tween', duration: 0.01 }}
+          >
             <Hamburger size={20} toggled={isOpen} toggle={setOpen} />
           </S.HamburgerBox>
         </S.SecondImgBox>

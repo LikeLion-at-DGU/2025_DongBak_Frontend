@@ -16,7 +16,6 @@ export const ExpandableText = ({
       ? formattedText.slice(0, maxLength) + "..."
       : formattedText;
 
-  console.log("isExpanded", isExpanded);
   return (
     <S.TextContainer
       $isOneSentence={isOneSentence}

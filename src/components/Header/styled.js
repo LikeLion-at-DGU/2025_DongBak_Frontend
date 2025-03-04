@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -8,8 +10,6 @@ export const TitleContainer = styled.div`
   position: relative;
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
-
-
 `;
 
 export const Title = styled.div`
@@ -33,6 +33,7 @@ export const SecondImgBox = styled.div`
 
 export const Image = styled.img``;
 
-export const HamburgerBox = styled.div`
+export const HamburgerBox = styled(motion.div)`
   z-index: 20;
+  position: relative;
 `;

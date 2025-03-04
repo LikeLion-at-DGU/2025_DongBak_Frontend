@@ -54,6 +54,12 @@ export const TextBox = styled.div`
   align-items: center;
   gap: 7px;
 `;
+export const InstaTextBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+`;
 export const TextInfo = styled.div`
   ${({ theme }) => theme.fonts.SUITEM3};
   color: ${({ theme }) => theme.colors.black};
@@ -69,5 +75,5 @@ export const FirstText = styled.div`
   ${({ theme }) => theme.fonts.SUITEM3};
   color: ${({ theme }) => theme.colors.black};
   display: flex;
-  min-width: 20%;
+  min-width: 23%;
 `;
