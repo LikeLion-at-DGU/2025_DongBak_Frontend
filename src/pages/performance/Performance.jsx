@@ -11,7 +11,7 @@ import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useState } from "react";
 import { usePerformanceData } from "@hooks/usePerformanceData";
-import { WED_DAY, NO_DATA_MSG } from "@constants/common";
+import { WED_DAY } from "@constants/common";
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -21,44 +21,23 @@ export const Performance = () => {
   const nowTime = useNowTime();
   const now = dayjs(nowTime, "HH:mm");
   const [day, setDay] = useState(WED_DAY);
-  // const [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
-  // TO-DO: 당일 코드
+  // TODO: 당일 코드 const [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
   const performanceData = usePerformanceData(day);
-
   return (
     <S.Container>
       <PerformanceHeader day={day} setDay={setDay} />
-      <PerformanceContainer>
-        {performanceData?.map((timeData, index) => {
-          const start = dayjs(timeData.startTime, "HH:mm");
-          const end = dayjs(timeData.endTime, "HH:mm");
-          const isNow = now.isSameOrAfter(start) && now.isBefore(end);
+      <PerformanceContainer key={day}>
+        {performanceData?.map(({ time, performances }, index) => {
+          const isNow = now.isSame(dayjs(time, "HH:mm"), "hour");
           return (
             <PerformanceTimeTableItem
               key={index}
-              time={timeData.startTime}
+              nowTime={now}
+              time={time}
               isNow={isNow}
-              title={`${timeData.category} | ${timeData.clubName}`}
-              timeSchedule={`${timeData.startTime} ~ ${timeData.endTime}`}
-              songs={
-                timeData.songs.length > 1
-                  ? timeData.songs.join(" | ")
-                  : timeData.songs.length === 1
-                  ? timeData.songs[0]
-                  : NO_DATA_MSG
-              }
-              members={
-                timeData.members.length > 1
-                  ? timeData.members.join(" ﹒ ")
-                  : timeData.members.length === 1
-                  ? timeData.members[0]
-                  : NO_DATA_MSG
-              }
-              instagramId={
-                timeData.instagramId && timeData.instagramId !== "-"
-                  ? `@${timeData.instagramId}`
-                  : NO_DATA_MSG
-              }
+              // TODO: 당일 업데이트 isNow={dayjs().format("dddd").toLowerCase() === day && isNow}
+              firstCard={performances[0]}
+              secondCard={performances[1] ?? null}
             />
           );
         })}

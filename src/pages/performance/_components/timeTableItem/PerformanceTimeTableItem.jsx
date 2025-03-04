@@ -7,15 +7,17 @@ import {
   PerformanceTimeType,
 } from "../base/PerformancTime";
 import { PerformanceCard } from "../base/PerformanceCard";
+import { NO_DATA_MSG } from "@constants/common";
+
+import isBetween from "dayjs/plugin/isBetween";
+dayjs.extend(isBetween);
 
 export const PerformanceTimeTableItem = ({
+  nowTime,
   time,
   isNow,
-  title,
-  timeSchedule,
-  songs,
-  members,
-  instagramId,
+  firstCard,
+  secondCard,
 }) => {
   const [isFirstCardOpen, setIsFirstCardOpen] = useState(false);
   const [isSecondCardOpen, setIsSecondCardOpen] = useState(false);
@@ -35,21 +37,70 @@ export const PerformanceTimeTableItem = ({
       <S.DividerLine />
       <S.CardWrapper>
         <PerformanceCard
-          title={title}
+          title={firstCard.category + " | " + firstCard.clubName}
           isOpen={isFirstCardOpen}
           setStatus={() => setIsFirstCardOpen(!isFirstCardOpen)}
-          isNow={isNow}
-          time={timeSchedule}
-          songs={songs}
-          members={members}
-          instagramId={instagramId}
+          isNow={
+            isNow &&
+            dayjs(nowTime, "HH:mm").isBetween(
+              dayjs(firstCard.startTime, "HH:mm"),
+              dayjs(firstCard.endTime, "HH:mm"),
+              "minute",
+              "[]"
+            )
+          }
+          time={firstCard.startTime + " ~ " + firstCard.endTime}
+          songs={
+            firstCard.songs.length > 0
+              ? firstCard.songs.map(({ name }) => name).join()
+              : NO_DATA_MSG
+          }
+          members={
+            firstCard.members.length > 0
+              ? firstCard.members.map(({ name }) => name).join()
+              : NO_DATA_MSG
+          }
+          instagramId={
+            firstCard.instagramId && firstCard.instagramId !== "-"
+              ? `@${firstCard.instagramId}`
+              : NO_DATA_MSG
+          }
+          imageUrl={firstCard.logo ?? null}
         />
-        {/* <PerformanceCard
-          title={"test2"}
-          isOpen={isSecondCardOpen}
-          setStatus={() => setIsSecondCardOpen(!isSecondCardOpen)}
-          isNow={isNow}
-        /> */}
+
+        {secondCard && (
+          <PerformanceCard
+            title={secondCard.category + " | " + secondCard.clubName}
+            isOpen={isSecondCardOpen}
+            setStatus={() => setIsSecondCardOpen(!isSecondCardOpen)}
+            isNow={
+              isNow &&
+              dayjs(nowTime, "HH:mm").isBetween(
+                dayjs(secondCard.startTime, "HH:mm"),
+                dayjs(secondCard.endTime, "HH:mm"),
+                "minute",
+                "[]"
+              )
+            }
+            time={secondCard.startTime + " ~ " + secondCard.endTime}
+            songs={
+              secondCard.songs.length > 0
+                ? secondCard.songs.map(({ name }) => name).join()
+                : NO_DATA_MSG
+            }
+            members={
+              secondCard.members.length > 0
+                ? secondCard.members.map(({ name }) => name).join()
+                : NO_DATA_MSG
+            }
+            instagramId={
+              secondCard.instagramId && secondCard.instagramId !== "-"
+                ? `@${secondCard.instagramId}`
+                : NO_DATA_MSG
+            }
+            imageUrl={secondCard.logo ?? null}
+          />
+        )}
       </S.CardWrapper>
     </S.Wrapper>
   );

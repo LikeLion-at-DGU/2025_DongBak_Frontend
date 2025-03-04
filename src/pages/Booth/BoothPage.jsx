@@ -1,3 +1,4 @@
+
 import * as S from "./styled";
 
 import { useLocation } from "react-router-dom";
@@ -17,6 +18,7 @@ import { ErrorBox } from "@components/errorBox/ErrorBox";
 import { CATEGORYNAME } from "@constants/Booth/data";
 import { PLACENAME } from "@constants/Booth/data";
 
+
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
   const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
@@ -24,8 +26,10 @@ export const BoothPage = () => {
   const [activeBoothNums, setActiveBoothNums] = useState([]);
 
   const location = useLocation();
+
   const SearchResult = location.state;
   console.log("테스틍틍", SearchResult);
+
 
   const {
     selectedPin,
@@ -38,14 +42,18 @@ export const BoothPage = () => {
     boothPosition,
   } = useBoothSelection();
 
-  const day = isFirstDate ? "wednesday" : "thursday";
+
+  const day = isFirstDate ? 'wednesday' : 'thursday';
+
 
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
 
+
   const foodList = foodData?.[selectedPlace] ?? [];
 
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
+
 
   const searchBooths = SearchResult?.results?.booths || [];
   const searchFoodTrucks = SearchResult?.results?.food_trucks || [];
@@ -64,6 +72,7 @@ export const BoothPage = () => {
 
     return null;
   }, [hasSearchResults, searchBooths]);
+
 
   useEffect(() => {
     if (PlaceUpdate) {
@@ -116,6 +125,7 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
+
         <S.FixedHeader>
           <Header
             title={"부스안내"}
@@ -123,6 +133,7 @@ export const BoothPage = () => {
             hasSearchResults={hasSearchResults}
           />
         </S.FixedHeader>
+
         <S.HeaderWrapper>
           <DateSelector
             isFirstDate={isFirstDate}
@@ -164,7 +175,7 @@ export const BoothPage = () => {
                 : displayedBoothList
             }
             type={
-              selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"
+              selectedCategory === CATEGORYNAME.FOODTRUCK ? 'food' : 'booth'
             }
             hasSearchResults={hasSearchResults}
             isSelectedFromMap={isSelectedFromMap}
