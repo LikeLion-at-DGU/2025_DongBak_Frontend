@@ -60,4 +60,14 @@ export const TextInfo = styled.div`
   white-space: normal;
   word-break: break-word;
   overflow-wrap: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+`;
+export const FirstText = styled.div`
+  ${({ theme }) => theme.fonts.SUITEM3};
+  color: ${({ theme }) => theme.colors.black};
+  display: flex;
+  min-width: 20%;
 `;

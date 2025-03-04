@@ -112,6 +112,11 @@ export const BoothPage = () => {
     handlePinClick(boothNum);
     setIsSelectedFromMap(true);
     setSelectedBoothNum(null);
+    if (boothNum >= 100) {
+      setSelectedCategory(CATEGORYNAME.FOODTRUCK);
+    } else {
+      setSelectedCategory(CATEGORYNAME.BOOTH);
+    }
   };
 
   const onSelectBoothFromList = (boothNum) => {
