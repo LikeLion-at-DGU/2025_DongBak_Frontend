@@ -6,15 +6,21 @@ export const BoothDContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  min-height: 103px;
+
   padding: 10px 14px;
   flex-direction: row;
   gap: 10px;
   background-color: ${({ $isVisible, theme }) =>
     $isVisible ? theme.colors.green500 : theme.colors.green600};
-
+  cursor: pointer;
   border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: ${({ $isVisible }) =>
+    $isVisible
+      ? "0px 3px 6px 0px rgba(0, 0, 0, 0.25)"
+      : "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"};
+  @media (max-width: 414px) {
+    padding: 8px;
+  }
 `;
 
 export const DetailBtn = styled.div`
@@ -47,6 +53,9 @@ export const TextBox = styled.div`
 `;
 
 export const MainText = styled.div`
+  @media (max-width: 414px) {
+    ${({ theme }) => theme.fonts.SUITEB2};
+  }
   ${({ theme }) => theme.fonts.SUITEB1};
   color: ${({ theme }) => theme.colors.black};
   width: 100%;
