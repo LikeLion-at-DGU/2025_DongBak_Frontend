@@ -23,6 +23,7 @@ export const Background = styled.div`
 `;
 
 export const Sidebar = styled(motion.div)`
+  position: relative;
   width: 50%;
   max-width: 270px;
   height: 100vh;
@@ -59,6 +60,6 @@ export const AboutUs = styled.div`
   background: rgba(200, 214, 176, 0.5);
 
   padding: 9px 30px;
-  bottom: 30px;
+  bottom: 10%;
   cursor: pointer;
 `;
