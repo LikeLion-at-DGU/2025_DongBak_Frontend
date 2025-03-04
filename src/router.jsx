@@ -7,7 +7,7 @@ import { MainPage } from "./pages/mainpage/MainPage";
 import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
 import { BoothPage } from "./pages/Booth/BoothPage";
 import { SearchPage } from "./pages/SearchPage/SearchPage";
-import { NotFound } from "./pages/notFound/NotFound";
+import { NotFound } from "./pages/notfound/NotFound";
 
 import { Performance } from "./pages/performance/Performance";
 
