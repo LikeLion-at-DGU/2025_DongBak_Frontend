@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
 
-  margin-top: ${({ $isDev }) => ($isDev ? "2rem" : "0")};
+
 `;
 
 export const Title = styled.div`

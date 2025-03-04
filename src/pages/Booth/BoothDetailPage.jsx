@@ -14,6 +14,7 @@ import useCustomNavigate from "@hooks/useCustomNavigate";
 import shareIcon from "/images/shareIcon.svg";
 import backIcon from "/images/backIcon.svg";
 import defaultImg from "/images/defaultImg.svg";
+import { Footer } from "@components/footer/Footer";
 const defaultImages = [defaultImg];
 
 export const BoothDetailPage = () => {
