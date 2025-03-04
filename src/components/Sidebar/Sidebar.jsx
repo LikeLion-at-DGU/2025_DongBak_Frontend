@@ -1,32 +1,31 @@
-import * as S from './styled';
-import { useLocation } from 'react-router-dom';
+import * as S from "./styled";
+import { useLocation } from "react-router-dom";
 
-import hamburger from '/images/hamburger.svg';
-import useCustomNavigate from '@hooks/useCustomNavigate';
-import { ROUTE_PATHS } from '@constants/routeConstants';
-import { SIDEBAR_CONSTANT } from '@constants/sidebarConstant';
+import hamburger from "/images/hamburger.svg";
+import useCustomNavigate from "@hooks/useCustomNavigate";
+import { ROUTE_PATHS } from "@constants/routeConstants";
+import { SIDEBAR_CONSTANT } from "@constants/sidebarConstant";
 
 export const Sidebar = ({ setOpen }) => {
   const { goToPage } = useCustomNavigate();
   const location = useLocation();
   const handleNavigation = (path) => {
     if (location.pathname === path) {
-      setOpen(false); // 현재 경로와 같으면 닫기만 실행
+      setOpen(false);
     } else {
-      goToPage(path); // 다른 경로일 때만 이동
-      setOpen(false); // 이동 후 사이드바 닫기
+      goToPage(path);
+      setOpen(false);
     }
   };
-
 
   return (
     <S.Wrapper>
       <S.Background />
       <S.Sidebar
-        initial={{ x: '100%' }}
+        initial={{ x: "100%" }}
         animate={{ x: 0 }}
-        exit={{ x: '100%' }}
-        transition={{ type: 'tween', duration: 0.3 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "tween", duration: 0.3 }}
         onClick={(e) => e.stopPropagation()}
       >
         <S.Image src={hamburger} />
