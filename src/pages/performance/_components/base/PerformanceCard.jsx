@@ -91,11 +91,12 @@ export const PerformanceCard = ({
   songs,
   members,
   instagramId,
+  imageUrl,
 }) => {
   return (
     <Wrapper $isNow={isNow}>
       <PreviewCardSection>
-        <CardImage src="/images/makers-slogan.svg" />
+        <CardImage src={imageUrl ? imageUrl : "/images/defaultImg.svg"} />
         <div>
           <CardTitle>{title}</CardTitle>
           <TimeWrapper>
