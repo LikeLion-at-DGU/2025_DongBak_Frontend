@@ -11,7 +11,6 @@ export const RecruitInfo = ({ booth }) => {
       return null;
     }
 
-    // ✅ 다양한 Instagram URL 패턴 지원
     const match = url.match(
       /(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p\/|reel\/|stories\/|s|tv\/)?([^/?#&]+)/
     );
@@ -20,8 +19,6 @@ export const RecruitInfo = ({ booth }) => {
   };
 
   const instagramId = extractInstagramId(booth.insta_url[0]);
-  console.log("instagramId", instagramId);
-  console.log("booth.insta_url:", booth.insta_url);
 
   return (
     <S.InfoContainer>

@@ -25,7 +25,6 @@ export const BoothDetailPage = () => {
   }, []);
 
   const { boothData } = useBoothDetail(id);
-  console.log("boothData", boothData);
 
   const images = boothData?.booth_image?.length
     ? boothData.booth_image.map((img) => img.image)
