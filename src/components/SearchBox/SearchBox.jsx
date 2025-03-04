@@ -1,7 +1,7 @@
-import * as S from "./styled";
+import * as S from './styled';
 
-import { SearchInput } from "../inputs/SearchInput/SearchInput";
-import useCustomNavigate from "../../hooks/useCustomNavigate";
+import { SearchInput } from '../inputs/SearchInput/SearchInput';
+import useCustomNavigate from '../../hooks/useCustomNavigate';
 
 export const SearchBox = ({
   placehoder,
