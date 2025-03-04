@@ -1,9 +1,9 @@
-import * as S from './styled';
-import { DEVELOPER_CONSTANT } from '../../constants/developerpageConstants';
-import { DEVELOPER_CARD_CONSTANT } from '../../constants/developerpageConstants';
-import { DeveloperCard } from '../../components/DeveloperCard/DeveloperCard';
-import { Header } from '@components/Header/Header';
-import { Footer } from '@components/footer/Footer';
+import * as S from "./styled";
+import { DEVELOPER_CONSTANT } from "../../constants/developerpageConstants";
+import { DEVELOPER_CARD_CONSTANT } from "../../constants/developerpageConstants";
+import { DeveloperCard } from "../../components/DeveloperCard/DeveloperCard";
+import { Header } from "@components/Header/Header";
+import { Footer } from "@components/footer/Footer";
 
 export const DevelopersPage = () => {
   return (
@@ -28,10 +28,10 @@ export const DevelopersPage = () => {
               src={DEVELOPER_CONSTANT.TITLE[category]}
               alt={category}
             />
-            {category === 'ABOUTUS' ? (
+            {category === "ABOUTUS" ? (
               <S.Container>
                 {members.map((text, index) =>
-                  text === '' ? (
+                  text === "" ? (
                     <br key={index} />
                   ) : (
                     <S.AboutUsText key={index}>{text}</S.AboutUsText>

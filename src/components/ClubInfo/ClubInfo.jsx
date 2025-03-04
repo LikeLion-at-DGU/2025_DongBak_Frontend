@@ -2,7 +2,6 @@ import * as S from "./styled";
 import { ExpandableText } from "@components/ExpandableText/ExpandableText";
 import defaultImg from "/images/defaultImage.png";
 export const ClubInfo = ({ booth }) => {
-  console.log("boothLogo", booth.club_logo);
   return (
     <S.InfoContainer>
       <S.Title>{booth.club_name}을 소개해요!</S.Title>

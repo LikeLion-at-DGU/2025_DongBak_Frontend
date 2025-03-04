@@ -21,7 +21,6 @@ export const FoodDetailPage = () => {
     window.scrollTo(0, 0);
   }, []);
   const { foodDetail } = useFoodDetail(id);
-  console.log("foodDetail", foodDetail);
 
   const images = foodDetail?.food_truck_image?.length
     ? foodDetail.food_truck_image.map((img) => img.image)

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 export const SloganImage = styled.div`
   width: 80%;
   max-width: 540px;
-  background: url('/images/makers-slogan.svg') no-repeat center;
+  background: url("/images/makers-slogan.svg") no-repeat center;
   background-size: cover;
   padding-top: 70%;
 `;
@@ -50,7 +50,8 @@ export const Icon13 = styled.img`
 `;
 
 export const CategoryTitle = styled.img`
-  scale: 1.2;
+  /* scale: 1.2; */
+  height: 2rem;
   margin-bottom: 2rem;
 `;
 
