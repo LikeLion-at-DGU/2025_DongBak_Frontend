@@ -64,6 +64,6 @@ export const CardWrap = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   padding: 0 10px;
 `;

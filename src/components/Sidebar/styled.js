@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { transparentize } from "polished";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { transparentize } from 'polished';
 
 export const Wrapper = styled.div`
   top: 0;
@@ -16,14 +16,19 @@ export const Wrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  width: 50%;
-  max-width: 270px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 540px;
   height: 100vh;
   background-color: ${({ theme }) => transparentize(0.6, theme.colors.gray200)};
 `;
 
 export const Sidebar = styled(motion.div)`
   width: 50%;
+  position: absolute;
+  right: 0;
   max-width: 270px;
   height: 100vh;
   z-index: 12;

@@ -15,6 +15,7 @@ import { BoothMap } from "@components/BoothMap/BoothMap";
 import { ErrorBox } from "@components/errorBox/ErrorBox";
 import { CATEGORYNAME } from "@constants/Booth/data";
 import { PLACENAME } from "@constants/Booth/data";
+import { Footer } from "@components/footer/Footer";
 
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
@@ -177,6 +178,7 @@ export const BoothPage = () => {
           />
         )}
       </S.BoothDBox>
+      <Footer />
     </S.BoothContainer>
   );
 };
