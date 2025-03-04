@@ -9,13 +9,13 @@ export const BoothContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bg300};
   min-height: 100vh;
   min-width: 375px;
-  max-width: 100%;
+  max-width: 540px;
   width: 100%;
   padding-bottom: 25px;
 `;
 export const HeaderBox = styled.div`
   display: flex;
-  width: 100%;
+  max-width: 100%;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -26,6 +26,7 @@ export const FixedHeader = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
+  max-width: 540px;
   background-color: ${({ theme }) => theme.colors.bg300};
   top: 0;
   height: 60px;
@@ -208,7 +209,6 @@ export const SlideContent = styled.div`
 export const SlideImage = styled.img`
   width: 100%;
   height: auto;
-  max-height: 500px;
   object-fit: contain;
 `;
 export const ErrorBoxContainer = styled.div`

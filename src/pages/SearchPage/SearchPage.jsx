@@ -2,10 +2,10 @@ import * as S from "./styled";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { SEARCHPAGE_CONSTANT } from "../../constants/searchPageConstant";
-import { SearchBox } from "../../components/SearchBox/SearchBox";
-import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
-import { useBoothSearch } from "../../hooks/useSearch";
+import { SEARCHPAGE_CONSTANT } from "@constants/searchPageConstant";
+import { SearchBox } from "@components/SearchBox/SearchBox";
+import { BoothDetailBox } from "@components/BoothDetailBox/BoothDetailBox";
+import { useBoothSearch } from "@hooks/useSearch";
 import { ErrorBox } from "@components/errorBox/ErrorBox";
 
 export const SearchPage = () => {

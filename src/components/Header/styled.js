@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 
   ${({ theme }) => theme.fonts.SUITEB0};
@@ -16,10 +16,16 @@ export const Title = styled.div`
   transform: translateX(-50%);
 `;
 
-export const ImgBox = styled.div`
+export const SecondImgBox = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
   margin-right: 22px;
   margin-left: auto;
+`;
+export const FirstImgBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 22px;
 `;

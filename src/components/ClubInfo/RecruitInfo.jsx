@@ -3,7 +3,25 @@ import * as S from "./styled";
 import calendar from "/images/calendar.svg";
 import instaIcon from "/images/instaIcon.svg";
 import pencil from "/images/pencil.svg";
+import { ExpandableText } from "@components/ExpandableText/ExpandableText";
+import { NO_DATA_MSG } from "@constants/common";
 export const RecruitInfo = ({ booth }) => {
+  const extractInstagramId = (booth) => {
+    if (
+      !booth.insta_url ||
+      typeof booth.insta_url !== "string" ||
+      booth.insta_url === "-"
+    ) {
+      return null; // ✅ insta_url이 없거나 잘못된 경우 null 반환
+    }
+
+    const match = booth.insta_url.match(
+      /(?:https?:\/\/)?(?:www\.)?instagram\.com\/([^/?]+)/
+    );
+    return match ? match[1] : null;
+  };
+
+  const instagramId = extractInstagramId(booth);
   return (
     <S.InfoContainer>
       <S.Title>{booth.club_name}과 함께해요!</S.Title>
@@ -13,21 +31,23 @@ export const RecruitInfo = ({ booth }) => {
           <img src={calendar} alt="캘린더" />
           <S.TextInfo>
             모집 기간 | {""}
-            {booth.start_recruitment}~{booth.end_recruitment}
+            {booth.recruitment}
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
           <img src={pencil} alt="연필" />
           <S.TextInfo>
             신청 방법 | {""}
-            {booth.apply_method}
+            <ExpandableText text={booth.apply_method} isOneSentence={true} />
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
           <a href={booth.insta_url} target="_blank">
             <img src={instaIcon} alt="Instagram" />
           </a>
-          <S.TextInfo>{booth.insta_url}</S.TextInfo>
+          <S.TextInfo>
+            {instagramId ? `@${instagramId}` : NO_DATA_MSG}
+          </S.TextInfo>
         </S.TextBox>
       </S.LionInfoBox>
     </S.InfoContainer>

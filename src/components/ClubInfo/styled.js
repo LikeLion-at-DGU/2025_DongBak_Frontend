@@ -43,11 +43,8 @@ export const LionInfoBox = styled.div`
   background-color: rgba(200, 214, 176, 0.3);
 `;
 export const ClubImg = styled.img`
-  display: flex;
   width: 75px;
   height: 75px;
-  justify-content: center;
-  align-items: center;
   object-fit: contain;
 `;
 //recruit
@@ -55,9 +52,12 @@ export const TextBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 `;
 export const TextInfo = styled.div`
   ${({ theme }) => theme.fonts.SUITEM3};
   color: ${({ theme }) => theme.colors.black};
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 `;
