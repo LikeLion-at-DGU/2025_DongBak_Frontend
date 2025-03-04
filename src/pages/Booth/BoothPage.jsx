@@ -1,43 +1,36 @@
-import * as S from "./styled";
-import { Header } from "../../components/Header/Header";
-import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
-import { Btn } from "../../components/Btn/Btn";
-import { Date } from "../../components/Date/Date";
-import { useBoothSelection } from "../../hooks/useBoothSelect";
-import { useBoothInfo } from "../../hooks/Booth/useBoothInfo";
-import { useFoodTruckInfo } from "../../hooks/Booth/useFoodTruckInfo";
-import useCustomNavigate from "../../hooks/useCustomNavigate";
-import MAP1 from "../../../public/images/map1.svg";
-import MAP2 from "../../../public/images/map2.svg";
-import mappin from "../../../public/images/mappin.svg";
-import SlideBar from "../../../public/images/SlideBar.svg";
-import SlideBar2 from "../../../public/images/SlideBar2.svg";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState, useMemo } from "react";
+import * as S from './styled';
+import { Header } from '../../components/Header/Header';
+import { BoothDetailBox } from '../../components/BoothDetailBox/BoothDetailBox';
+import { Btn } from '../../components/Btn/Btn';
+import { Date } from '../../components/Date/Date';
+import { useBoothSelection } from '../../hooks/useBoothSelect';
+import { useBoothInfo } from '../../hooks/Booth/useBoothInfo';
+import { useFoodTruckInfo } from '../../hooks/Booth/useFoodTruckInfo';
+import useCustomNavigate from '../../hooks/useCustomNavigate';
+import MAP1 from '../../../public/images/map1.svg';
+import MAP2 from '../../../public/images/map2.svg';
+import mappin from '../../../public/images/mappin.svg';
+import SlideBar from '../../../public/images/SlideBar.svg';
+import SlideBar2 from '../../../public/images/SlideBar2.svg';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState, useMemo } from 'react';
 
+import { DateSelector } from '@components/Selector/DateSelector';
+import { PlaceSelector } from '@components/Selector/PlaceSelector';
+import { CategorySelector } from '@components/Selector/CategorySelector';
+import { BoothList } from '@components/BoothList/BoothList';
+import { BoothMap } from '@components/BoothMap/BoothMap';
 
-import { Header } from "@components/Header/Header";
-import { useBoothSelection } from "@hooks/useBoothSelect";
-import { useBoothInfo } from "@hooks/Booth/useBoothInfo";
-import { useFoodTruckInfo } from "@hooks/Booth/useFoodTruckInfo";
-import useCustomNavigate from "@hooks/useCustomNavigate";
-
-import { DateSelector } from "@components/Selector/DateSelector";
-import { PlaceSelector } from "@components/Selector/PlaceSelector";
-import { CategorySelector } from "@components/Selector/CategorySelector";
-import { BoothList } from "@components/BoothList/BoothList";
-import { BoothMap } from "@components/BoothMap/BoothMap";
-
-import { CATEGORYNAME } from "@constants/Booth/data";
-import { PLACENAME } from "@constants/Booth/data";
+import { CATEGORYNAME } from '@constants/Booth/data';
+import { PLACENAME } from '@constants/Booth/data';
 export const BoothPage = () => {
   const { goToPage } = useCustomNavigate();
   const [isFirstDate, setIsFirstDate] = useState(true);
 
   const location = useLocation();
   const result = location.state;
-  console.log("테스틍틍", result);
-  
+  console.log('테스틍틍', result);
+
   const {
     selectedPin,
     selectedPlace,
@@ -47,16 +40,16 @@ export const BoothPage = () => {
     setSelectedCategory,
     boothPosition,
   } = useBoothSelection();
-  console.log("selectedPin", selectedPin);
+  console.log('selectedPin', selectedPin);
 
-  const day = isFirstDate ? "wednesday" : "thursday";
+  const day = isFirstDate ? 'wednesday' : 'thursday';
 
-  console.log("day", day);
+  console.log('day', day);
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
   useEffect(() => {
-    console.log("boothList", boothList);
-    console.log("foodData", foodData);
+    console.log('boothList', boothList);
+    console.log('foodData', foodData);
   }, [isFirstDate]);
 
   const foodList = foodData?.[selectedPlace] ?? [];
@@ -64,8 +57,8 @@ export const BoothPage = () => {
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
 
   useEffect(() => {
-    console.log("filteredBoothList", filteredBoothList);
-    console.log("foodList", foodList);
+    console.log('filteredBoothList', filteredBoothList);
+    console.log('foodList', foodList);
   }, [filteredBoothList, foodList, selectedPlace]);
 
   const displayedBoothList = useMemo(
@@ -87,7 +80,7 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <Header title={"부스안내"} isTrue={true} />
+        <Header title={'부스안내'} isTrue={true} />
         <S.HeaderWrapper>
           <DateSelector
             isFirstDate={isFirstDate}
@@ -127,7 +120,7 @@ export const BoothPage = () => {
             }
             goToPage={goToPage}
             type={
-              selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"
+              selectedCategory === CATEGORYNAME.FOODTRUCK ? 'food' : 'booth'
             }
           />
         )}
