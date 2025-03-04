@@ -1,21 +1,21 @@
-import * as S from './styled';
+import * as S from "./styled";
 
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState, useMemo } from 'react';
+import { useLocation } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react";
 
-import { Header } from '@components/Header/Header';
-import { useBoothSelection } from '@hooks/useBoothSelect';
-import { useBoothInfo } from '@hooks/Booth/useBoothInfo';
-import { useFoodTruckInfo } from '@hooks/Booth/useFoodTruckInfo';
-import { DateSelector } from '@components/Selector/DateSelector';
-import { PlaceSelector } from '@components/Selector/PlaceSelector';
-import { CategorySelector } from '@components/Selector/CategorySelector';
-import { BoothList } from '@components/BoothList/BoothList';
-import { BoothMap } from '@components/BoothMap/BoothMap';
-import { ErrorBox } from '@components/errorBox/ErrorBox';
-import { CATEGORYNAME } from '@constants/Booth/data';
-import { PLACENAME } from '@constants/Booth/data';
-import { Footer } from '@components/footer/Footer';
+import { Header } from "@components/Header/Header";
+import { useBoothSelection } from "@hooks/useBoothSelect";
+import { useBoothInfo } from "@hooks/Booth/useBoothInfo";
+import { useFoodTruckInfo } from "@hooks/Booth/useFoodTruckInfo";
+import { DateSelector } from "@components/Selector/DateSelector";
+import { PlaceSelector } from "@components/Selector/PlaceSelector";
+import { CategorySelector } from "@components/Selector/CategorySelector";
+import { BoothList } from "@components/BoothList/BoothList";
+import { BoothMap } from "@components/BoothMap/BoothMap";
+import { ErrorBox } from "@components/errorBox/ErrorBox";
+import { CATEGORYNAME } from "@constants/Booth/data";
+import { PLACENAME } from "@constants/Booth/data";
+import { Footer } from "@components/footer/Footer";
 
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
@@ -37,20 +37,16 @@ export const BoothPage = () => {
     boothPosition,
   } = useBoothSelection();
 
-  useEffect(() => {
-    console.log('안녕어어어어어 ', searchResult);
-  }, [searchResult]);
+  const day = isFirstDate ? "wednesday" : "thursday";
 
-  const day = isFirstDate ? 'wednesday' : 'thursday';
-
-  console.log('day', day);
+  console.log("day", day);
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
 
   useEffect(() => {
     setSelectedPin(null);
     setSelectedBoothNum(null);
-  }, [boothList, foodData]); // ✅ boothList가 변경될 때마다 실행
+  }, [boothList, foodData]);
 
   const foodList = foodData?.[selectedPlace] ?? [];
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
@@ -82,7 +78,6 @@ export const BoothPage = () => {
   useEffect(() => {
     if (PlaceUpdate) {
       setSelectedPlace(PlaceUpdate);
-      console.log('selectedPlace', PlaceUpdate);
     }
   }, [PlaceUpdate]);
 
@@ -137,7 +132,7 @@ export const BoothPage = () => {
     <S.BoothContainer>
       <S.HeaderBox>
         <Header
-          title={'부스안내'}
+          title={"부스안내"}
           isTrue={true}
           hasSearchResults={hasSearchResults}
         />
@@ -182,7 +177,7 @@ export const BoothPage = () => {
                 : displayedBoothList
             }
             type={
-              selectedCategory === CATEGORYNAME.FOODTRUCK ? 'food' : 'booth'
+              selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"
             }
             hasSearchResults={hasSearchResults}
             isSelectedFromMap={isSelectedFromMap}
