@@ -13,7 +13,7 @@ import useCustomNavigate from "@hooks/useCustomNavigate";
 
 import shareIcon from "/images/shareIcon.svg";
 import backIcon from "/images/backIcon.svg";
-import defaultImg from "/images/defaultImg.svg";
+import defaultImg from "/images/defaultImage.png";
 import { Footer } from "@components/footer/Footer";
 const defaultImages = [defaultImg];
 
@@ -47,7 +47,7 @@ export const BoothDetailPage = () => {
   };
 
   return (
-    <S.BoothContainer>
+    <S.DetailBoothContainer>
       <S.BoothDHeader>
         <img src={backIcon} onClick={goBack} />
         <div>부스안내</div>
@@ -91,6 +91,6 @@ export const BoothDetailPage = () => {
           <div>해당 부스를 찾을 수 없습니다.</div>
         )}
       </S.InfoContainer>
-    </S.BoothContainer>
+    </S.DetailBoothContainer>
   );
 };
