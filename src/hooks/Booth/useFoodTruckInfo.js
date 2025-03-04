@@ -16,7 +16,7 @@ export const useFoodTruckInfo = (day) => {
 
   useEffect(() => {
     fetchFoodInfo();
-  }, []);
+  }, [day]);
 
   return { foodData };
 };

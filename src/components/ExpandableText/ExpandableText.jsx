@@ -10,7 +10,7 @@ export const ExpandableText = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedText = Array.isArray(text) ? text.join("\n") : text;
 
-  const shouldTruncate = text.length > maxLength;
+  const shouldTruncate = text?.length > maxLength;
   const displayText =
     shouldTruncate && !isExpanded
       ? formattedText.slice(0, maxLength) + "..."
@@ -23,7 +23,7 @@ export const ExpandableText = ({
       $isExpanded={isExpanded}
       onClick={() => setIsExpanded(!isExpanded)}
     >
-      {displayText.split("\n").map((line, index) => (
+      {displayText?.split("\n").map((line, index) => (
         <p key={index} style={{ marginBottom: "4px" }}>
           {line}
         </p>

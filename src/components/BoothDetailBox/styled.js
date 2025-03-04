@@ -6,8 +6,7 @@ export const BoothDContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-
-  padding: 10px 14px;
+  padding: 9px 14px;
   flex-direction: row;
   gap: 10px;
   background-color: ${({ $isVisible, theme }) =>
@@ -18,9 +17,6 @@ export const BoothDContainer = styled.div`
     $isVisible
       ? "0px 3px 6px 0px rgba(0, 0, 0, 0.25)"
       : "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"};
-  @media (max-width: 414px) {
-    padding: 8px;
-  }
 `;
 
 export const DetailBtn = styled.div`
@@ -39,10 +35,20 @@ export const DetailBtn = styled.div`
   cursor: pointer;
 `;
 
+export const BoothDImgBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 79.307px;
+  background-color: ${({ theme }) => theme.colors.bg300};
+  border-radius: 10px;
+`;
+
 export const BoothDImg = styled.img`
-  width: 120px;
-  height: 90px;
-  border-radius: 7.742px;
+  display: flex;
+  width: 96px;
+  height: 100%;
+  border-radius: 10px;
 `;
 
 export const TextBox = styled.div`
@@ -89,7 +95,7 @@ export const TextDetail = styled.div`
 `;
 
 export const TextInfo = styled.div`
-  ${({ theme }) => theme.fonts.SUITEM3};
+  ${({ theme }) => theme.fonts.SUITE10};
   color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -138,5 +144,5 @@ export const BoothDInfoBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 13px;
+  gap: 7px;
 `;
