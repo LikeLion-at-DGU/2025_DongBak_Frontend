@@ -9,7 +9,7 @@ export const BoothContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bg300};
   min-height: 100vh;
   min-width: 375px;
-  max-width: 100%;
+  max-width: 100vw;
   width: 100%;
   padding-bottom: 25px;
 `;
@@ -28,8 +28,11 @@ export const FixedHeader = styled.div`
   position: fixed;
   background-color: ${({ theme }) => theme.colors.bg300};
   top: 0;
-  height: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 414px;
+  height: 60px;
   z-index: 20;
 `;
 

@@ -1,5 +1,6 @@
 import * as S from './styled';
 import { useLocation } from 'react-router-dom';
+
 import hamburger from '/images/hamburger.svg';
 import useCustomNavigate from '@hooks/useCustomNavigate';
 import { ROUTE_PATHS } from '@constants/routeConstants';
@@ -16,6 +17,7 @@ export const Sidebar = ({ setOpen }) => {
       setOpen(false); // 이동 후 사이드바 닫기
     }
   };
+
 
   return (
     <S.Wrapper>

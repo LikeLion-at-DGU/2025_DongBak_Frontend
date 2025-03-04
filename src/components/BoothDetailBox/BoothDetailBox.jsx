@@ -4,15 +4,18 @@ import pin from '/images/pin.svg';
 import clock from '/images/clock.svg';
 import defaultImg from '/images/defaultImg.svg';
 import useCustomNavigate from '@hooks/useCustomNavigate';
+
 export const BoothDetailBox = ({
   booth = {},
   type,
   isSelected = false,
   onSelect,
+  goWithBooths,
 }) => {
   const { goToPage } = useCustomNavigate();
 
   const onSelectBoothDetail = () => {
+    console.log("부스디테일박스booth", booth);
     if (onSelect) {
       onSelect(booth.booth_num);
     }
@@ -20,11 +23,18 @@ export const BoothDetailBox = ({
   const isFood = !booth.booth_name && booth.food_truck_num;
 
   return (
-    <S.BoothDContainer $isVisible={isSelected} onClick={onSelectBoothDetail}>
+    <S.BoothDContainer
+      $isVisible={isSelected}
+      onClick={() => {
+        onSelectBoothDetail();
+        console.log("BoothDetailBox 클릭됨, 부스 정보:", booth);
+        goWithBooths(booth); // ✅ 부스 페이지로 이동 추가
+      }}
+    >
       <S.DetailBtn
         $isVisible={isSelected}
         onClick={(e) => {
-          e.stopPropagation(); //  부모의 onClick이 실행되지 않도록 이벤트 버블링 방지
+          e.stopPropagation();
           goToPage(`/${type}/${booth.id}`);
         }}
       >
@@ -33,8 +43,8 @@ export const BoothDetailBox = ({
       <S.BoothDImg
         src={
           isFood
-            ? booth.food_truck_image?.[0]?.image
-            : booth.booth_image?.[0]?.image || defaultImg
+            ? booth?.food_truck_image?.image
+            : booth?.booth_image?.image || defaultImg
         }
       />
 

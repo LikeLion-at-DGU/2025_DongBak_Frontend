@@ -25,10 +25,12 @@ import { ErrorBox } from '@components/errorBox/ErrorBox';
 import { CATEGORYNAME } from '@constants/Booth/data';
 import { PLACENAME } from '@constants/Booth/data';
 
+
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
   const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
   const [selectedBoothNum, setSelectedBoothNum] = useState(null);
+  const [activeBoothNums, setActiveBoothNums] = useState([]);
 
   const location = useLocation();
   const result = location.state;
@@ -59,6 +61,7 @@ export const BoothPage = () => {
   }, [isFirstDate]);
 
   const foodList = foodData?.[selectedPlace] ?? [];
+
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
 
   useEffect(() => {
@@ -66,21 +69,53 @@ export const BoothPage = () => {
     console.log('foodList', foodList);
   }, [filteredBoothList, foodList, selectedPlace]);
 
+
+  const searchBooths = SearchResult?.results?.booths || [];
+  const searchFoodTrucks = SearchResult?.results?.food_trucks || [];
+  const hasSearchResults =
+    searchBooths.length > 0 || searchFoodTrucks.length > 0;
+
+  const PlaceUpdate = useMemo(() => {
+    if (!hasSearchResults) return null;
+
+    if (searchBooths.some((booth) => booth.location === PLACENAME.PALJEONGDO)) {
+      return PLACENAME.PALJEONGDO;
+    }
+    if (searchBooths.some((booth) => booth.location === PLACENAME.MANHAE)) {
+      return PLACENAME.MANHAE;
+    }
+
+    return null;
+  }, [hasSearchResults, searchBooths]);
+
+
+  useEffect(() => {
+    if (PlaceUpdate) {
+      setSelectedPlace(PlaceUpdate);
+      console.log("selectedPlace", PlaceUpdate);
+    }
+  }, [PlaceUpdate]);
   const displayedBoothList = useMemo(() => {
+    if (hasSearchResults) {
+      return searchBooths;
+    }
     if (isSelectedFromMap && selectedPin) {
       return filteredBoothList.filter(
         (booth) => booth.booth_num === selectedPin
       );
     }
     return filteredBoothList;
-  }, [isSelectedFromMap, selectedPin, filteredBoothList]);
+  }, [hasSearchResults, isSelectedFromMap, selectedPin, filteredBoothList]);
 
   const displayedFoodList = useMemo(() => {
+    if (hasSearchResults) {
+      return searchFoodTrucks;
+    }
     if (isSelectedFromMap && selectedPin) {
       return foodList.filter((booth) => booth.booth_num === selectedPin);
     }
     return foodList;
-  }, [isSelectedFromMap, selectedPin, foodList]);
+  }, [hasSearchResults, isSelectedFromMap, selectedPin, foodList]);
 
   const onSelectBoothFromMap = (boothNum) => {
     handlePinClick(boothNum);
@@ -122,7 +157,7 @@ export const BoothPage = () => {
       <BoothMap
         selectedPlace={selectedPlace}
         boothPosition={boothPosition}
-        selectedPin={selectedPin}
+        selectedPins={hasSearchResults ? activeBoothNums : [selectedPin]}
         onSelectBoothFromMap={onSelectBoothFromMap}
         onClearSelection={onClearSelection}
       />
@@ -149,9 +184,11 @@ export const BoothPage = () => {
             type={
               selectedCategory === CATEGORYNAME.FOODTRUCK ? 'food' : 'booth'
             }
+            hasSearchResults={hasSearchResults}
             isSelectedFromMap={isSelectedFromMap}
             selectedBoothNum={selectedBoothNum}
             onSelectBoothFromList={onSelectBoothFromList}
+            setActiveBoothNums={setActiveBoothNums}
           />
         )}
       </S.BoothDBox>

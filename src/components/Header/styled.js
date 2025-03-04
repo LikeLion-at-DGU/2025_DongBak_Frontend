@@ -18,13 +18,14 @@ export const Title = styled.div`
   transform: translateX(-50%);
 `;
 
-export const ImgBox = styled.div`
+export const SecondImgBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0px;
   margin-right: 22px;
   margin-left: auto;
 `;
+
 
 export const Image = styled.img``;
 

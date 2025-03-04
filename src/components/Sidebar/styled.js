@@ -56,6 +56,5 @@ export const AboutUs = styled.div`
 
   padding: 9px 30px;
   bottom: 30px;
-
   cursor: pointer;
 `;
