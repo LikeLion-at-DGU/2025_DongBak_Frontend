@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -29,11 +29,10 @@ export const FirstImgBox = styled.div`
   align-items: center;
   margin-right: auto;
   margin-left: 22px;
-
+`;
 
 export const Image = styled.img``;
 
 export const HamburgerBox = styled.div`
   z-index: 20;
-
 `;

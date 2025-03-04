@@ -1,13 +1,11 @@
-
 import * as S from "./styled";
+import { useState } from "react";
 import search from "/images/search-normal.svg";
-import Menubar from "/images/Menubars.svg";
 import Back from "/images/SearchBack.svg";
 import useCustomNavigate from "@hooks/useCustomNavigate";
-
+import Hamburger from "hamburger-react";
 import { ROUTE_PATHS } from "@constants/routeConstants";
 export const Header = ({ title, isTrue = false, hasSearchResults }) => {
-
   const { goToPage } = useCustomNavigate();
   const [isOpen, setOpen] = useState(false);
 
@@ -27,11 +25,9 @@ export const Header = ({ title, isTrue = false, hasSearchResults }) => {
         <S.HamburgerBox>
           <Hamburger size={20} toggled={isOpen} toggle={setOpen} />
         </S.HamburgerBox>
-      </S.ImgBox>
 
-      {isOpen && <Sidebar />}
-        </S.SecondImgBox>
-
+        {isOpen && <Sidebar />}
+      </S.SecondImgBox>
     </S.TitleContainer>
   );
 };
