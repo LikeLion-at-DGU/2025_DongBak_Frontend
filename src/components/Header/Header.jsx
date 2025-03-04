@@ -7,12 +7,12 @@ import useCustomNavigate from '@hooks/useCustomNavigate';
 import { Fade as Hamburger } from 'hamburger-react';
 import { Sidebar } from '@components/Sidebar/Sidebar';
 
-export const Header = ({ title, isTrue = false }) => {
+export const Header = ({ title, isTrue = false, isDev = false }) => {
   const { goToPage } = useCustomNavigate();
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <S.TitleContainer>
+    <S.TitleContainer $isDev={isDev}>
       <S.Title>{title}</S.Title>
       <S.ImgBox>
         {isTrue && (
@@ -23,7 +23,7 @@ export const Header = ({ title, isTrue = false }) => {
         </S.HamburgerBox>
       </S.ImgBox>
 
-      {isOpen && <Sidebar />}
+      {isOpen && <Sidebar setOpen={setOpen} />}
     </S.TitleContainer>
   );
 };

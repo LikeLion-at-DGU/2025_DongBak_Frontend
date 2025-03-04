@@ -44,6 +44,7 @@ export const Line = styled.div`
 export const HeaderContent = styled.div`
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
+  cursor: pointer;
 `;
 
 export const AboutUs = styled.div`
@@ -55,4 +56,6 @@ export const AboutUs = styled.div`
 
   padding: 9px 30px;
   bottom: 30px;
+
+  cursor: pointer;
 `;
