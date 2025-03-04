@@ -37,7 +37,6 @@ export const FixedHeader = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  margin-top: 45px;
   width: 100%;
   flex-direction: column;
   align-items: center;

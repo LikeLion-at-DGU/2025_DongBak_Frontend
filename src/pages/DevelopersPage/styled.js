@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 export const SloganImage = styled.div`
   width: 80%;
   max-width: 540px;
-  background: url('/images/makers-slogan.svg') no-repeat center;
+  background: url("/images/makers-slogan.svg") no-repeat center;
   background-size: cover;
   padding-top: 70%;
 `;
@@ -61,6 +61,8 @@ export const AboutUsText = styled.div`
 
 export const CardWrap = styled.div`
   display: flex;
-  width: 80%;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 10px;
 `;
