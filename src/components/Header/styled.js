@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -8,8 +8,6 @@ export const TitleContainer = styled.div`
   position: relative;
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
-
-  margin-top: ${({ $isDev }) => ($isDev ? '2rem' : '0')};
 `;
 
 export const Title = styled.div`
@@ -25,7 +23,6 @@ export const SecondImgBox = styled.div`
   margin-right: 22px;
   margin-left: auto;
 `;
-
 
 export const Image = styled.img``;
 
