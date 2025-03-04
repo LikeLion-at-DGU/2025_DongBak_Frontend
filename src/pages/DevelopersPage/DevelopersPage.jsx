@@ -7,7 +7,7 @@ import { Header } from '@components/Header/Header';
 export const DevelopersPage = () => {
   return (
     <S.Wrapper>
-      <Header isDev="True" />
+      <Header title={DEVELOPER_CONSTANT.HEADERTITLE} isDev="True" />
       <S.Container>
         <S.SloganImage />
         <S.LinktoMSITE

@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
     rgba(238, 241, 229, 0.4) 62.41%,
     #fffff9 87.77%
   );
+  padding-bottom: 5.5rem;
 `;
 
 export const Container = styled.div`
@@ -50,7 +51,7 @@ export const Icon13 = styled.img`
 `;
 
 export const CategoryTitle = styled.img`
-  scale: 1.5;
+  scale: 1.2;
   margin-bottom: 2rem;
 `;
 
@@ -61,6 +62,8 @@ export const AboutUsText = styled.div`
 
 export const CardWrap = styled.div`
   display: flex;
-  width: 80%;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 10px;
 `;
