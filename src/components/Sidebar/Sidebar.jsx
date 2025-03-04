@@ -1,7 +1,8 @@
 import * as S from './styled';
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import hamburger from '/images/hamburger.svg';
+import hamburger from '/images/hamburger.png';
 import useCustomNavigate from '@hooks/useCustomNavigate';
 import { ROUTE_PATHS } from '@constants/routeConstants';
 import { SIDEBAR_CONSTANT } from '@constants/sidebarConstant';
@@ -18,8 +19,22 @@ export const Sidebar = ({ setOpen }) => {
     }
   };
 
+  const [top, setTop] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setTop(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <S.Wrapper>
+    <S.Wrapper $top={top}>
       <S.Background />
       <S.Sidebar
         initial={{ x: '100%' }}
