@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { transparentize } from "polished";
+import { NO_DATA_MSG } from "@constants/common";
 
 const Wrapper = styled.article`
   width: 100%;
@@ -121,7 +122,15 @@ export const PerformanceCard = ({
               <Icon src="/images/user.svg" />
               <DescriptionText $isBlack={true}>{members}</DescriptionText>
             </DetailDescriptionWrapper>
-            <DetailDescriptionWrapper>
+            <DetailDescriptionWrapper
+              onClick={() => {
+                NO_DATA_MSG !== instagramId &&
+                  window.open(
+                    `https://www.instagram.com/${instagramId.replace("@", "")}`,
+                    "_blank"
+                  );
+              }}
+            >
               <Icon src="/images/instaIcon.svg" />
               <DescriptionText $isBlack={true}>{instagramId}</DescriptionText>
             </DetailDescriptionWrapper>

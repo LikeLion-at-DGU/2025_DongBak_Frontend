@@ -20,8 +20,8 @@ dayjs.extend(customParseFormat);
 export const Performance = () => {
   const nowTime = useNowTime();
   const now = dayjs(nowTime, "HH:mm");
+  const [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
   const performanceData = usePerformanceData(day);
-  [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
 
   return (
     <S.Container>
