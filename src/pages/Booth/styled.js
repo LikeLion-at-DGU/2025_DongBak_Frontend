@@ -22,7 +22,7 @@ export const DetailBoothContainer = styled.div`
   min-width: 375px;
   max-width: 100vw;
   width: 100%;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   padding-bottom: 2rem;
 `;
 
@@ -33,7 +33,7 @@ export const HeaderBox = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  gap: 25px;
+  gap: 22px;
 `;
 export const FixedHeader = styled.div`
   display: flex;

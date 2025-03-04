@@ -8,7 +8,7 @@ export const BoothDContainer = styled.div`
   width: 100%;
   padding: 9px 14px;
   flex-direction: row;
-  gap: 10px;
+  gap: 1rem;
   background-color: ${({ $isVisible, theme }) =>
     $isVisible ? theme.colors.green500 : theme.colors.green600};
   cursor: pointer;
