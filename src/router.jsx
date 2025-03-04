@@ -1,19 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
-import React from "react";
-import App from "./App";
-import { ROUTE_PATHS } from "./constants/routeConstants";
+import { createBrowserRouter } from 'react-router-dom';
+import React from 'react';
+import App from './App';
+import { ROUTE_PATHS } from './constants/routeConstants';
 
-import { MainPage } from "./pages/mainpage/MainPage";
-import { DevelopersPage } from "./pages/DevelopersPage/DevelopersPage";
-import { BoothPage } from "./pages/Booth/BoothPage";
-import { SearchPage } from "./pages/SearchPage/SearchPage";
+import { MainPage } from './pages/mainpage/MainPage';
+import { DevelopersPage } from './pages/DevelopersPage/DevelopersPage';
+import { BoothPage } from './pages/Booth/BoothPage';
+import { SearchPage } from './pages/SearchPage/SearchPage';
 
-import { Performance } from "./pages/performance/Performance";
+import { Performance } from './pages/performance/Performance';
 
-import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
-import { FoodDetailPage } from "./pages/Booth/FoodDetailPage";
+import { BoothDetailPage } from './pages/Booth/BoothDetailPage';
+import { FoodDetailPage } from './pages/Booth/FoodDetailPage';
 
-import { NotFound } from "@pages/notFound/NotFound";
+import { NotFound } from '@pages/notFound/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -48,11 +48,11 @@ const router = createBrowserRouter([
         path: ROUTE_PATHS.FOOD_DETAIL,
         element: <FoodDetailPage />,
       },
+      {
+        path: ROUTE_PATHS.NOT_FOUND,
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: ROUTE_PATHS.NOT_FOUND,
-    element: <NotFound />,
   },
 ]);
 

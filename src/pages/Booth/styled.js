@@ -10,15 +10,30 @@ export const BoothContainer = styled.div`
   min-width: 375px;
   max-width: 100vw;
   width: 100%;
-  /* padding-bottom: 25px; */
 `;
+
+export const DetailBoothContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.bg300};
+  min-height: 100vh;
+  min-width: 375px;
+  max-width: 100vw;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+`;
+
 export const HeaderBox = styled.div`
   display: flex;
   width: 100%;
+
   flex-direction: column;
   align-items: center;
   position: relative;
-  gap: 28px;
+  gap: 25px;
 `;
 export const FixedHeader = styled.div`
   display: flex;

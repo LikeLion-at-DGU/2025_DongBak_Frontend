@@ -11,7 +11,6 @@ import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useState } from "react";
 import { usePerformanceData } from "@hooks/usePerformanceData";
-import { WED_DAY } from "@constants/common";
 import { Footer } from "@components/footer/Footer";
 
 dayjs.extend(isSameOrAfter);
@@ -21,9 +20,9 @@ dayjs.extend(customParseFormat);
 export const Performance = () => {
   const nowTime = useNowTime();
   const now = dayjs(nowTime, "HH:mm");
-  const [day, setDay] = useState(WED_DAY);
-  // TODO: 당일 코드 const [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
+  const [day, setDay] = useState(dayjs().format("dddd").toLowerCase());
   const performanceData = usePerformanceData(day);
+
   return (
     <S.Container>
       <PerformanceHeader day={day} setDay={setDay} />
@@ -35,8 +34,7 @@ export const Performance = () => {
               key={index}
               nowTime={now}
               time={time}
-              isNow={isNow}
-              // TODO: 당일 업데이트 isNow={dayjs().format("dddd").toLowerCase() === day && isNow}
+              sNow={dayjs().format("dddd").toLowerCase() === day && isNow}
               firstCard={performances[0]}
               secondCard={performances[1] ?? null}
             />
