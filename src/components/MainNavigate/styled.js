@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -7,5 +7,5 @@ export const Wrapper = styled.div`
   top: 10%;
   left: 10%;
 
-  gap: 14px;
+  gap: 18px;
 `;

@@ -2,6 +2,7 @@ export const DEVELOPER_CONSTANT = {
   SITE_EMOJI: '/images/developerPage/link.svg',
   SITE_TEXT: '멋쟁이사자처럼 공식 사이트 바로가기',
   SITE_URL: 'https://likelion-dgu.com/',
+  HEADERTITLE: '만든 사람들',
   TITLE: {
     ABOUTUS: 'images/developerPage/developers_title/aboutus.svg',
     PD: 'images/developerPage/developers_title/PD.svg',
@@ -15,7 +16,7 @@ export const DEVELOPER_CARD_CONSTANT = {
   ABOUTUS: [
     '안녕하세요, 동국대학교 멋쟁이사자처럼입니다 🦁',
     '다가오는 3월, 동국대학교 동아리박람회를 맞아',
-    "동아리랑' 웹사이트를 개발하였어요.",
+    "'동아리랑' 웹사이트를 개발하였어요.",
     '',
     '',
     '누구나 쉽게 동아리를 찾아보고, 설레는 시작을 할 수 있도록',
