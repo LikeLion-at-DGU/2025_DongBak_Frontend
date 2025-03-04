@@ -12,6 +12,9 @@ import { Performance } from "./pages/performance/Performance";
 
 import { BoothDetailPage } from "./pages/Booth/BoothDetailPage";
 import { FoodDetailPage } from "./pages/Booth/FoodDetailPage";
+
+import { NotFound } from "@pages/notFound/NotFound";
+
 const router = createBrowserRouter([
   {
     path: ROUTE_PATHS.MAIN,
