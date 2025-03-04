@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -17,8 +17,8 @@ export const BoothContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  transform: ${({ $isNothing }) => ($isNothing ? "translateY(-40px)" : "none")};
+  gap: 20px;
+  transform: ${({ $isNothing }) => ($isNothing ? 'translateY(-40px)' : 'none')};
 `;
 
 export const BoothWrap = styled.div`

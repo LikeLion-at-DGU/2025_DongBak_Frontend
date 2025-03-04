@@ -13,7 +13,9 @@ export const SearchPage = () => {
   const { query, setQuery, results, clearSearch } = useBoothSearch();
   const navigate = useNavigate();
   const isNothing =
-    results?.booths?.length === 0 && results?.food_trucks?.length === 0;
+    results?.booths?.length === 0 &&
+    results?.food_trucks?.length == 0 &&
+    query?.length > 0;
 
   const goWithResults = () => {
     if (!query.trim()) return; // 빈 검색어 방지
