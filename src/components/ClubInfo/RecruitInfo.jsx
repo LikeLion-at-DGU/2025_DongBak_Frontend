@@ -31,14 +31,14 @@ export const RecruitInfo = ({ booth }) => {
         <S.TextBox>
           <img src={calendar} alt="캘린더" />
           <S.TextInfo>
-            모집 기간 | {""}
+            <S.FirstText>모집 기간 |</S.FirstText>
             {booth.recruitment}
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
           <img src={pencil} alt="연필" />
           <S.TextInfo>
-            신청 방법 | {""}
+            <S.FirstText>신청 방법 | </S.FirstText>
             <ExpandableText text={booth.apply_method} isOneSentence={true} />
           </S.TextInfo>
         </S.TextBox>
