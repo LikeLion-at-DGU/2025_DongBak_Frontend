@@ -10,7 +10,9 @@ export const DevelopersPage = () => {
       <Header isDev="True" />
       <S.Container>
         <S.SloganImage />
-        <S.LinktoMSITE>
+        <S.LinktoMSITE
+          onClick={() => (window.location.href = DEVELOPER_CONSTANT.SITE_URL)}
+        >
           <S.Icon13 src={DEVELOPER_CONSTANT.SITE_EMOJI} />
           {DEVELOPER_CONSTANT.SITE_TEXT}
         </S.LinktoMSITE>
@@ -27,9 +29,13 @@ export const DevelopersPage = () => {
             />
             {category === 'ABOUTUS' ? (
               <S.Container>
-                {members.map((text, index) => (
-                  <S.AboutUsText key={index}>{text}</S.AboutUsText>
-                ))}
+                {members.map((text, index) =>
+                  text === '' ? (
+                    <br key={index} />
+                  ) : (
+                    <S.AboutUsText key={index}>{text}</S.AboutUsText>
+                  )
+                )}
               </S.Container>
             ) : (
               <S.CardWrap>
