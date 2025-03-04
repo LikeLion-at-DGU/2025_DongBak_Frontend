@@ -1,8 +1,8 @@
 import * as S from "./styled";
 
-import calendar from "../../../public/images/calendar.svg";
-import instaIcon from "../../../public/images/instaIcon.svg";
-import pencil from "../../../public/images/pencil.svg";
+import calendar from "/images/calendar.svg";
+import instaIcon from "/images/instaIcon.svg";
+import pencil from "/images/pencil.svg";
 export const RecruitInfo = ({ booth }) => {
   return (
     <S.InfoContainer>

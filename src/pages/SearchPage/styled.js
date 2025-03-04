@@ -17,5 +17,5 @@ export const BoothContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  transform: ${({ $isNothing }) => $isNothing ? "translateY(-40px)" : "none"}; 
+  transform: ${({ $isNothing }) => ($isNothing ? "translateY(-40px)" : "none")};
 `;

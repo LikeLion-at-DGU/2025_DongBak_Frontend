@@ -3,15 +3,21 @@ import * as S from "./styled";
 import { SearchInput } from "../inputs/SearchInput/SearchInput";
 import useCustomNavigate from "../../hooks/useCustomNavigate";
 
-export const SearchBox = ({ placehoder, searchIconRoute, backIconRoute, vectorIconRoute, query, setQuery, clearSearch, goWithResults }) => {
+export const SearchBox = ({
+  placehoder,
+  searchIconRoute,
+  backIconRoute,
+  vectorIconRoute,
+  query,
+  setQuery,
+  clearSearch,
+  goWithResults,
+}) => {
   const { goBack } = useCustomNavigate();
   return (
     <S.Wrapper>
-      <S.Icon
-        src={backIconRoute}
-        onClick={goBack}  
-      />
-      <SearchInput 
+      <S.Icon src={backIconRoute} onClick={goBack} />
+      <SearchInput
         placehoder={placehoder}
         searchIconRoute={searchIconRoute}
         vectorIconRoute={vectorIconRoute}
@@ -21,5 +27,5 @@ export const SearchBox = ({ placehoder, searchIconRoute, backIconRoute, vectorIc
         onEnter={goWithResults}
       />
     </S.Wrapper>
-  )
-}
+  );
+};

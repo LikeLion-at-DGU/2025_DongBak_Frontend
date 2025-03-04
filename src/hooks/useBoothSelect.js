@@ -10,8 +10,9 @@ export const useBoothSelection = () => {
     setSelectedPin(null);
   }, [selectedPlace]);
 
-  const handlePinClick = (id) => {
-    setSelectedPin((prev) => (prev === id ? null : id));
+  const handlePinClick = (boothNum) => {
+    if (!boothNum) return; // ✅ boothNum이 없으면 실행하지 않음
+    setSelectedPin(boothNum); // ✅ 선택된 핀 유지
   };
 
   const boothPosition =
@@ -24,6 +25,7 @@ export const useBoothSelection = () => {
     handlePinClick,
     setSelectedPlace,
     setSelectedCategory,
+    setSelectedPin,
     boothPosition,
   };
 };

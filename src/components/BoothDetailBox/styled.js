@@ -1,6 +1,8 @@
 import styled from "styled-components";
+
 export const BoothDContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
@@ -8,9 +10,27 @@ export const BoothDContainer = styled.div`
   padding: 10px 14px;
   flex-direction: row;
   gap: 10px;
+  background-color: ${({ $isVisible, theme }) =>
+    $isVisible ? theme.colors.green500 : theme.colors.green600};
+
   border-radius: 10px;
-  background: #e4ebd8b2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+`;
+
+export const DetailBtn = styled.div`
+  display: ${({ $isVisible }) => ($isVisible ? "flex" : "none")};
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 19px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  ${({ theme }) => theme.fonts.SUITES6};
+  background-color: ${({ theme }) => theme.colors.bg300};
+  border-radius: 15px;
+  cursor: pointer;
 `;
 
 export const BoothDImg = styled.img`

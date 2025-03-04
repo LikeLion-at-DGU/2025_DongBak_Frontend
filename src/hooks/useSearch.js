@@ -6,7 +6,7 @@ import { BoothSearchService } from "../apis/SearchService";
 export const useBoothSearch = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState({ booths: [], food_trucks: [] });
-  
+
   // 디바운스 적용 (300ms 후 API 호출)
   const debouncedQuery = useDebounce(query, 300);
 
