@@ -32,7 +32,7 @@ export const RecruitInfo = ({ booth }) => {
           <img src={calendar} alt="캘린더" />
           <S.TextInfo>
             <S.FirstText>모집 기간 |</S.FirstText>
-            {booth.recruitment}
+            <ExpandableText text={booth.recruitment} isOneSentence={true} />
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
@@ -42,14 +42,24 @@ export const RecruitInfo = ({ booth }) => {
             <ExpandableText text={booth.apply_method} isOneSentence={true} />
           </S.TextInfo>
         </S.TextBox>
-        <S.TextBox>
-          <a href={booth.insta_url} target="_blank">
-            <img src={instaIcon} alt="Instagram" />
-          </a>
-          <S.TextInfo>
+        <S.InstaTextBox
+          onClick={() => {
+            if (booth.insta_url) {
+              window.open(booth.insta_url, "_blank");
+            }
+          }}
+        >
+          <img src={instaIcon} alt="Instagram" />
+          <S.TextInfo
+            onClick={() => {
+              if (booth.insta_url) {
+                window.open(booth.insta_url, "_blank");
+              }
+            }}
+          >
             {instagramId ? `@${instagramId}` : NO_DATA_MSG}
           </S.TextInfo>
-        </S.TextBox>
+        </S.InstaTextBox>
       </S.LionInfoBox>
     </S.InfoContainer>
   );
