@@ -1,13 +1,12 @@
-import * as S from "./styled";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import * as S from './styled';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { SEARCHPAGE_CONSTANT } from "../../constants/searchPageConstant";
-import { SearchBox } from "../../components/SearchBox/SearchBox";
-import { BoothDetailBox } from "../../components/BoothDetailBox/BoothDetailBox";
-import { useBoothSearch } from "../../hooks/useSearch";
-import { ErrorBox } from "@components/errorBox/ErrorBox";
-import { Footer } from "@components/footer/Footer";
+import { SEARCHPAGE_CONSTANT } from '../../constants/searchPageConstant';
+import { SearchBox } from '../../components/SearchBox/SearchBox';
+import { BoothDetailBox } from '../../components/BoothDetailBox/BoothDetailBox';
+import { useBoothSearch } from '../../hooks/useSearch';
+import { ErrorBox } from '@components/errorBox/ErrorBox';
 
 export const SearchPage = () => {
   const { query, setQuery, results, clearSearch } = useBoothSearch();
@@ -19,13 +18,12 @@ export const SearchPage = () => {
 
   const goWithResults = () => {
     if (!query.trim()) return; // 빈 검색어 방지
-    navigate("/booth", { state: { results } });
+    navigate('/booth', { state: { results } });
   };
 
   // 부스 클릭 시 해당 부스 데이터만 전달
   const goWithBooths = (booth) => {
-    console.log("클릭됨");
-    navigate("/booth", { state: { booth } });
+    navigate('/booth', { state: { booth } });
   };
 
   return (
@@ -61,7 +59,6 @@ export const SearchPage = () => {
           </S.BoothWrap>
         ))}
       </S.BoothContainer>
-      <Footer />
     </S.Wrapper>
   );
 };
