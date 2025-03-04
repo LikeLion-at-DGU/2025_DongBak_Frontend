@@ -10,7 +10,7 @@ export const BoothContainer = styled.div`
   min-width: 375px;
   max-width: 100vw;
   width: 100%;
-  padding-bottom: 25px;
+  /* padding-bottom: 25px; */
 `;
 export const HeaderBox = styled.div`
   display: flex;
@@ -129,6 +129,7 @@ export const BoothDBox = styled.div`
   width: 90%;
   margin-top: 25px;
   gap: 20px;
+  padding-bottom: 1.5rem;
 `;
 export const BoothDWrapper = styled.div`
   display: flex;
