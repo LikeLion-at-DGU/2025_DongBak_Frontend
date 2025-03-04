@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { VitePluginRadar } from "vite-plugin-radar";
 
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -7,14 +6,7 @@ import fs from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-      react(),
-      VitePluginRadar({
-        analytics: {
-          id: import.meta.env.VITE_GOOGLE_ANALYTICS,
-        },
-      }),
-    ],
+  plugins: [react()],
 
   server:
     process.env.NODE_ENV === "development"
