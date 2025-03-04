@@ -14,10 +14,12 @@ export const BoothDetailBox = ({
   type,
   isSelected = false,
   onSelect,
+  goWithBooths,
 }) => {
   const { goToPage } = useCustomNavigate();
 
   const onSelectBoothDetail = () => {
+    console.log("부스디테일박스booth", booth);
     if (onSelect) {
       onSelect(booth.booth_num);
     }
@@ -25,7 +27,14 @@ export const BoothDetailBox = ({
   const isFood = !booth.booth_name && booth.food_truck_num;
 
   return (
-    <S.BoothDContainer $isVisible={isSelected} onClick={onSelectBoothDetail}>
+    <S.BoothDContainer
+      $isVisible={isSelected}
+      onClick={() => {
+        onSelectBoothDetail();
+        console.log("BoothDetailBox 클릭됨, 부스 정보:", booth);
+        goWithBooths(booth); // ✅ 부스 페이지로 이동 추가
+      }}
+    >
       <S.DetailBtn
         $isVisible={isSelected}
         onClick={(e) => {

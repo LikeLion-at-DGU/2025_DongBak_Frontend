@@ -12,7 +12,7 @@ export const RecruitInfo = ({ booth }) => {
       typeof booth.insta_url !== "string" ||
       booth.insta_url === "-"
     ) {
-      return null; // ✅ insta_url이 없거나 잘못된 경우 null 반환
+      return null;
     }
 
     const match = booth.insta_url.match(

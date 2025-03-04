@@ -21,7 +21,8 @@ export const SearchPage = () => {
 
   // 부스 클릭 시 해당 부스 데이터만 전달
   const goWithBooths = (booth) => {
-    navigate("/booth/", { state: { booth } });
+    console.log("booth보내지나?", booth);
+    navigate("/booth", { state: { booth } });
   };
 
   return (
@@ -42,11 +43,7 @@ export const SearchPage = () => {
 
         {/* 부스 검색 결과 */}
         {results?.booths?.map((booth) => (
-          <BoothDetailBox
-            key={booth.id}
-            booth={booth}
-            onClick={() => goWithBooths(booth)}
-          />
+          <BoothDetailBox key={booth.id} booth={booth} onClick={goWithBooths} />
         ))}
 
         {/* 푸드트럭 검색 결과 */}
@@ -54,7 +51,7 @@ export const SearchPage = () => {
           <BoothDetailBox
             key={foodTruck.id}
             booth={foodTruck}
-            onClick={() => goWithBooths(foodTruck)}
+            goWithBooths={goWithBooths}
           />
         ))}
       </S.BoothContainer>
