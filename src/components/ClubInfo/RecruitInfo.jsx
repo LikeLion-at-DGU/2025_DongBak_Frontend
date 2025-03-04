@@ -6,22 +6,23 @@ import pencil from "/images/pencil.svg";
 import { ExpandableText } from "@components/ExpandableText/ExpandableText";
 import { NO_DATA_MSG } from "@constants/common";
 export const RecruitInfo = ({ booth }) => {
-  const extractInstagramId = (booth) => {
-    if (
-      !booth.insta_url ||
-      typeof booth.insta_url !== "string" ||
-      booth.insta_url === "-"
-    ) {
+  const extractInstagramId = (url) => {
+    if (!url || typeof url !== "string" || url === "-") {
       return null;
     }
 
-    const match = booth.insta_url.match(
-      /(?:https?:\/\/)?(?:www\.)?instagram\.com\/([^/?]+)/
+    // ✅ 다양한 Instagram URL 패턴 지원
+    const match = url.match(
+      /(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p\/|reel\/|stories\/|s|tv\/)?([^/?#&]+)/
     );
+
     return match ? match[1] : null;
   };
 
-  const instagramId = extractInstagramId(booth);
+  const instagramId = extractInstagramId(booth.insta_url[0]);
+  console.log("instagramId", instagramId);
+  console.log("booth.insta_url:", booth.insta_url);
+
   return (
     <S.InfoContainer>
       <S.Title>{booth.club_name}과 함께해요!</S.Title>

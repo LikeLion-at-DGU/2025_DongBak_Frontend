@@ -21,12 +21,10 @@ export const FoodDetailPage = () => {
     window.scrollTo(0, 0);
   }, []);
   const { foodDetail } = useFoodDetail(id);
-  const foodInfo = foodDetail[0]?.["만해광장"];
-  const food = foodInfo?.find((b) => b.id === Number(id));
-  console.log("food", food);
+  console.log("foodDetail", foodDetail);
 
-  const images = food?.food_truck_image?.length
-    ? food.food_truck_image.map((img) => img.image)
+  const images = foodDetail?.food_truck_image?.length
+    ? foodDetail.food_truck_image.map((img) => img.image)
     : defaultImages;
   const {
     currentIndex,
@@ -77,9 +75,9 @@ export const FoodDetailPage = () => {
       </S.Indicators>
 
       <S.InfoContainer>
-        {food ? (
+        {foodDetail ? (
           <>
-            <BoothInfo booth={food} />
+            <BoothInfo booths={foodDetail} />
           </>
         ) : (
           <div>해당 부스를 찾을 수 없습니다.</div>

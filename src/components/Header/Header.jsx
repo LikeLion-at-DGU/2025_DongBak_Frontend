@@ -1,12 +1,18 @@
 import * as S from "./styled";
 import { useState, useEffect } from "react";
 import search from "/images/search-normal.svg";
+import Back from "/images/SearchBack.svg";
 import { ROUTE_PATHS } from "@constants/routeConstants";
 import useCustomNavigate from "@hooks/useCustomNavigate";
 import { Fade as Hamburger } from "hamburger-react";
 import { Sidebar } from "@components/Sidebar/Sidebar";
 
-export const Header = ({ title, isTrue = false, isDev = false }) => {
+export const Header = ({
+  title,
+  isTrue = false,
+  isDev = false,
+  hasSearchResults = false,
+}) => {
   const { goToPage } = useCustomNavigate();
   const [isOpen, setOpen] = useState(false);
 
@@ -51,6 +57,11 @@ export const Header = ({ title, isTrue = false, isDev = false }) => {
     >
       {isOpen && <Sidebar setOpen={setOpen} />}
       <S.TitleContainer $isDev={isDev}>
+        <S.FirstImgBox>
+          {hasSearchResults && (
+            <img src={Back} onClick={() => goToPage(ROUTE_PATHS.BOOTH)} />
+          )}
+        </S.FirstImgBox>
         <S.Title>{title}</S.Title>
         <S.SecondImgBox>
           {isTrue && (
