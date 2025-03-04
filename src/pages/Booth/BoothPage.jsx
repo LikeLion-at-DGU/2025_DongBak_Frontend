@@ -7,22 +7,14 @@ import { Header } from '@components/Header/Header';
 import { useBoothSelection } from '@hooks/useBoothSelect';
 import { useBoothInfo } from '@hooks/Booth/useBoothInfo';
 import { useFoodTruckInfo } from '@hooks/Booth/useFoodTruckInfo';
-import * as S from './styled';
-import { Header } from '../../components/Header/Header';
-import { BoothDetailBox } from '../../components/BoothDetailBox/BoothDetailBox';
 import { Btn } from '../../components/Btn/Btn';
 import { Date } from '../../components/Date/Date';
-import { useBoothSelection } from '../../hooks/useBoothSelect';
-import { useBoothInfo } from '../../hooks/Booth/useBoothInfo';
-import { useFoodTruckInfo } from '../../hooks/Booth/useFoodTruckInfo';
 import useCustomNavigate from '../../hooks/useCustomNavigate';
 import MAP1 from '../../../public/images/map1.svg';
 import MAP2 from '../../../public/images/map2.svg';
 import mappin from '../../../public/images/mappin.svg';
 import SlideBar from '../../../public/images/SlideBar.svg';
 import SlideBar2 from '../../../public/images/SlideBar2.svg';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState, useMemo } from 'react';
 
 import { DateSelector } from '@components/Selector/DateSelector';
 import { PlaceSelector } from '@components/Selector/PlaceSelector';
@@ -33,8 +25,6 @@ import { ErrorBox } from '@components/errorBox/ErrorBox';
 import { CATEGORYNAME } from '@constants/Booth/data';
 import { PLACENAME } from '@constants/Booth/data';
 
-import { CATEGORYNAME } from '@constants/Booth/data';
-import { PLACENAME } from '@constants/Booth/data';
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
   const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
@@ -115,9 +105,6 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <S.FixedHeader>
-          <Header title={'부스안내'} isTrue={true} />
-        </S.FixedHeader>
         <Header title={'부스안내'} isTrue={true} />
         <S.HeaderWrapper>
           <DateSelector
