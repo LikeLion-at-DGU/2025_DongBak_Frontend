@@ -31,9 +31,8 @@ export const Sidebar = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 7.5rem;
   gap: 40px;
-  padding-bottom: 200px;
 `;
 
 export const Image = styled.img`
