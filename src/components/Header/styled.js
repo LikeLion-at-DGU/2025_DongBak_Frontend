@@ -17,7 +17,12 @@ export const Title = styled.div`
   left: 50%;
   transform: translateX(-50%);
 `;
-
+export const FirstImgBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 22px;
+`;
 export const SecondImgBox = styled.div`
   display: flex;
   align-items: center;

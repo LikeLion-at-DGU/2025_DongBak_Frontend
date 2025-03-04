@@ -14,5 +14,5 @@ export const DateWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 15px;
+  gap: 28px;
 `;

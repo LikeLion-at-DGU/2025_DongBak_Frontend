@@ -35,26 +35,20 @@ export const BoothPage = () => {
     setSelectedPin,
     boothPosition,
   } = useBoothSelection();
-  console.log("selectedPin", selectedPin);
 
   const day = isFirstDate ? "wednesday" : "thursday";
 
   console.log("day", day);
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
+
   useEffect(() => {
-    console.log("boothList", boothList);
-    console.log("foodData", foodData);
-  }, [isFirstDate]);
+    setSelectedPin(null);
+    setSelectedBoothNum(null);
+  }, [boothList, foodData]); // ✅ boothList가 변경될 때마다 실행
 
   const foodList = foodData?.[selectedPlace] ?? [];
-
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
-
-  useEffect(() => {
-    console.log("filteredBoothList", filteredBoothList);
-    console.log("foodList", foodList);
-  }, [filteredBoothList, foodList, selectedPlace]);
 
   const searchBooths = searchResult?.results?.booths || [];
   const searchFoodTrucks = searchResult?.results?.food_trucks || [];
@@ -80,6 +74,7 @@ export const BoothPage = () => {
       console.log("selectedPlace", PlaceUpdate);
     }
   }, [PlaceUpdate]);
+
   const displayedBoothList = useMemo(() => {
     if (hasSearchResults) {
       return searchBooths;
@@ -125,7 +120,11 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-        <Header title={"부스안내"} isTrue={true} />
+        <Header
+          title={"부스안내"}
+          isTrue={true}
+          hasSearchResults={hasSearchResults}
+        />
         <S.HeaderWrapper>
           <DateSelector
             isFirstDate={isFirstDate}
