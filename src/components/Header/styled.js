@@ -2,12 +2,14 @@ import styled from "styled-components";
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-
+  position: relative;
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
-  background-color: ${({ theme }) => theme.colors.bg300};
+
+  margin-top: ${({ $isDev }) => ($isDev ? "2rem" : "0")};
 `;
 
 export const Title = styled.div`
@@ -22,13 +24,6 @@ export const SecondImgBox = styled.div`
   gap: 0px;
   margin-right: 22px;
   margin-left: auto;
-`;
-
-export const FirstImgBox = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-  margin-left: 22px;
 `;
 
 export const Image = styled.img``;

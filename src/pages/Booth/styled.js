@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BoothContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
   justify-content: flex-start;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.bg300};
@@ -38,7 +37,6 @@ export const FixedHeader = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  margin-top: 45px;
   width: 100%;
   flex-direction: column;
   align-items: center;

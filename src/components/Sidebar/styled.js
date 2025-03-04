@@ -1,34 +1,38 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { transparentize } from 'polished';
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { transparentize } from "polished";
 
-export const Wrapper = styled.div``;
-
-export const Background = styled.div`
-  position: fixed;
+export const Wrapper = styled.div`
   top: 0;
   left: 0;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 11;
-  width: 100vw;
+`;
+
+export const Background = styled.div`
+  width: 50%;
+  max-width: 270px;
   height: 100vh;
   background-color: ${({ theme }) => transparentize(0.6, theme.colors.gray200)};
 `;
 
 export const Sidebar = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding-bottom: 200px;
-
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 50vw;
+  width: 50%;
+  max-width: 270px;
   height: 100vh;
   z-index: 12;
   background-color: ${({ theme }) => theme.colors.bg200};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7.5rem;
+  gap: 40px;
 `;
 
 export const Image = styled.img`
@@ -44,6 +48,7 @@ export const Line = styled.div`
 export const HeaderContent = styled.div`
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
+  cursor: pointer;
 `;
 
 export const AboutUs = styled.div`
@@ -55,4 +60,5 @@ export const AboutUs = styled.div`
 
   padding: 9px 30px;
   bottom: 30px;
+  cursor: pointer;
 `;

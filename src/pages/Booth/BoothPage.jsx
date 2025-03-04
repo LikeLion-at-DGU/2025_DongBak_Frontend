@@ -1,14 +1,12 @@
-
 import * as S from "./styled";
 
 import { useLocation } from "react-router-dom";
-import { useState, useMemo, useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { Header } from "@components/Header/Header";
 import { useBoothSelection } from "@hooks/useBoothSelect";
 import { useBoothInfo } from "@hooks/Booth/useBoothInfo";
 import { useFoodTruckInfo } from "@hooks/Booth/useFoodTruckInfo";
-
 import { DateSelector } from "@components/Selector/DateSelector";
 import { PlaceSelector } from "@components/Selector/PlaceSelector";
 import { CategorySelector } from "@components/Selector/CategorySelector";
@@ -18,7 +16,6 @@ import { ErrorBox } from "@components/errorBox/ErrorBox";
 import { CATEGORYNAME } from "@constants/Booth/data";
 import { PLACENAME } from "@constants/Booth/data";
 
-
 export const BoothPage = () => {
   const [isFirstDate, setIsFirstDate] = useState(true);
   const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
@@ -26,10 +23,7 @@ export const BoothPage = () => {
   const [activeBoothNums, setActiveBoothNums] = useState([]);
 
   const location = useLocation();
-
-  const SearchResult = location.state;
-  console.log("테스틍틍", SearchResult);
-
+  const searchResult = location.state;
 
   const {
     selectedPin,
@@ -41,22 +35,29 @@ export const BoothPage = () => {
     setSelectedPin,
     boothPosition,
   } = useBoothSelection();
+  console.log("selectedPin", selectedPin);
 
+  const day = isFirstDate ? "wednesday" : "thursday";
 
-  const day = isFirstDate ? 'wednesday' : 'thursday';
-
-
+  console.log("day", day);
   const { boothList } = useBoothInfo(day);
   const { foodData } = useFoodTruckInfo(day);
-
+  useEffect(() => {
+    console.log("boothList", boothList);
+    console.log("foodData", foodData);
+  }, [isFirstDate]);
 
   const foodList = foodData?.[selectedPlace] ?? [];
 
   const filteredBoothList = boothList?.[selectedPlace] ?? [];
 
+  useEffect(() => {
+    console.log("filteredBoothList", filteredBoothList);
+    console.log("foodList", foodList);
+  }, [filteredBoothList, foodList, selectedPlace]);
 
-  const searchBooths = SearchResult?.results?.booths || [];
-  const searchFoodTrucks = SearchResult?.results?.food_trucks || [];
+  const searchBooths = searchResult?.results?.booths || [];
+  const searchFoodTrucks = searchResult?.results?.food_trucks || [];
   const hasSearchResults =
     searchBooths.length > 0 || searchFoodTrucks.length > 0;
 
@@ -72,7 +73,6 @@ export const BoothPage = () => {
 
     return null;
   }, [hasSearchResults, searchBooths]);
-
 
   useEffect(() => {
     if (PlaceUpdate) {
@@ -125,15 +125,7 @@ export const BoothPage = () => {
   return (
     <S.BoothContainer>
       <S.HeaderBox>
-
-        <S.FixedHeader>
-          <Header
-            title={"부스안내"}
-            isTrue={true}
-            hasSearchResults={hasSearchResults}
-          />
-        </S.FixedHeader>
-
+        <Header title={"부스안내"} isTrue={true} />
         <S.HeaderWrapper>
           <DateSelector
             isFirstDate={isFirstDate}
@@ -175,7 +167,7 @@ export const BoothPage = () => {
                 : displayedBoothList
             }
             type={
-              selectedCategory === CATEGORYNAME.FOODTRUCK ? 'food' : 'booth'
+              selectedCategory === CATEGORYNAME.FOODTRUCK ? "food" : "booth"
             }
             hasSearchResults={hasSearchResults}
             isSelectedFromMap={isSelectedFromMap}
