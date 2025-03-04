@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 540px;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   background-color: ${({ theme }) => theme.colors.bg200};
   display: flex;

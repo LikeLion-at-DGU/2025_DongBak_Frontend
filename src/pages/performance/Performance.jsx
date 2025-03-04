@@ -12,6 +12,7 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useState } from "react";
 import { usePerformanceData } from "@hooks/usePerformanceData";
 import { WED_DAY } from "@constants/common";
+import { Footer } from "@components/footer/Footer";
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -42,6 +43,7 @@ export const Performance = () => {
           );
         })}
       </PerformanceContainer>
+      <Footer />
     </S.Container>
   );
 };
