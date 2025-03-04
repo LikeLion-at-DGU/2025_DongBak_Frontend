@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
     rgba(238, 241, 229, 0.4) 62.41%,
     #fffff9 87.77%
   );
+  padding-bottom: 5.5rem;
 `;
 
 export const Container = styled.div`
