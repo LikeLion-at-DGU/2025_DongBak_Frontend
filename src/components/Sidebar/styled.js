@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  width: 100%;
+  width: 50%;
   max-width: 270px;
   height: 100vh;
   background-color: ${({ theme }) => transparentize(0.6, theme.colors.gray200)};
