@@ -11,7 +11,8 @@ import { ErrorBox } from "@components/errorBox/ErrorBox";
 export const SearchPage = () => {
   const { query, setQuery, results, clearSearch } = useBoothSearch();
   const navigate = useNavigate();
-  const isNothing = results?.booths?.length === 0 && results?.food_trucks?.length === 0;
+  const isNothing =
+    results?.booths?.length === 0 && results?.food_trucks?.length === 0;
 
   const goWithResults = () => {
     if (!query.trim()) return; // 빈 검색어 방지
@@ -23,34 +24,40 @@ export const SearchPage = () => {
     navigate("/booth/", { state: { booth } });
   };
 
-  return ( 
+  return (
     <S.Wrapper>
-      <SearchBox 
+      <SearchBox
         placehoder={SEARCHPAGE_CONSTANT.searchPlacehoder}
         searchIconRoute={SEARCHPAGE_CONSTANT.searchIconRoute}
         backIconRoute={SEARCHPAGE_CONSTANT.backIconRoute}
         vectorIconRoute={SEARCHPAGE_CONSTANT.vectorIconRoute}
-        query={query} 
+        query={query}
         setQuery={setQuery}
         clearSearch={clearSearch}
         goWithResults={goWithResults}
       />
       <S.BoothContainer $isNothing={isNothing}>
         {/* 검색 결과가 없을 때 */}
-        {isNothing && (
-          <ErrorBox />
-        )}
+        {isNothing && <ErrorBox />}
 
         {/* 부스 검색 결과 */}
         {results?.booths?.map((booth) => (
-          <BoothDetailBox key={booth.id} booth={booth} onClick={() => goWithBooths(booth)}/>
+          <BoothDetailBox
+            key={booth.id}
+            booth={booth}
+            onClick={() => goWithBooths(booth)}
+          />
         ))}
 
         {/* 푸드트럭 검색 결과 */}
         {results?.food_trucks?.map((foodTruck) => (
-          <BoothDetailBox key={foodTruck.id} booth={foodTruck} onClick={() => goWithBooths(foodTruck)} />
+          <BoothDetailBox
+            key={foodTruck.id}
+            booth={foodTruck}
+            onClick={() => goWithBooths(foodTruck)}
+          />
         ))}
       </S.BoothContainer>
     </S.Wrapper>
-  )
-}
+  );
+};

@@ -9,10 +9,11 @@ export const ExpandableText = ({ text, maxLength = 250 }) => {
   const displayText =
     shouldTruncate && !isExpanded ? text.slice(0, maxLength) + "..." : text;
 
+  console.log("isExpanded", isExpanded);
   return (
     <S.TextContainer
       $isExpanded={isExpanded}
-      onClick={() => shouldTruncate && setIsExpanded(!isExpanded)}
+      onClick={() => setIsExpanded(!isExpanded)}
     >
       {displayText}
     </S.TextContainer>

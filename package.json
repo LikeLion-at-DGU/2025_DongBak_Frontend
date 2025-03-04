@@ -12,6 +12,9 @@
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.8.1",
+
+    "dayjs": "^1.11.13",
+    "fs": "^0.0.1-security",
     "framer-motion": "^12.4.10",
     "hamburger-react": "^2.5.2",
     "polished": "^4.3.1",

@@ -27,20 +27,20 @@ export const boothPositions = [
 
 export const manhaePositions = [
   { id: 76, columnStart: 1, columnEnd: 2, rowStart: 4, rowEnd: 6 },
-  { id: 102, columnStart: 9, columnEnd: 11, rowStart: 2, rowEnd: 4 },
-  { id: 103, columnStart: 11, columnEnd: 13, rowStart: 2, rowEnd: 4 },
-  { id: 104, columnStart: 13, columnEnd: 14, rowStart: 2, rowEnd: 4 },
-  { id: 105, columnStart: 15, columnEnd: 16, rowStart: 2, rowEnd: 4 },
-  { id: 106, columnStart: 17, columnEnd: 18, rowStart: 3, rowEnd: 4 },
-  { id: 107, columnStart: 18, columnEnd: 19, rowStart: 5, rowEnd: 6 },
+  { id: 105, columnStart: 9, columnEnd: 11, rowStart: 2, rowEnd: 4 },
+  { id: 104, columnStart: 11, columnEnd: 13, rowStart: 2, rowEnd: 4 },
+  { id: 103, columnStart: 13, columnEnd: 14, rowStart: 2, rowEnd: 4 },
+  { id: 102, columnStart: 15, columnEnd: 16, rowStart: 2, rowEnd: 4 },
+  { id: 101, columnStart: 17, columnEnd: 18, rowStart: 3, rowEnd: 4 },
+  { id: 100, columnStart: 18, columnEnd: 19, rowStart: 5, rowEnd: 6 },
   { id: 29, columnStart: 1, columnEnd: 2, rowStart: 6, rowEnd: 7 },
   { id: 30, columnStart: 1, columnEnd: 2, rowStart: 7, rowEnd: 8 },
   { id: 31, columnStart: 1, columnEnd: 3, rowStart: 8, rowEnd: 10 },
   { id: 32, columnStart: 2, columnEnd: 3, rowStart: 9, rowEnd: 11 },
   { id: 33, columnStart: 3, columnEnd: 4, rowStart: 11, rowEnd: 12 },
   { id: 34, columnStart: 4, columnEnd: 5, rowStart: 11, rowEnd: 13 },
-  { id: 35, columnStart: 5, columnEnd: 6, rowStart: 11, rowEnd: 13 },
-  { id: 36, columnStart: 6, columnEnd: 7, rowStart: 11, rowEnd: 13 },
+  { id: 35, columnStart: 6, columnEnd: 7, rowStart: 11, rowEnd: 13 },
+  { id: 36, columnStart: 7, columnEnd: 8, rowStart: 11, rowEnd: 13 },
 
   { id: 1, columnStart: 4, columnEnd: 5, rowStart: 4, rowEnd: 5 },
   { id: 2, columnStart: 5, columnEnd: 6, rowStart: 4, rowEnd: 5 },
@@ -92,6 +92,7 @@ export const manhaePositions = [
   { id: 50, columnStart: 12, columnEnd: 13, rowStart: 7, rowEnd: 8 },
   { id: 49, columnStart: 12, columnEnd: 13, rowStart: 6, rowEnd: 7 },
   { id: 38, columnStart: 12, columnEnd: 13, rowStart: 5, rowEnd: 6 },
+  { id: 75, columnStart: 15, columnEnd: 16, rowStart: 11, rowEnd: 13 },
 ];
 
 export const PLACENAME = {
