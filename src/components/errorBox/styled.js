@@ -1,18 +1,22 @@
-import styled from "styled-components";
-import { transparentize } from "polished";
+import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 540px;
 
-  height: ${({ $isBoothPage }) => ($isBoothPage ? "100%" : "100vh")};
+  height: ${({ $isBoothPage }) => ($isBoothPage ? '100%' : '100vh')};
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme, $isBoothPage }) =>
-    $isBoothPage ? theme.colors.bg300 : theme.colors.bg200};
+  background-color: ${({ theme, $isBoothPage, $isSearchPage }) =>
+    $isSearchPage
+      ? ''
+      : $isBoothPage
+      ? theme.colors.bg300
+      : theme.colors.bg200};
   gap: 1.375rem;
 `;
 

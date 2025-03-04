@@ -1,6 +1,6 @@
-import * as S from "./styled";
-import { useEffect } from "react";
-import { BoothDetailBox } from "@components/BoothDetailBox/BoothDetailBox";
+import * as S from './styled';
+import { useEffect } from 'react';
+import { BoothDetailBox } from '@components/BoothDetailBox/BoothDetailBox';
 export const BoothList = ({
   list,
   type,

@@ -1,11 +1,11 @@
-import * as S from "./styled";
-import { useState } from "react";
-import pin from "/images/pin.svg";
-import clock from "/images/clock.svg";
-import defaultImg from "/images/defaultImg.svg";
-import useCustomNavigate from "@hooks/useCustomNavigate";
-import { NO_DATA_MSG } from "@constants/common";
-import { CATEGORYNAME } from "@constants/Booth/data";
+import * as S from './styled';
+import { useState } from 'react';
+import pin from '/images/pin.svg';
+import clock from '/images/clock.svg';
+import defaultImg from '/images/defaultImg.svg';
+import useCustomNavigate from '@hooks/useCustomNavigate';
+import { NO_DATA_MSG } from '@constants/common';
+import { CATEGORYNAME } from '@constants/Booth/data';
 export const BoothDetailBox = ({
   booth = {},
   type,
@@ -27,7 +27,6 @@ export const BoothDetailBox = ({
       $isVisible={isSelected}
       onClick={() => {
         onSelectBoothDetail();
-        goWithBooths(booth);
       }}
     >
       <S.DetailBtn
@@ -61,7 +60,7 @@ export const BoothDetailBox = ({
           <S.TextDetail>
             <img src={clock} />
             <S.TextInfo>
-              {booth?.day?.map((d) => `(${d.name})`).join(", ") || NO_DATA_MSG}
+              {booth?.day?.map((d) => `(${d.name})`).join(', ') || NO_DATA_MSG}
               &nbsp;
               {booth.start_time}~{booth.end_time}
             </S.TextInfo>
