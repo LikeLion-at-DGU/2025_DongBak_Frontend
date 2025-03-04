@@ -60,6 +60,6 @@ export const AboutUs = styled.div`
   background: rgba(200, 214, 176, 0.5);
 
   padding: 9px 30px;
-  bottom: 10%;
+  bottom: 25%;
   cursor: pointer;
 `;

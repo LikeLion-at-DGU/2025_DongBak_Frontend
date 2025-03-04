@@ -12,14 +12,15 @@
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.8.1",
-
     "dayjs": "^1.11.13",
-    "fs": "^0.0.1-security",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.10",
+    "fs": "^0.0.1-security",
     "hamburger-react": "^2.5.2",
     "polished": "^4.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-ga4": "^2.1.0",
     "react-router-dom": "^7.2.0",
     "styled-components": "^6.1.15"
   },
@@ -34,6 +35,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "vite": "^6.1.0"
+    "vite": "^6.1.0",
+    "vite-plugin-radar": "^0.10.0"
   }
 }
