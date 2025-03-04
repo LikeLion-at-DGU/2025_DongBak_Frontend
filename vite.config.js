@@ -6,8 +6,6 @@ import fs from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-
   server:
     process.env.NODE_ENV === "development"
       ? {
@@ -17,6 +15,7 @@ export default defineConfig({
           },
         }
       : {},
+  plugins: [react()],
 
   resolve: {
     alias: {
