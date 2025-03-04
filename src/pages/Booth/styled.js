@@ -147,6 +147,7 @@ export const BoothDWrapper = styled.div`
 export const BoothDHeader = styled.div`
   display: flex;
   width: 341px;
+  padding-top: 1rem;
   justify-content: space-between;
   align-items: center;
   ${({ theme }) => theme.fonts.SUITEB0};
