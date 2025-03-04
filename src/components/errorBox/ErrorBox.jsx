@@ -1,18 +1,18 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
-import { OneButton } from "../buttons/OneButton/OneButton";
+import { OneButton } from '../buttons/OneButton/OneButton';
 
-import * as S from "./styled";
+import * as S from './styled';
 import {
   NOTFOUND_CONSTANT,
   SEARCH_CONSTANT,
   NOFOODTRUCK_CONSTANT,
-} from "@constants/errorConstant";
+} from '@constants/errorConstant';
 
 export const ErrorBox = () => {
   const location = useLocation();
-  const isSearchPage = location.pathname === "/search";
-  const isBoothPage = location.pathname === "/booth";
+  const isSearchPage = location.pathname === '/search';
+  const isBoothPage = location.pathname === '/booth';
 
   const CONSTANT = isSearchPage
     ? SEARCH_CONSTANT
@@ -20,7 +20,7 @@ export const ErrorBox = () => {
     ? NOFOODTRUCK_CONSTANT
     : NOTFOUND_CONSTANT;
   return (
-    <S.Wrapper $isBoothPage={isBoothPage}>
+    <S.Wrapper $isSearchPage={isSearchPage} $isBoothPage={isBoothPage}>
       <S.Emoji src={CONSTANT.EMOJI} />
       <S.WarningTextContainer>
         {CONSTANT.WARNING_TEXT.map((text, index) => (
