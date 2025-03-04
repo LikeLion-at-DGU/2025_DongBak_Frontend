@@ -15,10 +15,13 @@ export const theme = {
     green200: "#B6C99B",
     green300: "#92A56E",
     green400: "#57643A",
+    green500: "#D8E2C3",
+    green600: "#ECF0DF",
 
     //bg색상
     bg100: "#E4EBD8",
     bg200: "#F5F5ED",
+    bg300: "#fbfbee",
 
     pink: "#FEC8C1",
     pink200: "#F29E9E",
@@ -58,6 +61,7 @@ export const theme = {
     SUITEO4: fontGenerator("0.75rem", "800", "150%"),
 
     SUITES5: fontGenerator("0.5rem", "600", "150%"),
+    SUITES6: fontGenerator("0.5rem", "500", "150%"),
     SUITE10: fontGenerator("0.625rem", "500", "150%"),
   },
 };

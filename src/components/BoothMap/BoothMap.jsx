@@ -11,10 +11,11 @@ export const BoothMap = ({
   selectedPlace,
   boothPosition,
   selectedPin,
-  handlePinClick,
+  onClearSelection,
+  onSelectBoothFromMap,
 }) => {
   return (
-    <S.MapBox>
+    <S.MapBox onClick={() => onClearSelection()}>
       <S.MAP $bgImage={selectedPlace === PLACENAME.PALJEONGDO ? MAP1 : MAP2}>
         <S.GridContainer>
           {boothPosition.map(
@@ -25,7 +26,10 @@ export const BoothMap = ({
                   gridColumn: `${columnStart} / ${columnEnd}`,
                   gridRow: `${rowStart} / ${rowEnd}`,
                 }}
-                onClick={() => handlePinClick(id)}
+                onClick={(e) => {
+                  e.stopPropagation(); // ✅ 빈 공간 클릭 이벤트와 겹치지 않도록 방지
+                  onSelectBoothFromMap(id);
+                }}
               >
                 <S.GridItem
                   src={mappin}
