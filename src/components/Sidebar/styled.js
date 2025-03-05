@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { transparentize } from 'polished';
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { transparentize } from "polished";
 
 export const Wrapper = styled(motion.div)`
   position: absolute;
@@ -59,11 +59,11 @@ export const HeaderContent = styled.div`
 export const AboutUs = styled.div`
   ${({ theme }) => theme.fonts.SUITEB0};
   color: ${({ theme }) => theme.colors.green400};
-  position: absolute;
   border-radius: 10px;
   background: rgba(200, 214, 176, 0.5);
 
   padding: 9px 30px;
-  bottom: calc(10vh + 150px);
   cursor: pointer;
+
+  margin-top: 5rem;
 `;
