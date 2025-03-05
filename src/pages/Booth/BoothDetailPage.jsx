@@ -18,7 +18,7 @@ import { Footer } from "@components/footer/Footer";
 const defaultImages = [defaultImg];
 
 export const BoothDetailPage = () => {
-  const { goBack } = useCustomNavigate();
+  const { goToPage } = useCustomNavigate();
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,7 +48,7 @@ export const BoothDetailPage = () => {
   return (
     <S.DetailBoothContainer>
       <S.BoothDHeader>
-        <img src={backIcon} onClick={goBack} />
+        <img src={backIcon} onClick={() => goToPage("/booth")} />
         <div>부스안내</div>
         <img src={shareIcon} onClick={handleCopyLink} />
       </S.BoothDHeader>
