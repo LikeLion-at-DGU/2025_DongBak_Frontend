@@ -34,7 +34,7 @@ export const Performance = () => {
               key={index}
               nowTime={now}
               time={time}
-              sNow={dayjs().format("dddd").toLowerCase() === day && isNow}
+              isNow={dayjs().format("dddd").toLowerCase() === day && isNow}
               firstCard={performances[0]}
               secondCard={performances[1] ?? null}
             />
