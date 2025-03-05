@@ -27,14 +27,22 @@ export const RecruitInfo = ({ booth }) => {
       <S.LionInfoBox>
         <S.TextBox>
           <img src={calendar} alt="캘린더" />
-          <S.TextInfo>
+          <S.TextInfo
+            style={{
+              alignItems: "center",
+            }}
+          >
             <S.FirstText>모집 기간 |</S.FirstText>
             <ExpandableText text={booth.recruitment} isOneSentence={true} />
           </S.TextInfo>
         </S.TextBox>
         <S.TextBox>
           <img src={pencil} alt="연필" />
-          <S.TextInfo>
+          <S.TextInfo
+            style={{
+              alignItems: "center",
+            }}
+          >
             <S.FirstText>신청 방법 | </S.FirstText>
             <ExpandableText text={booth.apply_method} isOneSentence={true} />
           </S.TextInfo>
