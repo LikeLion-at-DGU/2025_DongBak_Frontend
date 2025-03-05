@@ -74,6 +74,5 @@ export const TextInfo = styled.div`
 export const FirstText = styled.div`
   ${({ theme }) => theme.fonts.SUITEM3};
   color: ${({ theme }) => theme.colors.black};
-  display: flex;
-  min-width: 23%;
+  width: 5rem;
 `;
