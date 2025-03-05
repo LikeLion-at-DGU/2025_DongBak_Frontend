@@ -8,7 +8,7 @@ export const TextContainer = styled.div`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: ${({ $isExpanded, $isOneSentence }) =>
-    $isExpanded ? "unset" : $isOneSentence ? 1 : 2};
+    $isExpanded ? "unset" : $isOneSentence ? 1 : 3};
 
   white-space: normal;
   text-overflow: ellipsis;
