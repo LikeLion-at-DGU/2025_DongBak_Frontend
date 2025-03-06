@@ -18,7 +18,7 @@ import { PLACENAME } from "@constants/Booth/data";
 import { Footer } from "@components/footer/Footer";
 
 export const BoothPage = () => {
-  const [isFirstDate, setIsFirstDate] = useState(true);
+  const [isFirstDate, setIsFirstDate] = useState(false);
   const [isSelectedFromMap, setIsSelectedFromMap] = useState(false);
   const [selectedBoothNum, setSelectedBoothNum] = useState(null);
   const [activeBoothNums, setActiveBoothNums] = useState([]);
