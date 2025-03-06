@@ -4,7 +4,7 @@ import { PLACENAME, CATEGORYNAME } from "@constants/Booth/data";
 
 export const useBoothSelection = () => {
   const [selectedPin, setSelectedPin] = useState(null);
-  const [selectedPlace, setSelectedPlace] = useState(PLACENAME.PALJEONGDO);
+  const [selectedPlace, setSelectedPlace] = useState(PLACENAME.MANHAE);
   const [selectedCategory, setSelectedCategory] = useState(CATEGORYNAME.BOOTH);
   useEffect(() => {
     setSelectedPin(null);
