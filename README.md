@@ -32,6 +32,22 @@ https://2025-dgu-dongbak.netlify.app/
   </tr>
 </table>
 
+### 메인 페이지
+
+![Image](https://github.com/user-attachments/assets/9c45982d-32e5-4bd7-808e-67d710770753)
+
+### 부스 페이지
+
+
+### 공연 페이지
+
+![Image](https://github.com/user-attachments/assets/403eb416-b28a-4e3e-bbb6-a23192e96158)
+
+### 개발자 정보 페이지
+
+![Image](https://github.com/user-attachments/assets/4e88466b-ea80-40c7-a248-cfb24763ea69)
+
+
 ## 🌐 Tech Stack & Timeline
 
 #### 기술 스택
