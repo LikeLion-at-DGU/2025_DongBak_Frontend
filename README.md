@@ -32,20 +32,26 @@ https://2025-dgu-dongbak.netlify.app/
   </tr>
 </table>
 
-### 메인 페이지
+### 구현 결과
 
-![Image](https://github.com/user-attachments/assets/9c45982d-32e5-4bd7-808e-67d710770753)
-
-### 부스 페이지
-
-
-### 공연 페이지
-
-![Image](https://github.com/user-attachments/assets/403eb416-b28a-4e3e-bbb6-a23192e96158)
-
-### 개발자 정보 페이지
-
-![Image](https://github.com/user-attachments/assets/4e88466b-ea80-40c7-a248-cfb24763ea69)
+<table>
+  <tr>
+    <td align="center"><b>메인 페이지</b><br>
+      <img src="https://github.com/user-attachments/assets/9c45982d-32e5-4bd7-808e-67d710770753" width="100%"/>
+    </td>
+    <td align="center"><b>부스 페이지</b><br>
+      <img src="https://github.com/user-attachments/assets/3622cc90-fab6-430f-b567-a350f5a1c5ac" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><b>공연 페이지</b><br>
+      <img src="https://github.com/user-attachments/assets/403eb416-b28a-4e3e-bbb6-a23192e96158" width="100%"/>
+    </td>
+    <td align="center"><b>개발자 정보 페이지</b><br>
+      <img src="https://github.com/user-attachments/assets/4e88466b-ea80-40c7-a248-cfb24763ea69" width="100%"/>
+    </td>
+  </tr>
+</table>
 
 
 ## 🌐 Tech Stack & Timeline
@@ -63,7 +69,7 @@ https://2025-dgu-dongbak.netlify.app/
 #### 🚀 서비스 기간 : 25.03.05 ~ 25.03.06 🚀
 
 ## 👩🏻‍💻🧑🏻‍💻 **Contributors**
-<div align="center">
+<div>
 
 |                 [박세호](https://github.com/sayyyho)                  |                 [오태준](https://github.com/taejun0)                 |                 [하채민](https://github.com/Chaem03)                 |
 | :------------------------------------------------------------------: | :------------------------------------------------------------------: | :------------------------------------------------------------------: |
